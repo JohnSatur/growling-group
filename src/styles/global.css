@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --color-cardinal: var(--cardinal);
   --color-cardinal-50: var(--cardinal-50);
@@ -18,17 +16,17 @@
 
   --color-background: var(--background);
 
-  --color-texto-50: var(--texto-50);
-  --color-texto-100: var(--texto-100);
-  --color-texto-200: var(--texto-200);
-  --color-texto-300: var(--texto-300);
-  --color-texto-400: var(--texto-400);
-  --color-texto-500: var(--texto-500);
-  --color-texto-600: var(--texto-600);
-  --color-texto-700: var(--texto-700);
-  --color-texto-800: var(--texto-800);
-  --color-texto-900: var(--texto-900);
-  --color-texto-950: var(--texto-950);
+  --color-neutral-50: var(--neutral-50);
+  --color-neutral-100: var(--neutral-100);
+  --color-neutral-200: var(--neutral-200);
+  --color-neutral-300: var(--neutral-300);
+  --color-neutral-400: var(--neutral-400);
+  --color-neutral-500: var(--neutral-500);
+  --color-neutral-600: var(--neutral-600);
+  --color-neutral-700: var(--neutral-700);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-neutral-950: var(--neutral-950);
 
   --font-primary: 'Inter', sans-serif;
 
@@ -39,6 +37,37 @@
 }
 
 .light {
+  --cardinal: #c01e30;
+  --cardinal-50: #480913;
+  --cardinal-100: #811a2c;
+  --cardinal-200: #971a2c;
+  --cardinal-300: #c01e30;
+  --cardinal-400: #d52937;
+  --cardinal-500: #e94a50;
+  --cardinal-600: #f3797b;
+  --cardinal-700: #f8aaa9;
+  --cardinal-800: #fbd1d0;
+  --cardinal-900: #fde8e6;
+  --cardinal-950: #fef3f2;
+
+  --background: #f5f5f5;
+
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  --neutral-950: #020617;
+
+  --contrast: #000000;
+}
+
+.dark {
   --cardinal: #c01e30;
   --cardinal-50: #fef3f2;
   --cardinal-100: #fde8e6;
@@ -52,50 +81,19 @@
   --cardinal-900: #811a2c;
   --cardinal-950: #480913;
 
-  --background: #f5f5f5;
-
-  --texto-50: #f8fafc;
-  --texto-100: #f1f5f9;
-  --texto-200: #e2e8f0;
-  --texto-300: #cbd5e1;
-  --texto-400: #94a3b8;
-  --texto-500: #64748b;
-  --texto-600: #475569;
-  --texto-700: #334155;
-  --texto-800: #1e293b;
-  --texto-900: #0f172a;
-  --texto-950: #020617;
-
-  --contrast: #000000;
-}
-
-.dark {
-  --cardinal: #ff2b42;
-  --cardinal-50: #480913;
-  --cardinal-100: #811a2c; 
-  --cardinal-200: #971a2c;
-  --cardinal-300: #c01e30;
-  --cardinal-400: #d52937;
-  --cardinal-500: #e94a50;
-  --cardinal-600: #f3797b;
-  --cardinal-700: #f8aaa9;
-  --cardinal-800: #fbd1d0;
-  --cardinal-900: #fde8e6;
-  --cardinal-950: #fef3f2;
-
   --background: #151823;
 
-  --texto-50: #020617;
-  --texto-100: #0f172a;
-  --texto-200: #1e293b;
-  --texto-300: #334155;
-  --texto-400: #475569;
-  --texto-500: #64748b;
-  --texto-600: #94a3b8;
-  --texto-700: #cbd5e1;
-  --texto-800: #e2e8f0;
-  --texto-900: #f1f5f9;
-  --texto-950: #f8fafc;
+  --neutral-50: #020617;
+  --neutral-100: #0f172a;
+  --neutral-200: #1e293b;
+  --neutral-300: #334155;
+  --neutral-400: #475569;
+  --neutral-500: #64748b;
+  --neutral-600: #94a3b8;
+  --neutral-700: #cbd5e1;
+  --neutral-800: #e2e8f0;
+  --neutral-900: #f1f5f9;
+  --neutral-950: #f8fafc;
 
   --contrast: #ffffff;
 }

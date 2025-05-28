@@ -1,0 +1,42 @@
+---
+import TestimonialCard from "@components/ui/TestimonialCard.astro";
+
+const testimonials = [
+  {
+    quote: "Growling Group transformó nuestra estrategia de gestión ambiental, ayudándonos a reducir costos mientras mejoramos nuestro cumplimiento normativo.",
+    author: "María Rodríguez",
+    position: "Directora de Sostenibilidad, IndustriaTech S.A."
+  },
+  {
+    quote: "Su equipo de seguridad industrial implementó soluciones que han reducido significativamente los incidentes en nuestra planta. Profesionales de primer nivel.",
+    author: "Carlos Méndez",
+    position: "Gerente de Operaciones, Manufacturas del Norte"
+  },
+  {
+    quote: "La ropa de Docharro es disruptiva, divertida y 100% mexicana. No puedo dejar de usuarla jajaja",
+    author: "Guillermo Arcos",
+    position: "CEO, Atlas Path"
+  }
+];
+---
+
+<section id="testimonios" class="py-8">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Lo que dicen nuestros clientes</h2>
+      <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
+        Descubre por qué las empresas líderes confían en nuestros servicios y expertise.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((testimonial) => (
+        <TestimonialCard
+          quote={testimonial.quote}
+          author={testimonial.author}
+          position={testimonial.position}
+        />
+      ))}
+    </div>
+  </div>
+</section>

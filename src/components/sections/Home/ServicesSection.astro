@@ -1,0 +1,53 @@
+---
+import image from '@images/wireframe.jpg';
+import BasicCard from '@components/ui/BasicCard.astro';
+
+const services = [
+  {
+    title: 'Consultoría Ambiental',
+    description: 'Soluciones para cumplir con normativas ambientales y fomentar prácticas sostenibles en su empresa.',
+    image: image,
+    link: '/ambiental'
+  },
+  {
+    title: 'Seguridad Industrial',
+    description: 'Evaluaciones de riesgo, capacitación y desarrollo de protocolos para garantizar la seguridad en el lugar de trabajo.',
+    image: image,
+    link: '/seguridad'
+  },
+  {
+    title: 'Textiles',
+    description: 'Una marca de ropa atrevida y divertida, con estilo 100% mexicano.',
+    image: image,
+    link: '/docharro'
+  },
+  {
+    title: 'Minería',
+    description: 'Asesoría especializada en operaciones mineras sostenibles y cumplimiento normativo del sector.',
+    image: image,
+    link: '/mineria'
+  }
+];
+---
+
+<section id="servicios" class="py-8 bg-secondary-light">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Nuestros Servicios</h2>
+      <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
+        Ofrecemos soluciones integrales en cuatro áreas clave, combinando experiencia técnica con un enfoque práctico para ayudar a su empresa a prosperar.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service) => (
+        <BasicCard
+          image={service.image}
+          title={service.title}
+          description={service.description}
+          link={service.link}
+        />
+      ))}
+    </div>
+  </div>
+</section>

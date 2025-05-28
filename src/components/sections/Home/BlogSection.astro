@@ -1,0 +1,60 @@
+---
+import BlogPostCard from '@components/ui/BlogPostCard.astro';
+import image from '@images/wireframe.jpg';
+
+const blogPosts = [
+  {
+    title: "Nuevas normativas ambientales 2025: Lo que su empresa debe saber",
+    excerpt: "Un análisis detallado de los cambios regulatorios en materia ambiental y cómo adaptarse eficientemente.",
+    date: "12 Mar 2025",
+    image: image,
+    link: "/blog/nuevas-normativas-ambientales-2025"
+  },
+  {
+    title: "Innovaciones en seguridad industrial para entornos de alto riesgo",
+    excerpt: "Descubra las últimas tecnologías y metodologías para garantizar la protección de su personal en ambientes industriales complejos.",
+    date: "03 Mar 2025",
+    image: image,
+    link: "/blog/innovaciones-en-seguridad-industrial-para-entornos-de-alto-riesgo"
+  },
+  {
+    title: "El futuro de la minería sostenible: prácticas recomendadas",
+    excerpt: "Exploramos cómo las empresas mineras están adoptando enfoques más sostenibles sin comprometer la productividad.",
+    date: "22 Feb 2025",
+    image: image,
+    link: "/blog/el-futuro-de-la-mineria-sostenible-practicas-recomendadas"
+  }
+];
+---
+
+<section id="blog" class="py-8">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Últimos Artículos del Blog</h2>
+      <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
+        Manténgase actualizado con las últimas tendencias y conocimientos en nuestras áreas de especialización.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {blogPosts.map((post) => (
+        <BlogPostCard
+          image={post.image}
+          title={post.title}
+          excerpt={post.excerpt}
+          date={post.date}
+          link={post.link}
+        />
+      ))}
+    </div>
+    
+    <div class="text-center mt-12">
+      <a 
+        href="#" 
+        class="inline-block bg-white border-2 border-cardinal text-cardinal font-medium py-3 px-8 rounded-lg transition-all hover:bg-cardinal hover:text-white"
+      >
+        Ir al Blog
+      </a>
+    </div>
+  </div>
+</section>

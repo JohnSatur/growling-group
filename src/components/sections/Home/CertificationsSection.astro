@@ -1,0 +1,26 @@
+---
+---
+
+<section id="certificaciones" class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center flex flex-col gap-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900">Nuestras Certificaciones</h2>
+      <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
+        Nuestros certificadores son los más capacitados en el estado, respaldando nuestro compromiso con la excelencia y los estándares más rigurosos de la industria.
+      </p>
+    </div>
+    
+    <div>
+      <div class="bg-secondary-light py-8 px-6 rounded-xl">
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          <!-- TODO: Agregar logos de certificaciones de Andru -->
+          {Array(6).fill(null).map((_, i) => (
+            <div class="w-32 h-16 bg-slate-100 rounded-md shadow-sm flex items-center justify-center p-4">
+              <div class="text-slate-400 text-xs text-center">Certificación {i + 1}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
