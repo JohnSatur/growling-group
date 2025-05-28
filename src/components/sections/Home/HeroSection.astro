@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import image from '@images/wireframe.jpg';
+---
+
+<section class="pt-32 pb-20 md:pt-40 md:pb-28">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col lg:flex-row items-center">
+      <div class="w-full lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-texto-950 leading-tight mb-4">
+          Soluciones Profesionales para un <span class="text-cardinal">Futuro Sustentable</span>
+        </h1>
+        <p class="text-lg text-texto-700 mb-8 leading-relaxed">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ipsum ipsam id voluptatum ut accusantium aspernatur quas maxime laboriosam commodi?
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a 
+            href="#servicios" 
+            class="inline-block bg-cardinal hover:bg-cardinal/90 text-white font-medium py-3 px-8 rounded-lg transition-all shadow-md hover:shadow-lg"
+          >
+            ¿Quiénes Somos?
+          </a>
+          <a 
+            href="#contacto" 
+            class="inline-block bg-white border border-slate-300 hover:border-cardinal text-slate-800 hover:text-cardinal font-medium py-3 px-8 rounded-lg transition-all"
+          >
+            Contáctanos
+          </a>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2">
+        <div class="aspect-w-16 aspect-h-9 bg-slate-100 rounded-lg overflow-hidden shadow-xl">
+          <!-- Placeholder for hero image -->
+          <div class="w-full h-96 bg-gradient-to-r from-secondary-light to-secondary flex items-center justify-center">
+            <Image 
+              src={image} 
+              alt="Equipo profesional de Growling Group"
+              width={612}
+              class="object-cover w-full h-full"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

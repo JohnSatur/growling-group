@@ -1,4 +1,4 @@
-import ogImg from '@images/logo-gradiente-mini.png';
+import ogImg from '@images/isotipo.png';
 
 export const SITE = {
   title: 'Growling Group',
