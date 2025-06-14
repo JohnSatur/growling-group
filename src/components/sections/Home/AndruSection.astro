@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import andru from '@images/profile-temp.jpg';
+---
+
+<section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+  <!-- Título de la sección -->
+  <h2 class="mb-12 text-center text-3xl md:text-4xl lg:text-5xl font-bold text-cardinal">Nuestro líder</h2>
+
+  <div class="grid gap-10 md:grid-cols-2 md:items-center">
+    <!-- Foto del líder -->
+      <Image
+        src={andru}
+        width={524}
+        alt="Andru Daniel Barradas Montiel – Líder del proyecto"
+        class="w-full h-auto aspect-square object-cover rounded-full"
+      />
+
+    <!-- Descripción y palabras del líder -->
+    <div class="space-y-6">
+      <header>
+        <h3 class="text-2xl font-medium text-cardinal">Andru Daniel Barradas Montiel</h3>
+        <p class="text-neutral-900 font-semibold">Director de Proyectos, Growling Group</p>
+      </header>
+
+      <p class="text-neutral-700">
+        Con más de <span class="font-semibold">10 años de experiencia</span> liderando iniciativas de seguridad industrial y
+        protección ambiental, Andru ha guiado a empresas de todo el país en su camino hacia el cumplimiento normativo y la
+        excelencia operativa.
+      </p>
+
+      <blockquote class="rounded-xl border-l-4 border-primary pl-6 text-lg italic text-neutral-700 md:text-xl">
+        “Nuestro compromiso es proteger a las personas y al planeta a través de soluciones que combinan ciencia, tecnología y
+        un profundo sentido de responsabilidad.”
+      </blockquote>
+
+      <!-- CTA opcional -->
+      <a href="#servicios" class="inline-block bg-cardinal hover:bg-cardinal/90 text-white font-medium py-3 px-8 rounded-lg transition-all shadow-md hover:shadow-lg">
+        Agenda una llamada
+      </a>
+    </div>
+  </div>
+</section>

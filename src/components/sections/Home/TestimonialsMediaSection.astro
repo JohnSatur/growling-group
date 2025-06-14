@@ -1,0 +1,211 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@images/logo.png';
+import profile from '@images/profile-temp.jpg';
+
+const testimonials = [
+  {
+    quote: 'Growling Group transformó completamente nuestra estrategia de gestión ambiental. Su expertise nos permitió no solo cumplir con todas las normativas, sino también reducir costos operativos significativamente.',
+    author: 'María Elena Rodríguez',
+    position: 'Directora de Sostenibilidad',
+    company: 'IndustriaTech México',
+    profile: profile
+  },
+  {
+    quote: 'La consultoría en seguridad industrial de Growling Group ha sido fundamental para mantener nuestros estándares de seguridad al más alto nivel. Su equipo es excepcional y altamente capacitado.',
+    author: 'Ing. Carlos Mendoza',
+    position: 'Gerente de Operaciones',
+    company: 'Minera del Pacífico',
+    profile: profile
+  }
+];
+
+const mediaLogos = [
+  { name: 'Empresa 1', logo: logo },
+  { name: 'Empresa 2', logo: logo },
+  { name: 'Empresa 3', logo: logo },
+  { name: 'Empresa 4', logo: logo },
+  { name: 'Empresa 5', logo: logo },
+  { name: 'Empresa 6', logo: logo },
+  { name: 'Empresa 7', logo: logo },
+  { name: 'Empresa 8', logo: logo },
+  { name: 'Empresa 9', logo: logo },
+  { name: 'Empresa 10', logo: logo }
+];
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 fade-in-section">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-cardinal mb-4">
+        Reconocidos por líderes de la industria
+      </h2>
+      <p class="text-lg text-neutral-900 max-w-3xl mx-auto">
+        Empresas líderes confían en nuestra expertise y los medios especializados reconocen nuestro trabajo.
+      </p>
+    </div>
+
+    <div class="mx-4 sm:mx-auto">
+      <div class="container mx-auto">
+        <div class="h-full flex flex-col gap-y-16">
+          
+          <!-- Testimonials Section -->
+          <div class="fade-in-section">
+            <div class="grid sm:gap-x-8 md:grid-cols-2 grid-cols-1 gap-y-12">
+              {testimonials.map((testimonial, index) => (
+                <div class="flex justify-center">
+                  <div class="h-full flex flex-col text-center items-center gap-y-6 max-w-lg">
+                    <!-- Company Logo -->
+                    <Image 
+                        src={testimonial.profile} 
+                        alt={testimonial.company}
+                        width={80}
+                        height={80}
+                        class="object-cover w-20 h-20 rounded-full"
+                        loading="lazy"
+                      />
+                    
+                    <!-- Quote -->
+                    <div>
+                      <p class="text-neutral-900 text-lg leading-relaxed italic">
+                        <q>{testimonial.quote}</q>
+                      </p>
+                    </div>
+                    
+                    <!-- Author Info -->
+                    <div class="h-full flex flex-col">
+                      <div>
+                        <p class="text-cardinal font-semibold text-lg">
+                          {testimonial.author}
+                        </p>
+                      </div>
+                      <div>
+                        <p class="text-neutral-900 text-sm">
+                          {testimonial.position}, {testimonial.company}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Media Coverage Section -->
+          <div class="fade-in-section">
+            <div class="text-center mb-12">
+              <h3 class="text-2xl md:text-3xl font-bold text-cardinal mb-4">
+                Empresas que confían en nosotros
+              </h3>
+              <p class="text-neutral-900">
+                Nuestra experiencia y expertise han sido reconocidas por líderes de la industria en el estado de Veracruz.
+              </p>
+            </div>
+            
+            <div class="overflow-hidden whitespace-nowrap relative before:absolute before:inset-y-0 before:left-0 before:w-[10%] after:absolute after:inset-y-0 after:right-0 after:w-[10%]">
+              <div class="media-logos-track">
+                {[...mediaLogos, ...mediaLogos].map((media, index) => (
+                  <div class="media-logo-item">
+                    <Image 
+                      src={media.logo} 
+                      alt={media.name}
+                      class="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .media-logos-track {
+    display: inline-flex;
+    animation: scroll-logos 40s linear infinite;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .media-logo-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    height: 60px;
+  }
+
+  @keyframes scroll-logos {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .media-logos-container:hover .media-logos-track {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 768px) {
+    .media-logos-track {
+      animation-duration: 30s;
+      gap: 2rem;
+    }
+    
+    .media-logo-item {
+      min-width: 100px;
+      height: 50px;
+    }
+    
+    .media-logo-item img {
+      height: 2.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .media-logos-track {
+      animation: none;
+    }
+    
+    .media-logos-container {
+      overflow-x: auto;
+      padding: 1rem 0;
+    }
+  }
+</style>
+
+<script type="module">
+  // Enhanced accessibility and interaction
+  document.addEventListener('DOMContentLoaded', () => {
+    const mediaContainer = document.querySelector('.media-logos-container');
+    const mediaTrack = document.querySelector('.media-logos-track');
+    
+    if (mediaContainer && mediaTrack) {
+      // Pause animation on hover for better accessibility
+      mediaContainer.addEventListener('mouseenter', () => {
+        mediaTrack.style.animationPlayState = 'paused';
+      });
+      
+      mediaContainer.addEventListener('mouseleave', () => {
+        mediaTrack.style.animationPlayState = 'running';
+      });
+      
+      // Pause animation when focused for keyboard navigation
+      mediaContainer.addEventListener('focusin', () => {
+        mediaTrack.style.animationPlayState = 'paused';
+      });
+      
+      mediaContainer.addEventListener('focusout', () => {
+        mediaTrack.style.animationPlayState = 'running';
+      });
+    }
+  });
+</script>

@@ -1,25 +1,95 @@
 ---
+import { Image } from 'astro:assets';
+import stpsLogo from '@images/logos/logo-stps.png';
+import conocerLogo from '@images/logos/conocer-logo.png';
+import isoLogo from '@images/logos/iso-logo.png';
+import proteccionCivilLogo from '@images/logos/proteccion-civil-veracruz-logo.png';
+import emaLogo from '@images/logos/ema-logo.png';
+import isotipo from '@images/isotipo.png';
+
+const certifications = [
+  {
+    logo: stpsLogo,
+    name: 'STPS',
+    description: 'Secretaría del trabajo y prevision social',
+    link: 'https://www.gob.mx/stps'
+  },
+  {
+    logo: conocerLogo,
+    name: 'CONOCER',
+    description: 'Consejo nacional de normalización y certificación de competencias laborales',
+    link: 'https://conocer.gob.mx/'
+  },
+  {
+    logo: isoLogo,
+    name: 'ISO',
+    description: 'Organización internacional de normalización',
+    link: 'https://www.iso.org/es/home'
+  },
+  {
+    logo: proteccionCivilLogo,
+    name: 'Protección Civil Veracruz',
+    description: 'Coordinación estatal de protección civil del estado de Veracruz',
+    link: 'https://www.veracruz.gob.mx/proteccioncivil/'
+  },
+  {
+    logo: emaLogo,
+    name: 'EMA',
+    description: 'Entidad mexicana de acreditación',
+    link: 'https://www.ema.org.mx/portal_v3/'
+  }
+];
 ---
 
 <section id="certificaciones" class="py-20">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center flex flex-col gap-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900">Nuestras Certificaciones</h2>
-      <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
-        Nuestros certificadores son los más capacitados en el estado, respaldando nuestro compromiso con la excelencia y los estándares más rigurosos de la industria.
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <Image 
+        src={isotipo} 
+        alt="Growling Group"
+        width={120}
+        class="mx-auto mb-6"
+      />
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
+        ¿Por qué confiar en 
+        <span class="text-cardinal">Growling Group</span>?
+      </h2>
+      <p class="text-lg md:text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
+        En un sector donde la seguridad y el cumplimiento normativo son innegociables, nuestros clientes necesitan la certeza de que están trabajando con un aliado oficialmente reconocido y técnicamente competente.
       </p>
+      <div class="mt-8">
+        <span class="inline-block bg-neutral-900 text-cardinal px-6 py-2 rounded-full font-semibold text-sm uppercase tracking-wide">
+          Empresa Registrada Oficialmente
+        </span>
+      </div>
     </div>
-    
-    <div>
-      <div class="bg-secondary-light py-8 px-6 rounded-xl">
-        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-          <!-- TODO: Agregar logos de certificaciones de Andru -->
-          {Array(6).fill(null).map((_, i) => (
-            <div class="w-32 h-16 bg-slate-100 rounded-md shadow-sm flex items-center justify-center p-4">
-              <div class="text-slate-400 text-xs text-center">Certificación {i + 1}</div>
-            </div>
-          ))}
-        </div>
+
+    <!-- Certifications Grid -->
+    <div class="mb-12">
+      <h3 class="text-2xl md:text-3xl font-bold text-center text-neutral-800 mb-12">
+        Avalados ante los siguientes organismos
+      </h3>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+        {certifications.map((cert) => (
+          <div class="group h-full">
+            <a href={cert.link} target="_blank" rel="noopener noreferrer" class="block bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-neutral-200 h-full">
+              <div class="flex flex-col items-center text-center h-full">
+                <div class="w-full h-24 flex items-center justify-center mb-6">
+                  <Image 
+                    src={cert.logo} 
+                    alt={cert.name}
+                    height={100}
+                    class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <h4 class="font-bold text-lg text-cardinal mb-3">{cert.name}</h4>
+                <p class="text-sm text-dark leading-relaxed">{cert.description}</p>
+              </div>
+            </a>
+          </div>
+        ))}
       </div>
     </div>
   </div>

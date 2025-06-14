@@ -4,42 +4,54 @@ import BasicCard from '@components/ui/BasicCard.astro';
 
 const services = [
   {
-    title: 'Consultoría Ambiental',
-    description: 'Soluciones para cumplir con normativas ambientales y fomentar prácticas sostenibles en su empresa.',
+    title: 'Servicios ambientales',
+    description: 'Estudios MIA, ERA y licencias ambientales para cumplir con SEMARNAT, ASEA y SENER, sin contratiempos.',
     image: image,
     link: '/ambiental'
   },
   {
-    title: 'Seguridad Industrial',
-    description: 'Evaluaciones de riesgo, capacitación y desarrollo de protocolos para garantizar la seguridad en el lugar de trabajo.',
+    title: 'Protección civil (Veracruz)',
+    description: 'Programas internos, análisis de riesgo y brigadas certificadas para salvaguardar personal, activos e instalaciones.',
     image: image,
     link: '/seguridad'
   },
   {
-    title: 'Textiles',
-    description: 'Una marca de ropa atrevida y divertida, con estilo 100% mexicano.',
+    title: 'Calderas y recipientes a presión',
+    description: 'Inspecciones NOM-020, pruebas hidrostáticas y capacitación para operar equipos a presión con total seguridad.',
     image: image,
     link: '/docharro'
   },
   {
-    title: 'Minería',
-    description: 'Asesoría especializada en operaciones mineras sostenibles y cumplimiento normativo del sector.',
+    title: 'Inspección con drones',
+    description: 'Fotogrametría, LiDAR y termografía de precisión para diagnóstico, monitoreo y planeación territorial.',
     image: image,
     link: '/mineria'
-  }
+  },
+  {
+    title: 'Capacitación certificada',
+    description: 'Cursos CONOCER, seguridad e higiene industrial y brigadas PC que garantizan cumplimiento STPS.',
+    image: image,
+    link: '/mineria'
+  },
+  {
+    title: 'Trámites gubernamentales',
+    description: 'Gestión integral de licencias, registros y cumplimiento ante autoridades estatales y federales.',
+    image: image,
+    link: '/mineria'
+  },
 ];
 ---
 
 <section id="servicios" class="py-8 bg-secondary-light">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Nuestros Servicios</h2>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-cardinal mb-4">Nuestros Servicios</h2>
       <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
         Ofrecemos soluciones integrales en cuatro áreas clave, combinando experiencia técnica con un enfoque práctico para ayudar a su empresa a prosperar.
       </p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {services.map((service) => (
         <BasicCard
           image={service.image}
