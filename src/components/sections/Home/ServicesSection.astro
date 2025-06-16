@@ -1,43 +1,49 @@
 ---
-import image from '@images/wireframe.jpg';
 import BasicCard from '@components/ui/BasicCard.astro';
+import image from '@images/wireframe.jpg';
+import environment from '@images/temp/environment.jpg';
+import proteccionCivil from '@images/temp/proteccion-civil.jpg';
+import calderas from '@images/temp/calderas.jpg';
+import drones from '@images/temp/drones.jpg';
+import capacitacion from '@images/temp/capacitacion.webp';
+import tramites from '@images/temp/tramites.jpeg';
 
 const services = [
   {
     title: 'Servicios ambientales',
     description: 'Estudios MIA, ERA y licencias ambientales para cumplir con SEMARNAT, ASEA y SENER, sin contratiempos.',
-    image: image,
+    image: environment,
     link: '/ambiental'
   },
   {
     title: 'Protección civil (Veracruz)',
     description: 'Programas internos, análisis de riesgo y brigadas certificadas para salvaguardar personal, activos e instalaciones.',
-    image: image,
+    image: proteccionCivil,
     link: '/seguridad'
   },
   {
     title: 'Calderas y recipientes a presión',
     description: 'Inspecciones NOM-020, pruebas hidrostáticas y capacitación para operar equipos a presión con total seguridad.',
-    image: image,
-    link: '/docharro'
+    image: calderas,
+    link: '/calderas'
   },
   {
     title: 'Inspección con drones',
     description: 'Fotogrametría, LiDAR y termografía de precisión para diagnóstico, monitoreo y planeación territorial.',
-    image: image,
-    link: '/mineria'
+    image: drones,
+    link: '/drones'
   },
   {
     title: 'Capacitación certificada',
     description: 'Cursos CONOCER, seguridad e higiene industrial y brigadas PC que garantizan cumplimiento STPS.',
-    image: image,
-    link: '/mineria'
+    image: capacitacion,
+    link: '/drones'
   },
   {
     title: 'Trámites gubernamentales',
     description: 'Gestión integral de licencias, registros y cumplimiento ante autoridades estatales y federales.',
-    image: image,
-    link: '/mineria'
+    image: tramites,
+    link: '/drones'
   },
 ];
 ---

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import image from '@images/wireframe.jpg';
+import image from '@images/isotipo.png';
 import Button from '@components/ui/Button.astro';
 ---
 
@@ -20,14 +20,14 @@ import Button from '@components/ui/Button.astro';
         </div>
       </div>
       <div class="w-full lg:w-1/2">
-        <div class="aspect-w-16 aspect-h-9 bg-slate-100 rounded-lg overflow-hidden shadow-xl">
+        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
           <!-- Placeholder for hero image -->
-          <div class="w-full h-96 bg-gradient-to-r from-secondary-light to-secondary flex items-center justify-center">
+          <div class="w-full h-96 flex items-center justify-center">
             <Image 
               src={image} 
               alt="Equipo profesional de Growling Group"
               width={612}
-              class="object-cover w-full h-full"
+              class="object-contain w-full h-full"
               loading="eager"
             />
           </div>

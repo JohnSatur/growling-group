@@ -1,37 +1,44 @@
 ---
 import { Image } from 'astro:assets';
 import wireframe from '@images/wireframe.jpg';
+import andru from '@images/temp/andru.avif';
+import consultoriaAmbiental from '@images/temp/consultoria-ambiental.jpg';
+import seguridadIndustrial from '@images/temp/seguridad-industrial.webp';
+import reunionTecnica from '@images/temp/reunion-tecnica.jpg';
+import procesosIndustriales from '@images/temp/procesos-industriales.jpeg';
+import panelesSolares from '@images/temp/paneles-solares.jpeg';
+import planeacionTerritorial from '@images/temp/planeacion-territorial.jpeg';
 
 const fieldPhotos = [
   {
-    image: wireframe,
+    image: consultoriaAmbiental,
     alt: "Andru supervisando operaciones en campo",
     caption: "Supervisión de auditoría ambiental"
   },
   {
-    image: wireframe,
+    image: seguridadIndustrial,
     alt: "Andru en inspección de seguridad industrial",
     caption: "Inspección de seguridad industrial"
   },
   {
-    image: wireframe,
+    image: reunionTecnica,
     alt: "Andru con equipo técnico",
     caption: "Reunión técnica con equipo especializado"
   },
   {
-    image: wireframe,
+    image: procesosIndustriales,
     alt: "Andru en evaluación de procesos",
     caption: "Evaluación de procesos industriales"
   },
   {
-    image: wireframe,
-    alt: "Andru en sitio minero",
-    caption: "Consultoría en operaciones mineras"
+    image: panelesSolares,
+    alt: "Andru en operaciones industriales",
+    caption: "Inspección de páneles solares"
   },
   {
-    image: wireframe,
+    image: planeacionTerritorial,
     alt: "Andru revisando documentación técnica",
-    caption: "Revisión de documentación técnica"
+    caption: "Planeación territorial"
   }
 ];
 ---
@@ -111,7 +118,7 @@ const fieldPhotos = [
           <div class="relative">
             <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-2xl">
               <Image 
-                src={wireframe} 
+                src={andru} 
                 alt="Andrés Rodríguez, Fundador de Growling Group"
                 class="w-full h-full object-cover"
               />
