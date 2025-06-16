@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import image from '@images/wireframe.jpg';
+import Button from '@components/ui/Button.astro';
 ---
 
 <section class="pt-32 pb-20 md:pt-40 md:pb-28">
@@ -14,18 +15,8 @@ import image from '@images/wireframe.jpg';
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ipsum ipsam id voluptatum ut accusantium aspernatur quas maxime laboriosam commodi?
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a 
-            href="#servicios" 
-            class="inline-block bg-cardinal hover:bg-cardinal/90 text-white font-medium py-3 px-8 rounded-lg transition-all shadow-md hover:shadow-lg"
-          >
-            Agenda una llamada
-          </a>
-          <a 
-            href="#contacto" 
-            class="inline-block bg-white border border-slate-300 hover:border-cardinal text-slate-800 hover:text-cardinal font-medium py-3 px-8 rounded-lg transition-all"
-          >
-            Solicita una cotización
-          </a>
+          <Button text="Agenda una llamada" href="/contacto" icon="ri-phone-fill" />
+          <Button text="Solicita una cotización" href="/contacto" icon="ri-wallet-2-fill" variant="outline" />
         </div>
       </div>
       <div class="w-full lg:w-1/2">

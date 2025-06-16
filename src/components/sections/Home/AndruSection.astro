@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import andru from '@images/profile-temp.jpg';
+import Button from '@components/ui/Button.astro';
 ---
 
 <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
@@ -29,15 +30,13 @@ import andru from '@images/profile-temp.jpg';
         excelencia operativa.
       </p>
 
-      <blockquote class="rounded-xl border-l-4 border-primary pl-6 text-lg italic text-neutral-700 md:text-xl">
+      <blockquote class="rounded-xl border-l-4 border-cardinal pl-6 text-lg italic text-neutral-700 md:text-xl">
         “Nuestro compromiso es proteger a las personas y al planeta a través de soluciones que combinan ciencia, tecnología y
         un profundo sentido de responsabilidad.”
       </blockquote>
 
       <!-- CTA opcional -->
-      <a href="#servicios" class="inline-block bg-cardinal hover:bg-cardinal/90 text-white font-medium py-3 px-8 rounded-lg transition-all shadow-md hover:shadow-lg">
-        Agenda una llamada
-      </a>
+      <Button text="Agenda una llamada" href="/contacto" icon="ri-phone-fill" />
     </div>
   </div>
 </section>

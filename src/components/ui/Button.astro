@@ -1,0 +1,47 @@
+---
+export interface Props {
+  text: string;
+  href: string;
+  variant?: 'fill' | 'outline';
+  icon?: string;
+  iconPosition?: 'left' | 'right';
+  class?: string;
+}
+
+const { 
+  text, 
+  href, 
+  variant = 'fill', 
+  icon, 
+  iconPosition = 'right',
+  class: additionalClass = ''
+} = Astro.props;
+
+// Base classes
+const baseClasses = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-150 py-4 px-8 text-base";
+
+// Size variants
+// const sizeClasses = {
+//   sm: 'py-2 px-4 text-sm',
+//   md: 'py-4 px-8 text-base',
+//   lg: 'py-5 px-10 text-lg'
+// };
+
+// Style variants
+const variantClasses = {
+  fill: 'bg-cardinal/90 hover:bg-cardinal text-white hover:shadow-lg focus:ring-cardinal/50',
+  outline: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg focus:ring-neutral-900/50'
+};
+
+// Combine all classes
+const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${additionalClass}`;
+
+// Icon classes
+const iconClasses = icon ? (iconPosition === 'left' ? 'mr-2' : 'ml-2') + ' text-lg' : '';
+---
+
+<a href={href} class={buttonClasses}>
+  {icon && iconPosition === 'left' && <i class={`${icon} ${iconClasses}`}></i>}
+  {text}
+  {icon && iconPosition === 'right' && <i class={`${icon} ${iconClasses}`}></i>}
+</a>
