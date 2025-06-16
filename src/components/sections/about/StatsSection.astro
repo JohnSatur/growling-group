@@ -1,0 +1,123 @@
+---
+const stats = [
+  {
+    number: "10",
+    suffix: "+",
+    label: "Años de Experiencia",
+    description: "Más de una década liderando la consultoría industrial",
+    icon: "ri-time-line"
+  },
+  {
+    number: "100",
+    suffix: "+",
+    label: "Auditorías Exitosas",
+    description: "Auditorías completadas con los más altos estándares",
+    icon: "ri-file-check-line"
+  },
+  {
+    number: "100",
+    suffix: "+",
+    label: "Clientes Satisfechos",
+    description: "Empresas que confían en nuestros servicios",
+    icon: "ri-user-heart-line"
+  }
+];
+---
+
+<section class="py-20 relative overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold text-cardinal mb-6">
+          Experiencia y Cobertura
+        </h2>
+        <p class="text-xl text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+          Números que respaldan nuestro compromiso con la excelencia y la confianza de nuestros clientes.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        {stats.map((stat, index) => (
+          <div class={`fade-in-section text-center group`} style={`animation-delay: ${index * 200}ms`}>
+            <div class="bg-neutral-900/10 backdrop-blur-sm rounded-2xl p-8 lg:p-10 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <!-- Icon -->
+              <div class="mb-6">
+                <div class="w-16 h-16 bg-cardinal/20 rounded-full flex items-center justify-center mx-auto group-hover:bg-cardinal/30 transition-all duration-300">
+                  <i class={`${stat.icon} text-white text-2xl`}></i>
+                </div>
+              </div>
+
+              <!-- Number -->
+              <div class="mb-4">
+                <div class="flex items-center justify-center">
+                  <span 
+                    class="text-4xl md:text-5xl lg:text-6xl font-bold text-cardinal counter" 
+                    data-target={stat.number}
+                  >
+                    0
+                  </span>
+                  <span class="text-4xl md:text-5xl lg:text-6xl font-bold text-cardinal ml-1">
+                    {stat.suffix}
+                  </span>
+                </div>
+              </div>
+
+              <!-- Label -->
+              <h3 class="text-xl md:text-2xl font-bold text-neutral-800 mb-3">
+                {stat.label}
+              </h3> 
+
+              <!-- Description -->
+              <p class="text-neutral-700 leading-relaxed">
+                {stat.description}
+              </p>
+
+              <!-- Decorative Line -->
+              <div class="mt-6 w-12 h-0.5 bg-neutral-500 mx-auto group-hover:w-20 transition-all duration-300"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script type="module">
+  // Animated Counter
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = parseInt(counter.getAttribute('data-target'));
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60fps
+          let current = 0;
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+          
+          updateCounter();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    counters.forEach(counter => observer.observe(counter));
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', animateCounters);
+</script>

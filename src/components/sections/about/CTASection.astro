@@ -1,0 +1,101 @@
+---
+import { Image } from 'astro:assets';
+import isotipo from '@images/isotipo.png';
+import Button from '@components/ui/Button.astro';
+
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="fade-in-section">
+        <div class="bg-white rounded-2xl shadow-2xl border overflow-hidden">
+          <!-- Background Pattern -->
+          <div class="relative bg-gradient-to-br from-neutral-900 to-neutral-800 p-8 lg:p-12">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-cardinal/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-cardinal/5 rounded-full translate-y-12 -translate-x-12"></div>
+            
+            <div class="relative z-10 text-center">
+              <!-- Icon -->
+              <Image 
+                src={isotipo} 
+                alt="Growling Group"
+                width={120}
+                class="mx-auto mb-6"
+              />
+
+              <!-- Title -->
+              <h2 class="text-3xl md:text-4xl font-bold text-neutral-100 mb-6">
+                ¿Listo para blindar tu empresa?
+              </h2>
+
+              <!-- Description -->
+              <p class="text-lg text-neutral-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+                Únete a las más de 100 empresas que han confiado en Growling Group para alcanzar la excelencia operativa. Nuestro equipo de expertos está listo para diseñar la solución perfecta para tus desafíos específicos.
+              </p>
+
+              <!-- Benefits List -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-left max-w-2xl mx-auto">
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-cardinal text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-neutral-300">Consultoría personalizada</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-cardinal text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-neutral-300">Resultados garantizados</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-cardinal text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-neutral-300">Soporte continuo</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-cardinal text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-neutral-300">Experiencia comprobada</span>
+                </div>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button text="Solicita una Cotización" icon="ri-wallet-2-fill" href="#contacto" />
+                <Button text="Agenda una Llamada" icon="ri-phone-line" href="tel:+521234567890" variant="outline2" />
+              </div>
+
+              <!-- Contact Info -->
+              <div class="mt-8 pt-8 border-t border-neutral-200">
+                <p class="text-neutral-500 mb-4 font-semibold">¿Prefieres contactarnos directamente?</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
+                  <a href="tel:+521234567890" class="flex items-center text-neutral-400 hover:text-cardinal transition-colors">
+                    <i class="ri-phone-line mr-2"></i>
+                    +52 (228) 123 4567
+                  </a>
+                  <a href="mailto:contacto@growlinggroup.com" class="flex items-center text-neutral-400 hover:text-cardinal transition-colors">
+                    <i class="ri-mail-line mr-2"></i>
+                    contacto@growlinggroup.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-12 text-center fade-in-section" style="animation-delay: 200ms">
+        <div class="flex flex-wrap items-center justify-center gap-8 opacity-60">
+          <div class="flex items-center">
+            <i class="ri-shield-check-line text-cardinal text-xl mr-2"></i>
+            <span class="text-neutral-600 text-sm">Consultores avalados</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-time-line text-cardinal text-xl mr-2"></i>
+            <span class="text-neutral-600 text-sm">+10 Años de Experiencia</span>
+          </div>
+          <div class="flex items-center">
+            <i class="ri-customer-service-line text-cardinal text-xl mr-2"></i>
+            <span class="text-neutral-600 text-sm">Soporte 24/7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

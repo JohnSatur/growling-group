@@ -1,0 +1,93 @@
+---
+const values = [
+  {
+    title: "Excelencia",
+    description: "Superamos expectativas en cada proyecto, manteniendo los más altos estándares de calidad y precisión técnica.",
+    icon: "ri-star-line"
+  },
+  {
+    title: "Integridad",
+    description: "Actuamos con transparencia y honestidad, construyendo relaciones basadas en la confianza y el respeto mutuo.",
+    icon: "ri-shield-check-line"
+  },
+  {
+    title: "Innovación",
+    description: "Adoptamos tecnologías avanzadas y metodologías vanguardistas para ofrecer soluciones disruptivas y efectivas.",
+    icon: "ri-lightbulb-line"
+  },
+  {
+    title: "Sostenibilidad",
+    description: "Promovemos prácticas responsables que protegen el medio ambiente y generan valor a largo plazo.",
+    icon: "ri-leaf-line"
+  },
+  {
+    title: "Compromiso",
+    description: "Nos dedicamos completamente al éxito de nuestros clientes, asumiendo cada desafío como propio.",
+    icon: "ri-hand-heart-line"
+  },
+  {
+    title: "Profesionalismo",
+    description: "Mantenemos la más alta competencia técnica y ética en todas nuestras interacciones y servicios.",
+    icon: "ri-user-star-line"
+  }
+];
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold text-cardinal mb-6">
+          Nuestros Valores
+        </h2>
+        <p class="text-lg text-neutral-700 max-w-3xl mx-auto">
+          Los principios fundamentales que definen nuestra cultura organizacional y guían nuestro comportamiento diario.
+        </p>
+      </div>
+
+      <!-- Values Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {values.map((value, index) => (
+          <div class={`fade-in-section group`} style={`animation-delay: ${index * 100}ms`}>
+            <div class="bg-neutral-100 rounded-xl p-8 shadow-lg border border-neutral-800 hover:border-cardinal/30 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 h-full">
+              <!-- Icon -->
+              <div class="mb-6">
+                <div class="w-16 h-16 bg-gradient-to-br from-cardinal/10 to-cardinal/20 rounded-full flex items-center justify-center group-hover:from-cardinal/20 group-hover:to-cardinal/30 transition-all duration-300">
+                  <i class={`${value.icon} text-cardinal text-2xl group-hover:scale-110 transition-transform duration-300`}></i>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div>
+                <h3 class="text-xl font-bold text-neutral-800 mb-4 group-hover:text-cardinal transition-colors duration-300">
+                  {value.title}
+                </h3>
+                <p class="text-neutral-700 leading-relaxed text-sm">
+                  {value.description}
+                </p>
+              </div>
+
+              <!-- Hover Effect Line -->
+              <div class="mt-6 w-0 h-0.5 bg-gradient-to-r from-cardinal to-cardinal/50 group-hover:w-full transition-all duration-500"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom Quote -->
+      <div class="mt-16 text-center fade-in-section" style="animation-delay: 800ms">
+        <div class="max-w-4xl mx-auto">
+          <blockquote class="text-xl md:text-2xl text-neutral-600 italic font-light leading-relaxed">
+            "Nuestros valores no son solo palabras en la pared, son la brújula que orienta cada decisión y la base sobre la cual construimos relaciones duraderas con nuestros clientes."
+          </blockquote>
+          <div class="mt-6 flex items-center justify-center">
+            <div class="w-12 h-px bg-cardinal mr-4"></div>
+            <span class="text-cardinal font-semibold">Andru Barradas</span>
+            <div class="w-12 h-px bg-cardinal ml-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

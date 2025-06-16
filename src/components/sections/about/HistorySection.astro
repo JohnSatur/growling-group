@@ -1,0 +1,95 @@
+---
+const milestones = [
+  {
+    year: '2024',
+    title: 'Fundación de Growling Group',
+    description: 'Iniciamos operaciones con la visión de transformar la consultoría industrial en Veracruz.',
+    icon: 'ri-rocket-line'
+  },
+  {
+    year: '2025',
+    title: 'Expansión de Servicios',
+    description: 'Incorporamos consultoría textil y minera, consolidando nuestro portafolio integral.',
+    icon: 'ri-building-line'
+  },
+  {
+    year: '2025',
+    title: 'Certificación de Excelencia',
+    description: 'Obtuvimos las certificaciones más prestigiosas del sector, validando nuestra expertise.',
+    icon: 'ri-award-line'
+  }
+];
+---
+
+<section id="historia" class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold text-cardinal mb-6">
+          Todo empezó con una necesidad
+        </h2>
+        <div class="max-w-4xl mx-auto">
+          <p class="text-lg text-neutral-700 leading-relaxed">
+            Desde nuestros inicios, <strong>Growling Group</strong> ha sido sinónimo de excelencia y confiabilidad en el sector de consultoría industrial. Nacimos con la misión de brindar soluciones integrales que no solo cumplan con las normativas más exigentes, sino que impulsen el crecimiento sostenible de nuestros clientes. A lo largo de los años, hemos construido una reputación sólida basada en resultados tangibles, innovación constante y un compromiso inquebrantable con la calidad.
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative hidden lg:block">
+        <!-- Timeline Line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cardinal/30 to-cardinal hidden lg:block rounded-full"></div>
+        
+        <div class="space-y-12 lg:space-y-16">
+          {milestones.map((milestone, index) => (
+            <div class={`fade-in-section flex flex-col lg:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`} style={`animation-delay: ${index * 200}ms`}>
+              <!-- Content Card -->
+              <div class={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
+                <div class="bg-neutral-100 p-8 rounded-xl shadow-lg border-l-4 border-cardinal hover:shadow-xl transition-all duration-150 transform hover:-translate-y-2">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-cardinal/10 rounded-full flex items-center justify-center mr-4">
+                      <i class={`${milestone.icon} text-cardinal text-xl`}></i>
+                    </div>
+                    <span class="text-cardinal/70 font-bold text-lg">{milestone.year}</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-cardinal mb-3">{milestone.title}</h3>
+                  <p class="text-neutral-700 leading-relaxed">{milestone.description}</p>
+                </div>
+              </div>
+
+              <!-- Timeline Node -->
+              <div class="hidden lg:flex w-2/12 justify-center">
+                <div class="w-6 h-6 bg-cardinal rounded-full border-4 border-neutral-800 shadow-lg z-10"></div>
+              </div>
+
+              <!-- Spacer -->
+              <div class="hidden lg:block w-5/12"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Mobile Timeline for smaller screens -->
+      <div class="lg:hidden mt-12">
+        <div class="space-y-8">
+          {milestones.map((milestone, index) => (
+            <div class={`fade-in-section flex items-start`} style={`animation-delay: ${index * 200}ms`}>
+              <div class="flex-shrink-0 w-12 h-12 bg-cardinal/10 rounded-full flex items-center justify-center mr-4 mt-2">
+                <i class={`${milestone.icon} text-cardinal text-xl`}></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <span class="text-cardinal font-bold text-lg mr-3">{milestone.year}</span>
+                  <div class="flex-1 h-px bg-cardinal/20"></div>
+                </div>
+                <h3 class="text-xl font-semibold text-neutral-900 mb-2">{milestone.title}</h3>
+                <p class="text-neutral-700 leading-relaxed">{milestone.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

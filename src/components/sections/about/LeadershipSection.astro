@@ -1,0 +1,178 @@
+---
+import { Image } from 'astro:assets';
+import wireframe from '@images/wireframe.jpg';
+
+const fieldPhotos = [
+  {
+    image: wireframe,
+    alt: "Andru supervisando operaciones en campo",
+    caption: "Supervisión de auditoría ambiental"
+  },
+  {
+    image: wireframe,
+    alt: "Andru en inspección de seguridad industrial",
+    caption: "Inspección de seguridad industrial"
+  },
+  {
+    image: wireframe,
+    alt: "Andru con equipo técnico",
+    caption: "Reunión técnica con equipo especializado"
+  },
+  {
+    image: wireframe,
+    alt: "Andru en evaluación de procesos",
+    caption: "Evaluación de procesos industriales"
+  },
+  {
+    image: wireframe,
+    alt: "Andru en sitio minero",
+    caption: "Consultoría en operaciones mineras"
+  },
+  {
+    image: wireframe,
+    alt: "Andru revisando documentación técnica",
+    caption: "Revisión de documentación técnica"
+  }
+];
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <h2 class="text-3xl md:text-4xl font-bold text-cardinal mb-6">
+          Nuestro Liderazgo
+        </h2>
+        <p class="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          Conoce al visionario detrás de Growling Group, cuya experiencia en campo y compromiso con la excelencia han posicionado a nuestra empresa como líder en consultoría industrial.
+        </p>
+      </div>
+
+      <!-- Leadership Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Text Content -->
+        <div class="fade-in-section">
+          <div class="space-y-6">
+            <div>
+              <h3 class="text-2xl font-bold text-neutral-900 mb-4">
+                Andru Daniel Barradas Montiel
+              </h3>
+              <p class="text-cardinal font-semibold text-lg mb-4">
+                Fundador y director general
+              </p>
+            </div>
+            
+            <div class="space-y-4 text-neutral-700 leading-relaxed">
+              <p>
+                Con más de 15 años de experiencia en el sector industrial, Andru ha liderado proyectos de consultoría en los sectores más exigentes de México. Su enfoque práctico y su profundo conocimiento técnico han sido fundamentales para el éxito de Growling Group.
+              </p>
+              
+              <p>
+                Especialista certificado en gestión ambiental y seguridad industrial, Andru combina la experiencia de campo con una visión estratégica que ha permitido a la empresa expandirse y consolidarse como referente en el sector.
+              </p>
+              
+              <p>
+                Su filosofía de liderazgo se basa en la excelencia operativa, la innovación constante y el compromiso inquebrantable con la satisfacción del cliente.
+              </p>
+            </div>
+
+            <!-- Credentials -->
+            <div class="pt-6 border-t border-neutral-200">
+              <h4 class="font-semibold text-neutral-900 mb-3">Avalado por los siguientes organismos:</h4>
+              <ul class="space-y-2 text-neutral-600">
+                <li class="flex items-center">
+                  <i class="ri-check-line text-cardinal mr-2"></i>
+                  Secretaría del Trabajo y Previsión Social (STPS)
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line text-cardinal mr-2"></i>
+                  Consejo Nacional de normalización y certificación de competencias laborales (CONOCER)
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line text-cardinal mr-2"></i>
+                  Organización Internacional de Normalización (ISO)
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line text-cardinal mr-2"></i>
+                  Secretaría de Protección Civil del Estado de Veracruz
+                </li>
+                <li class="flex items-center">
+                  <i class="ri-check-line text-cardinal mr-2"></i>
+                  Entidad Mexicana de Acreditación (EMA)
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div class="relative">
+            <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-2xl">
+              <Image 
+                src={wireframe} 
+                alt="Andrés Rodríguez, Fundador de Growling Group"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-cardinal/10 rounded-full -z-10"></div>
+            <div class="absolute -top-4 -left-4 w-16 h-16 bg-neutral-200 rounded-full -z-10"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Field Photos Gallery -->
+      <div class="fade-in-section" style="animation-delay: 400ms">
+        <div class="text-center mb-12">
+          <h3 class="text-2xl font-bold text-cardinal mb-4">
+            Liderazgo en Campo
+          </h3>
+          <p class="text-neutral-600 max-w-2xl mx-auto">
+            Andru lidera desde el frente, participando activamente en cada proyecto y manteniendo el contacto directo con las operaciones de nuestros clientes.
+          </p>
+        </div>
+
+        <!-- Photo Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {fieldPhotos.map((photo, index) => (
+            <div class={`group cursor-pointer`} style={`animation-delay: ${(index + 1) * 100}ms`}>
+              <div class="relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="aspect-w-4 aspect-h-3">
+                  <Image 
+                    src={photo.image}
+                    alt={photo.alt}
+                    class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent duration-150">
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p class="text-white text-sm font-medium">
+                      {photo.caption}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quote Section -->
+      <div class="mt-16 text-center fade-in-section" style="animation-delay: 800ms">
+        <div class="bg-gradient-to-r from-cardinal/5 to-cardinal/10 rounded-2xl p-8 lg:p-12">
+          <blockquote class="text-xl md:text-2xl text-neutral-800 italic font-light leading-relaxed mb-6">
+            "El verdadero liderazgo se demuestra en el campo, trabajando codo a codo con nuestros clientes para encontrar soluciones que realmente funcionen."
+          </blockquote>
+          <div class="flex items-center justify-center">
+            <div class="w-12 h-px bg-cardinal mr-4"></div>
+            <span class="text-cardinal font-semibold">Andru Barradas</span>
+            <div class="w-12 h-px bg-cardinal ml-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
