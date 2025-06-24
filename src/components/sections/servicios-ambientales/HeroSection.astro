@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '@images/temp/ambiental-hero-bg.jpeg';
+import Button from '@components/ui/Button.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0 select-none">
+    <Image 
+      src={heroImage}
+      width={1920}
+      height={1080}
+      alt="Equipo profesional de Growling Group"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-background/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-dark-100/80 via-dark-100/60 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+    <div class="max-w-4xl mx-auto lg:mx-0">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight fade-in-section">
+        Soluciones integrales para la
+        <span class="text-ambiental">gestión ambiental</span>
+      </h1>
+      
+      <h2 class="text-xl md:text-2xl text-neutral-800 mb-8 leading-relaxed max-w-3xl fade-in-section" style="animation-delay: 200ms">
+        Con más de una década de experiencia, transformamos desafíos complejos en soluciones sostenibles para empresas líderes en Veracruz.
+      </h2>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-section" style="animation-delay: 400ms">
+        
+        <Button text="¿Qué necesita mi empresa?" href="#historia" variant="fill" icon="ri-arrow-down-line" palette="ambiental" />
+        
+        <Button text="Trabajemos juntos" href="#contacto" variant="outline" icon="ri-arrow-right-line" palette="ambiental" />
+        
+      </div>
+    </div>
+  </div>
+</section>

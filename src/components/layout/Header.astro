@@ -1,6 +1,38 @@
 ---
+import Button from '@components/ui/Button.astro';
+import Logo from '@components/ui/Logo.astro';
 import isotipo from '@images/isotipo.png';
 import { Image } from 'astro:assets';
+
+interface Props {
+	palette?: 'cardinal' | 'ambiental' | 'drones';
+}
+
+const { palette = 'cardinal' }: Props = Astro.props;
+
+// Definir clases de colores basadas en la palette
+const colorClasses = {
+  cardinal: {
+    hover: 'hover:text-cardinal',
+    text: 'text-cardinal',
+    bg: 'bg-cardinal',
+    border: 'border-cardinal bg-cardinal'
+  },
+  ambiental: {
+    hover: 'hover:text-ambiental',
+    text: 'text-ambiental',
+    bg: 'bg-ambiental',
+    border: 'border-ambiental bg-ambiental'
+  },
+  drones: {
+    hover: 'hover:text-drones',
+    text: 'text-drones',
+    bg: 'bg-drones',
+    border: 'border-drones bg-drones'
+  }
+};
+
+const colors = colorClasses[palette];
 ---
 
 <header class="fixed top-0 left-0 w-full bg-dark bg-opacity-95 z-50 shadow-sm transition-all duration-300 border-b border-neutral-400">
@@ -9,65 +41,65 @@ import { Image } from 'astro:assets';
       <div class="flex-shrink-0">
         <!-- Logo placeholder -->
         <a href="/" class="flex items-center">
-          <Image src={isotipo} alt="Growling Group" class="w-10 h-full object-contain" loading="eager" />
+          <Logo palette={palette} variant="isotipo" class="w-10 h-full object-contain" />
         </a>
       </div>
       
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="/" class="text-slate-100 hover:text-cardinal font-medium transition-colors duration-300 relative group">
+        <a href="/" class={`text-slate-100 ${colors.hover} font-medium transition-colors duration-300 relative group`}>
           Inicio
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardinal transition-all duration-300 group-hover:w-full"></span>
+          <span class={`absolute bottom-0 left-0 w-0 h-0.5 ${colors.bg} transition-all duration-300 group-hover:w-full`}></span>
         </a>
-        <a href="/quienes-somos" class="text-slate-100 hover:text-cardinal font-medium transition-colors duration-300 relative group">
+        <a href="/quienes-somos" class={`text-slate-100 ${colors.hover} font-medium transition-colors duration-300 relative group`}>
           Quiénes somos
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardinal transition-all duration-300 group-hover:w-full"></span>
+          <span class={`absolute bottom-0 left-0 w-0 h-0.5 ${colors.bg} transition-all duration-300 group-hover:w-full`}></span>
         </a>
         
         <!-- Servicios Dropdown Desktop -->
         <div class="relative group">
-          <button class="text-slate-100 hover:text-cardinal font-medium transition-colors duration-300 relative flex items-center gap-1">
+          <button class={`text-slate-100 ${colors.hover} font-medium transition-colors duration-300 relative flex items-center gap-1`}>
             Servicios
             <i class="ri-arrow-down-s-line text-sm transition-transform duration-300 group-hover:rotate-180"></i>
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardinal transition-all duration-300 group-hover:w-full"></span>
+            <span class={`absolute bottom-0 left-0 w-0 h-0.5 ${colors.bg} transition-all duration-300 group-hover:w-full`}></span>
           </button>
           <div class="absolute top-full left-0 mt-2 w-64 bg-dark bg-opacity-98 rounded-lg shadow-lg border border-neutral-600 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
             <div class="py-2">
-              <a href="/servicios-ambientales" class="block px-4 py-3 text-slate-100 hover:text-cardinal hover:bg-neutral-800 transition-colors duration-300">
+              <a href="/servicios-ambientales" class={`block px-4 py-3 text-slate-100 ${colors.hover} hover:bg-neutral-800 transition-colors duration-300`}>
                 Servicios ambientales
               </a>
-              <a href="/proteccion-civil-veracruz" class="block px-4 py-3 text-slate-100 hover:text-cardinal hover:bg-neutral-800 transition-colors duration-300">
+              <a href="/proteccion-civil-veracruz" class={`block px-4 py-3 text-slate-100 ${colors.hover} hover:bg-neutral-800 transition-colors duration-300`}>
                 Protección civil (Veracruz)
               </a>
-              <a href="/calderas-y-recipientes-a-presion" class="block px-4 py-3 text-slate-100 hover:text-cardinal hover:bg-neutral-800 transition-colors duration-300">
+              <a href="/calderas-y-recipientes-a-presion" class={`block px-4 py-3 text-slate-100 ${colors.hover} hover:bg-neutral-800 transition-colors duration-300`}>
                 Calderas y recipientes a presión
               </a>
-              <a href="/inspeccion-drones" class="block px-4 py-3 text-slate-100 hover:text-cardinal hover:bg-neutral-800 transition-colors duration-300">
+              <a href="/inspeccion-drones" class={`block px-4 py-3 text-slate-100 ${colors.hover} hover:bg-neutral-800 transition-colors duration-300`}>
                 Inspección con drones
               </a>
-              <a href="/capacitacion-certificada" class="block px-4 py-3 text-slate-100 hover:text-cardinal hover:bg-neutral-800 transition-colors duration-300">
+              <a href="/capacitacion-certificada" class={`block px-4 py-3 text-slate-100 ${colors.hover} hover:bg-neutral-800 transition-colors duration-300`}>
                 Capacitación certificada
               </a>
-              <a href="/tramites-gubernamentales" class="block px-4 py-3 text-slate-100 hover:text-cardinal hover:bg-neutral-800 transition-colors duration-300">
+              <a href="/tramites-gubernamentales" class={`block px-4 py-3 text-slate-100 ${colors.hover} hover:bg-neutral-800 transition-colors duration-300`}>
                 Trámites gubernamentales
               </a>
             </div>
           </div>
         </div>
         
-        <a href="/blog" class="text-slate-100 hover:text-cardinal font-medium transition-colors duration-300 relative group">
+        <a href="/blog" class={`text-slate-100 ${colors.hover} font-medium transition-colors duration-300 relative group`}>
           Blog
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardinal transition-all duration-300 group-hover:w-full"></span>
+          <span class={`absolute bottom-0 left-0 w-0 h-0.5 ${colors.bg} transition-all duration-300 group-hover:w-full`}></span>
         </a>
-        <a href="/contacto" class="text-slate-100 hover:text-cardinal font-medium transition-colors duration-300 relative group">
+        <a href="/contacto" class={`text-slate-100 ${colors.hover} font-medium transition-colors duration-300 relative group`}>
           Contacto
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-cardinal transition-all duration-300 group-hover:w-full"></span>
+          <span class={`absolute bottom-0 left-0 w-0 h-0.5 ${colors.bg} transition-all duration-300 group-hover:w-full`}></span>
         </a>
         <!-- Theme Toggle Button -->
         <button
           id="theme-toggle"
           type="button"
-          class="text-slate-100 hover:text-cardinal focus:outline-none rounded-lg text-sm p-2.5 transition-colors duration-300"
+          class={`text-slate-100 ${colors.hover} focus:outline-none rounded-lg text-sm p-2.5 transition-colors duration-300`}
           aria-label="Toggle theme"
         >
           <i id="theme-toggle-dark-icon" class="hidden ri-moon-fill text-xl"></i>
@@ -81,13 +113,13 @@ import { Image } from 'astro:assets';
         <button
           id="theme-toggle-mobile"
           type="button"
-          class="text-slate-50 hover:text-cardinal rounded-lg text-sm p-2.5 transition-colors duration-300"
+          class={`text-slate-50 ${colors.hover} rounded-lg text-sm p-2.5 transition-colors duration-300`}
           aria-label="Toggle theme"
         >
           <i id="theme-toggle-dark-icon-mobile" class="hidden ri-moon-fill text-xl"></i>
           <i id="theme-toggle-light-icon-mobile" class="hidden ri-sun-fill text-xl"></i>
         </button>
-        <button id="mobile-menu-button" class="text-slate-50 hover:text-cardinal focus:outline-none cursor-pointer transition-colors duration-300">
+        <button id="mobile-menu-button" class={`text-slate-50 ${colors.hover} focus:outline-none cursor-pointer transition-colors duration-300`}>
           <i class="ri-menu-line text-2xl"></i>
         </button>
       </div>
@@ -98,7 +130,7 @@ import { Image } from 'astro:assets';
   <div id="mobile-menu" class="fixed inset-0 bg-dark bg-opacity-98 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
     <div class="h-full flex flex-col">
       <div class="flex justify-end p-4">
-        <button id="mobile-menu-close" class="text-slate-50 hover:text-cardinal focus:outline-none cursor-pointer transition-colors duration-300">
+        <button id="mobile-menu-close" class={`text-slate-50 ${colors.hover} focus:outline-none cursor-pointer transition-colors duration-300`}>
           <i class="ri-close-line text-3xl"></i>
         </button>
       </div>
@@ -106,62 +138,63 @@ import { Image } from 'astro:assets';
       <!-- Logo en móvil -->
       <div class="flex justify-center mb-8">
         <a href="/" class="flex items-center">
-          <Image src={isotipo} alt="Growling Group" class="w-16 h-full object-contain" loading="eager" />
+          <Logo palette={palette} variant="isotipo" class="w-16 h-full object-contain" />
         </a>
       </div>
 
       <nav class="flex-1 flex flex-col items-center justify-center space-y-6 px-4 overflow-y-auto">
-        <a href="#servicios" class="text-slate-100 hover:text-cardinal text-2xl font-medium transition-colors duration-300">
+        <a href="/" class={`text-slate-100 ${colors.hover} text-2xl font-medium transition-colors duration-300`}>
           Inicio
         </a>
-        <a href="#certificaciones" class="text-slate-100 hover:text-cardinal text-2xl font-medium transition-colors duration-300">
+        <a href="/quienes-somos" class={`text-slate-100 ${colors.hover} text-2xl font-medium transition-colors duration-300`}>
           Quiénes somos
         </a>
         
         <!-- Servicios Dropdown Mobile -->
         <div class="text-center flex flex-col items-center justify-center">
-          <button id="mobile-servicios-toggle" class="ml-7 text-slate-100 hover:text-cardinal text-2xl font-medium transition-colors duration-300 flex items-center gap-2">
+          <button id="mobile-servicios-toggle" class={`ml-7 text-slate-100 ${colors.hover} text-2xl font-medium transition-colors duration-300 flex items-center gap-2`}>
             Servicios
             <i id="mobile-servicios-icon" class="ri-arrow-down-s-line text-lg transition-transform duration-300"></i>
           </button>
           <div id="mobile-servicios-menu" class="space-y-3 max-h-0 overflow-hidden transition-all duration-300">
-            <a href="#servicios-ambientales" class="block text-slate-300 hover:text-cardinal text-lg transition-colors duration-300">
+            <a href="/servicios-ambientales" class={`block text-slate-300 ${colors.hover} text-lg transition-colors duration-300`}>
               Servicios ambientales
             </a>
-            <a href="#proteccion-civil" class="block text-slate-300 hover:text-cardinal text-lg transition-colors duration-300">
+            <a href="#proteccion-civil" class={`block text-slate-300 ${colors.hover} text-lg transition-colors duration-300`}>
               Protección civil (Veracruz)
             </a>
-            <a href="#calderas" class="block text-slate-300 hover:text-cardinal text-lg transition-colors duration-300">
+            <a href="#calderas" class={`block text-slate-300 ${colors.hover} text-lg transition-colors duration-300`}>
               Calderas y recipientes a presión
             </a>
-            <a href="#drones" class="block text-slate-300 hover:text-cardinal text-lg transition-colors duration-300">
+            <a href="/inspeccion-drones" class={`block text-slate-300 ${colors.hover} text-lg transition-colors duration-300`}>
               Inspección con drones
             </a>
-            <a href="#capacitacion" class="block text-slate-300 hover:text-cardinal text-lg transition-colors duration-300">
+            <a href="#capacitacion" class={`block text-slate-300 ${colors.hover} text-lg transition-colors duration-300`}>
               Capacitación certificada
             </a>
-            <a href="#tramites" class="block text-slate-300 hover:text-cardinal text-lg transition-colors duration-300">
+            <a href="#tramites" class={`block text-slate-300 ${colors.hover} text-lg transition-colors duration-300`}>
               Trámites gubernamentales
             </a>
           </div>
         </div>
         
-        <a href="#blog" class="text-slate-100 hover:text-cardinal text-2xl font-medium transition-colors duration-300">
+        <a href="#blog" class={`text-slate-100 ${colors.hover} text-2xl font-medium transition-colors duration-300`}>
           Blog
         </a>
-        <a href="#contacto" class="text-slate-100 hover:text-cardinal text-2xl font-medium transition-colors duration-300">
+        <a href="#contacto" class={`text-slate-100 ${colors.hover} text-2xl font-medium transition-colors duration-300`}>
           Contacto
         </a>
       </nav>
 
       <!-- Botón CTA -->
       <div class="p-6 text-center">
-        <a 
+        <Button 
           href="#contacto" 
-          class="inline-block bg-cardinal hover:bg-cardinal/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-        >
-          Solicita una cotización
-        </a>
+          text="Solicita una cotización"
+          icon="ri-wallet-2-fill"
+          variant="fill"
+          palette={palette}
+        />
       </div>
     </div>
   </div>

@@ -7,12 +7,13 @@ import Header from '@components/layout/Header.astro';
 interface Props {
 	title?: string;
 	lang?: string;
-
+	palette?: 'cardinal' | 'ambiental' | 'drones';
 }
 
 const {
 	title = SITE.title,
 	lang = 'es-MX',
+	palette = 'cardinal',
 }: Props = Astro.props;
 ---
 
@@ -23,7 +24,7 @@ const {
 		<title>{ title }</title>
 	</head>
 	<body class="font-contrast bg-background">
-		<Header />
+		<Header palette={palette} />
 		<slot />
 	</body>
 </html>

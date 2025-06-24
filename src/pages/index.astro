@@ -5,12 +5,12 @@ import ServicesSection from '@components/sections/home/ServicesSection.astro';
 import CertificationsSection from '@components/sections/home/CertificationsSection.astro';
 import TestimonialsSection from '@components/sections/home/TestimonialsSection.astro';
 import BlogSection from '@components/sections/home/BlogSection.astro';
-import ContactFormSection from '@components/sections/home/ContactFormSection.astro';
 import TestimonialsMediaSection from '@components/sections/home/TestimonialsMediaSection.astro';
 import AndruSection from '@components/sections/home/AndruSection.astro';
+import ContactSection from '@components/shared/ContactSection.astro';
 ---
 
-<MainLayout title="Growling Group | Inicio">
+<MainLayout title="Growling Group | Inicio" palette="cardinal">
   <HeroSection />
   <ServicesSection />
   <CertificationsSection />
@@ -18,5 +18,5 @@ import AndruSection from '@components/sections/home/AndruSection.astro';
   <TestimonialsSection />
   <TestimonialsMediaSection />
   <BlogSection />
-  <ContactFormSection />
+  <ContactSection />
 </MainLayout>

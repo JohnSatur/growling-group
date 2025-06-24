@@ -1,0 +1,335 @@
+---
+export interface Props {
+  palette?: 'cardinal' | 'ambiental' | 'drones';
+}
+
+const { palette = 'cardinal' } = Astro.props;
+
+// Definir clases de colores basadas en la palette
+const colorClasses = {
+  cardinal: {
+    gradient: 'from-cardinal to-cardinal/90',
+    text: 'text-cardinal',
+    bg: 'bg-cardinal',
+    hover: 'hover:bg-cardinal/10'
+  },
+  ambiental: {
+    gradient: 'from-ambiental to-ambiental/90',
+    text: 'text-ambiental',
+    bg: 'bg-ambiental',
+    hover: 'hover:bg-ambiental/10'
+  },
+  drones: {
+    gradient: 'from-drones to-drones/90',
+    text: 'text-drones',
+    bg: 'bg-drones',
+    hover: 'hover:bg-drones/10'
+  }
+};
+
+const colors = colorClasses[palette];
+
+// Títulos y contenido según la palette
+const sectionContent = {
+  cardinal: {
+    title: "Comienza tu Proyecto Industrial Hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia industrial perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  },
+  ambiental: {
+    title: "Comienza tu Proyecto Ambiental Hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia ambiental perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  },
+  drones: {
+    title: "Comienza tu Proyecto de Inspección Hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de inspección con drones perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  }
+};
+
+const content = sectionContent[palette];
+---
+
+<section id="contacto" class={`py-20 bg-gradient-to-br ${colors.gradient} relative overflow-hidden`}>
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-1/4 left-1/4 w-32 h-32 border border-white rounded-full"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-24 h-24 border border-white rounded-full"></div>
+    <div class="absolute top-1/2 right-1/3 w-16 h-16 border border-white rounded-full"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-20 h-20 border border-white rounded-full"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <div class="inline-flex items-center bg-white/20 backdrop-blur-sm border border-white/30 rounded-full px-4 py-2 mb-6">
+          <i class="ri-customer-service-line text-white mr-2"></i>
+          <span class="text-white font-medium text-sm">Contacto Especializado</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          {content.title}
+        </h2>
+        <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          {content.subtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="fade-in-section">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <h3 class="text-2xl font-bold text-white mb-6">
+              {content.formTitle}
+            </h3>
+            
+            <form class="space-y-6" id="environmental-contact-form">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="name" class="block text-white font-medium mb-2">Nombre Completo *</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+                    placeholder="Tu nombre completo"
+                  />
+                </div>
+                <div>
+                  <label for="company" class="block text-white font-medium mb-2">Empresa</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    class="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+                    placeholder="Nombre de tu empresa"
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="email" class="block text-white font-medium mb-2">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+                    placeholder="tu@email.com"
+                  />
+                </div>
+                <div>
+                  <label for="phone" class="block text-white font-medium mb-2">Teléfono</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+                    placeholder="+52 (123) 456-7890"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="service" class="block text-white font-medium mb-2">Servicio de Interés</label>
+                <select
+                  id="service"
+                  name="service"
+                  class="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all"
+                >
+                  <option value="" class="text-gray-900">Selecciona un servicio</option>
+                  {palette === 'ambiental' && (
+                    <>
+                      <option value="manifiesto-impacto" class="text-gray-900">Manifiesto de Impacto Ambiental</option>
+                      <option value="licencia-unica" class="text-gray-900">Licencia Ambiental Única</option>
+                      <option value="estudio-riesgo" class="text-gray-900">Estudio de Riesgo Ambiental</option>
+                      <option value="residuos-peligrosos" class="text-gray-900">Manejo de Residuos Peligrosos</option>
+                      <option value="hidrocarburos" class="text-gray-900">Sector Hidrocarburos</option>
+                      <option value="cedula-operacion" class="text-gray-900">Cédula de Operación Anual</option>
+                    </>
+                  )}
+                  {palette === 'drones' && (
+                    <>
+                      <option value="inspeccion-estructuras" class="text-gray-900">Inspección de Estructuras</option>
+                      <option value="mapeo-aereo" class="text-gray-900">Mapeo Aéreo</option>
+                      <option value="inspeccion-torres" class="text-gray-900">Inspección de Torres</option>
+                      <option value="supervision-obras" class="text-gray-900">Supervisión de Obras</option>
+                      <option value="fotogrametria" class="text-gray-900">Fotogrametría</option>
+                      <option value="termografia" class="text-gray-900">Termografía</option>
+                    </>
+                  )}
+                  {palette === 'cardinal' && (
+                    <>
+                      <option value="consultoria-industrial" class="text-gray-900">Consultoría Industrial</option>
+                      <option value="seguridad-industrial" class="text-gray-900">Seguridad Industrial</option>
+                      <option value="capacitacion" class="text-gray-900">Capacitación</option>
+                      <option value="proteccion-civil" class="text-gray-900">Protección Civil</option>
+                      <option value="calderas" class="text-gray-900">Calderas y Recipientes a Presión</option>
+                      <option value="tramites" class="text-gray-900">Trámites Gubernamentales</option>
+                    </>
+                  )}
+                  <option value="otro" class="text-gray-900">Otro servicio</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="message" class="block text-white font-medium mb-2">Describe tu Proyecto *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all resize-none"
+                  placeholder="Cuéntanos sobre tu proyecto, ubicación, tipo de industria y cualquier requerimiento específico..."
+                ></textarea>
+              </div>
+
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  required
+                  class="mt-1 mr-3 w-4 h-4 text-white bg-white/20 border-white/30 rounded focus:ring-white/50"
+                />
+                <label for="privacy" class="text-white/90 text-sm">
+                  Acepto el tratamiento de mis datos personales conforme a la 
+                  <a href="#" class="text-white underline hover:no-underline">Política de Privacidad</a>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class={`w-full bg-white hover:bg-gray-100 ${colors.text} font-bold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1`}
+              >
+                <i class="ri-send-plane-line mr-2"></i>
+                Solicitar Consulta Gratuita
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div class="space-y-8">
+            <!-- Quick Contact -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 class="text-2xl font-bold text-white mb-6">
+                Contacto Directo
+              </h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-4">
+                    <i class="ri-phone-line text-white text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-1">Teléfono</h4>
+                    <p class="text-white/90">+52 (228) 614 3923</p>
+                    <p class="text-white/70 text-sm">Lun - Vie: 9:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-4">
+                    <i class="ri-mail-line text-white text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-1">Email</h4>
+                    <p class="text-white/90">{content.email}</p>
+                    <p class="text-white/70 text-sm">Respuesta en 24 horas</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mr-4">
+                    <i class="ri-whatsapp-line text-white text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-1">WhatsApp</h4>
+                    <p class="text-white/90">+52 (228) 100 6400</p>
+                    <p class="text-white/70 text-sm">Consultas rápidas</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <h3 class="text-xl font-bold text-white mb-6">
+                ¿Por qué elegir Growling Group?
+              </h3>
+              
+              <div class="space-y-4">
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-white text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-white/90">Consulta inicial gratuita</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-white text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-white/90">Especialistas certificados</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-white text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-white/90">Garantía de aprobación</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-white text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-white/90">Seguimiento personalizado</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="ri-check-double-line text-white text-xl mr-3 flex-shrink-0"></i>
+                  <span class="text-white/90">Precios competitivos</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  // Form handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('environmental-contact-form');
+    
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Simple validation
+        if (!data.name || !data.email || !data.message) {
+          alert('Por favor, completa todos los campos obligatorios.');
+          return;
+        }
+        
+        // Simulate form submission
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        
+        submitButton.innerHTML = '<i class="ri-loader-4-line mr-2 animate-spin"></i>Enviando...';
+        submitButton.disabled = true;
+        
+        setTimeout(() => {
+          alert('¡Gracias por tu consulta! Nos pondremos en contacto contigo en las próximas 24 horas.');
+          form.reset();
+          submitButton.innerHTML = originalText;
+          submitButton.disabled = false;
+        }, 2000);
+      });
+    }
+  });
+</script>

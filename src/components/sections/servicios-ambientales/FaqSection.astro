@@ -1,0 +1,149 @@
+---
+import Button from "@components/ui/Button.astro";
+
+const faqs = [
+  {
+    question: "¿Cuánto tiempo toma obtener un Manifiesto de Impacto Ambiental?",
+    answer: "El tiempo varía según la complejidad del proyecto y la autoridad competente. Generalmente, un MIA modalidad particular toma entre 45-90 días, mientras que una modalidad regional puede extenderse hasta 180 días. Nuestro equipo acelera el proceso mediante una preparación meticulosa de la documentación."
+  },
+  {
+    question: "¿Qué diferencia hay entre trámites federales y estatales?",
+    answer: "Los trámites federales se gestionan ante SEMARNAT, ASEA o SENER para proyectos de gran escala o sectores específicos como hidrocarburos. Los estatales se manejan con autoridades locales para proyectos de menor impacto. Nuestro equipo identifica la jurisdicción correcta y optimiza el proceso según corresponda."
+  },
+  {
+    question: "¿Es obligatorio el Estudio de Riesgo Ambiental para mi empresa?",
+    answer: "Depende del tipo de actividad y las sustancias que manejes. Es obligatorio para instalaciones que manejan sustancias peligrosas en cantidades superiores a los umbrales establecidos en la normativa. Realizamos una evaluación gratuita para determinar si tu empresa requiere este estudio."
+  },
+  {
+    question: "¿Qué pasa si mi empresa no cumple con las regulaciones ambientales?",
+    answer: "Las sanciones pueden incluir multas significativas, clausura temporal o definitiva, y responsabilidad penal en casos graves. Además, puede afectar la reputación empresarial y las oportunidades de negocio. Nuestros servicios preventivos ayudan a evitar estas situaciones y mantener el cumplimiento continuo."
+  },
+  {
+    question: "¿Pueden ayudarme con trámites ya iniciados con otras consultoras?",
+    answer: "Sí, ofrecemos servicios de rescate y continuidad para trámites iniciados por otros consultores. Evaluamos el estado actual, identificamos deficiencias y desarrollamos una estrategia para completar exitosamente el proceso, ahorrando tiempo y recursos."
+  },
+  {
+    question: "¿Qué incluye el servicio de Cédula de Operación Anual?",
+    answer: "Incluye la recopilación de datos operativos, cálculo de emisiones, análisis de cumplimiento normativo, preparación de la documentación técnica, presentación ante la autoridad y seguimiento hasta la obtención de la resolución. También proporcionamos recomendaciones para mejorar el desempeño ambiental."
+  },
+  {
+    question: "¿Ofrecen garantía en sus servicios?",
+    answer: "Sí, garantizamos la aprobación de todos nuestros trámites cuando se siguen nuestras recomendaciones técnicas. En caso de observaciones por parte de la autoridad, las atendemos sin costo adicional. Nuestro compromiso es su éxito regulatorio."
+  },
+  {
+    question: "¿Cuál es la diferencia entre residuos peligrosos y de manejo especial?",
+    answer: "Los residuos peligrosos tienen características CRETIB (corrosivos, reactivos, explosivos, tóxicos, inflamables, biológico-infecciosos) y requieren manejo federal. Los de manejo especial no son peligrosos pero requieren control por su volumen o composición, manejándose a nivel estatal. Identificamos correctamente el tipo y gestionamos el registro correspondiente."
+  }
+];
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <div class="inline-flex items-center bg-ambiental/10 border border-ambiental/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-question-line text-ambiental mr-2"></i>
+          <span class="text-ambiental font-medium text-sm">Preguntas Frecuentes</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mb-6">
+          Resolvemos tus Dudas sobre 
+          <span class="text-ambiental">Consultoría Ambiental</span>
+        </h2>
+        <p class="text-lg text-neutral-600 leading-relaxed">
+          Las respuestas a las preguntas más comunes sobre nuestros servicios ambientales y procesos regulatorios.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="space-y-4 fade-in-section" style="animation-delay: 200ms">
+        {faqs.map((faq, index) => (
+          <div class="bg-neutral-200 rounded-xl shadow-sm border border-neutral-600 overflow-hidden">
+            <button 
+              class="faq-button w-full px-6 py-5 text-left flex items-center justify-between hover:bg-neutral-300 transition-colors duration-200 focus:outline-none focus:bg-neutral-300"
+              data-faq={index}
+            >
+              <span class="font-semibold text-neutral-900 pr-4">
+                {faq.question}
+              </span>
+              <div class="flex-shrink-0">
+                <i class="faq-icon ri-add-line text-ambiental text-xl transition-transform duration-200"></i>
+              </div>
+            </button>
+            
+            <div class="faq-content hidden px-6 pb-5">
+              <div class="pt-2 border-t border-neutral-600">
+                <p class="text-neutral-800 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="mt-16 text-center fade-in-section" style="animation-delay: 400ms">
+        <div class="bg-neutral-800 rounded-2xl shadow-lg p-8 lg:p-12">
+          <div class="max-w-2xl mx-auto">
+            <div class="w-16 h-16 bg-ambiental/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i class="ri-customer-service-line text-ambiental text-2xl"></i>
+            </div>
+            
+            <h3 class="text-2xl font-bold text-neutral-100 mb-4">
+              ¿Tienes una pregunta específica?
+            </h3>
+            <p class="text-neutral-400 mb-6">
+              Nuestro equipo de especialistas está disponible para resolver cualquier duda sobre regulaciones ambientales y nuestros servicios.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button text="Enviar consulta" href="#contacto" variant="fill" palette="ambiental" icon="ri-mail-line" />
+              <Button text="Llamar ahora" href="tel:+521234567890" variant="fill" palette="ambiental" icon="ri-phone-line" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  // FAQ Accordion functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqButtons = document.querySelectorAll('.faq-button');
+    
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const faqIndex = button.getAttribute('data-faq');
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isOpen = !content.classList.contains('hidden');
+        
+        // Close all other FAQs
+        faqButtons.forEach((otherButton, index) => {
+          if (otherButton !== button) {
+            const otherContent = otherButton.nextElementSibling;
+            const otherIcon = otherButton.querySelector('.faq-icon');
+            
+            otherContent.classList.add('hidden');
+            otherIcon.classList.remove('ri-subtract-line', 'rotate-180');
+            otherIcon.classList.add('ri-add-line');
+          }
+        });
+        
+        // Toggle current FAQ
+        if (isOpen) {
+          content.classList.add('hidden');
+          icon.classList.remove('ri-subtract-line', 'rotate-180');
+          icon.classList.add('ri-add-line');
+        } else {
+          content.classList.remove('hidden');
+          icon.classList.remove('ri-add-line');
+          icon.classList.add('ri-subtract-line', 'rotate-180');
+        }
+      });
+    });
+  });
+</script>

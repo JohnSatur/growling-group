@@ -6,6 +6,7 @@ import isoLogo from '@images/logos/iso-logo.png';
 import proteccionCivilLogo from '@images/logos/proteccion-civil-veracruz-logo.png';
 import emaLogo from '@images/logos/ema-logo.png';
 import isotipo from '@images/isotipo.png';
+import Logo from '@components/ui/Logo.astro';
 
 const certifications = [
   {
@@ -45,8 +46,9 @@ const certifications = [
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
-      <Image 
-        src={isotipo} 
+      <Logo 
+        palette="cardinal"
+        variant="isotipo"
         alt="Growling Group"
         width={120}
         class="mx-auto mb-6"

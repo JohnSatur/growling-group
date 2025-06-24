@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@images/logo.png';
+import logoBlanco from '@images/logo-blanco.png';
+import isotipo from '@images/isotipo.png';
+
+import logoAmbiental from '@images/logo-ambiental.png';
+import logoAmbientalBlanco from '@images/logo-ambiental-blanco.png';
+import isotipoAmbiental from '@images/isotipo-ambiental.png';
+
+import logoDrones from '@images/logo-drones.png';
+import logoDronesBlanco from '@images/logo-drones-blanco.png';
+import isotipoDrones from '@images/isotipo-drones.png';
+
+export interface Props {
+  palette?: 'cardinal' | 'ambiental' | 'drones';
+  variant?: 'color' | 'white' | 'isotipo';
+  width?: number;
+  height?: number;
+  class?: string;
+  alt?: string;
+}
+
+const { 
+  palette = 'cardinal', 
+  variant = 'color',
+  width = 150,
+  height,
+  class: additionalClass = '',
+  alt = 'Growling Group Logo'
+} = Astro.props;
+
+const logoMap = {
+  cardinal: {
+    color: logo,
+    white: logoBlanco,
+    isotipo: isotipo
+  },
+  ambiental: {
+    color: logoAmbiental,
+    white: logoAmbientalBlanco,
+    isotipo: isotipoAmbiental
+  },
+  drones: {
+    color: logoDrones,
+    white: logoDronesBlanco,
+    isotipo: isotipoDrones
+  }
+};
+
+const selectedLogo = logoMap[palette][variant];
+---
+
+<Image 
+  src={selectedLogo}
+  alt={alt}
+  width={width}
+  height={height}
+  class={`object-contain ${additionalClass}`}
+  loading="eager"
+/>

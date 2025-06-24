@@ -1,0 +1,305 @@
+---
+import Button from "@components/ui/Button.astro";
+
+const services = [
+  {
+    id: 1,
+    title: "Manifiesto de Impacto Ambiental",
+    description: "Análisis integral de riesgos y afectaciones ambientales para autorizar la operación de proyectos. Identificamos impactos, establecemos medidas preventivas y correctivas.",
+    icon: "ri-file-text-line",
+    category: "Evaluación",
+    authority: "Estatal/Federal",
+    duration: "45-90 días"
+  },
+  {
+    id: 2,
+    title: "Modificación a Proyectos Autorizados",
+    description: "Gestión especializada para sustentar modificaciones a manifiestos autorizados, adaptando términos y condiciones según nuevos requerimientos operativos.",
+    icon: "ri-edit-line",
+    category: "Modificación",
+    authority: "Según proyecto",
+    duration: "30-60 días"
+  },
+  {
+    id: 3,
+    title: "Informe Preventivo",
+    description: "Trámite preventivo para demostrar viabilidad del proyecto ante autoridades, realizado previo al manifiesto de impacto ambiental.",
+    icon: "ri-shield-check-line",
+    category: "Preventivo",
+    authority: "Estatal/Federal",
+    duration: "20-45 días"
+  },
+  {
+    id: 4,
+    title: "Estudio de Evaluación de Daños Ambientales",
+    description: "Análisis técnico especializado para determinar daños o impactos en áreas explotadas, con metodologías científicas reconocidas.",
+    icon: "ri-search-line",
+    category: "Evaluación",
+    authority: "Federal",
+    duration: "60-120 días"
+  },
+  {
+    id: 5,
+    title: "Estudio de Riesgo Ambiental",
+    description: "Identificación, análisis y evaluación de riesgos industriales sobre medio ambiente y población, especialmente por manejo de sustancias peligrosas.",
+    icon: "ri-alert-line",
+    category: "Riesgo",
+    authority: "Federal",
+    duration: "45-90 días"
+  },
+  {
+    id: 6,
+    title: "Programa para la Prevención de Accidentes",
+    description: "Desarrollo de medidas, procedimientos y acciones concretas para prevenir accidentes en instalaciones con sustancias peligrosas o actividades de alto riesgo.",
+    icon: "ri-shield-line",
+    category: "Prevención",
+    authority: "Federal",
+    duration: "30-60 días"
+  },
+  {
+    id: 7,
+    title: "Análisis de Riesgo del Sector Hidrocarburos",
+    description: "Análisis técnicos especializados para crear sistemas de respuesta en el manejo correcto de hidrocarburos, incluyendo gasolineras.",
+    icon: "ri-oil-line",
+    category: "Hidrocarburos",
+    authority: "ASEA",
+    duration: "45-75 días"
+  },
+  {
+    id: 8,
+    title: "Protocolo de Respuesta a Emergencias",
+    description: "Desarrollo de programas de respuesta a emergencias derivados de análisis de riesgo para el sector hidrocarburos.",
+    icon: "ri-alarm-warning-line",
+    category: "Emergencias",
+    authority: "ASEA",
+    duration: "30-45 días"
+  },
+  {
+    id: 9,
+    title: "Impacto Social",
+    description: "Análisis de causas y consecuencias sociales en la creación de negocios en zonas habitadas, bajo competencia de SENER.",
+    icon: "ri-community-line",
+    category: "Social",
+    authority: "SENER",
+    duration: "60-90 días"
+  },
+  {
+    id: 10,
+    title: "Memoria Técnica Descriptiva",
+    description: "Elaboración de memoria técnica con datos catastrales, topográficos, análisis de riesgos, cartografía y metodologías explicativas de actividades.",
+    icon: "ri-map-line",
+    category: "Técnico",
+    authority: "Según caso",
+    duration: "15-30 días"
+  },
+  {
+    id: 11,
+    title: "Licencia Ambiental Única",
+    description: "Autorización federal integral de SEMARNAT que unifica múltiples permisos y registros ambientales para instalaciones industriales federales.",
+    icon: "ri-award-line",
+    category: "Licencias",
+    authority: "SEMARNAT",
+    duration: "90-180 días"
+  },
+  {
+    id: 12,
+    title: "Cédula de Operación Anual",
+    description: "Informe técnico anual obligatorio declarando emisiones contaminantes, manejo de residuos, uso de recursos naturales y cumplimiento regulatorio.",
+    icon: "ri-calendar-check-line",
+    category: "Reportes",
+    authority: "SEMARNAT/Estatal",
+    duration: "Anual"
+  },
+  {
+    id: 13,
+    title: "Licencia de Funcionamiento Ambiental",
+    description: "Autorización estatal para inicio o continuación de operaciones de establecimientos con potencial impacto ambiental local.",
+    icon: "ri-building-2-line",
+    category: "Licencias",
+    authority: "Estatal",
+    duration: "30-60 días"
+  },
+  {
+    id: 14,
+    title: "Registro como Generador de Residuos",
+    description: "Trámite obligatorio para empresas generadoras de residuos peligrosos o de manejo especial, con control y seguimiento ambiental.",
+    icon: "ri-recycle-line",
+    category: "Residuos",
+    authority: "Federal/Estatal",
+    duration: "20-45 días"
+  },
+  {
+    id: 15,
+    title: "Plan de Manejo de Residuos Peligrosos",
+    description: "Instrumento técnico-normativo para identificación, clasificación, almacenamiento, transporte, tratamiento y disposición de residuos peligrosos.",
+    icon: "ri-delete-bin-line",
+    category: "Residuos",
+    authority: "Federal",
+    duration: "30-60 días"
+  },
+  {
+    id: 16,
+    title: "Impacto Vial",
+    description: "Cálculo y análisis de afectaciones viales por circulación vehicular de centros de trabajo específicos ante autoridades estatales o municipales.",
+    icon: "ri-roadster-line",
+    category: "Vial",
+    authority: "Estatal/Municipal",
+    duration: "20-40 días"
+  }
+];
+
+const categories = [
+  { name: "Todos", value: "all", icon: "ri-apps-line" },
+  { name: "Evaluación", value: "Evaluación", icon: "ri-search-line" },
+  { name: "Licencias", value: "Licencias", icon: "ri-award-line" },
+  { name: "Residuos", value: "Residuos", icon: "ri-recycle-line" },
+  { name: "Riesgo", value: "Riesgo", icon: "ri-alert-line" },
+  { name: "Hidrocarburos", value: "Hidrocarburos", icon: "ri-oil-line" }
+];
+---
+
+<section id="servicios" class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <div class="inline-flex items-center bg-ambiental/10 border border-ambiental/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-leaf-line text-ambiental mr-2"></i>
+          <span class="text-ambiental font-medium text-sm">Servicios Especializados</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-ambiental mb-6">
+          Nuestros Servicios Ambientales
+        </h2>
+        <p class="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+          Ofrecemos 16 servicios especializados que cubren todo el espectro de necesidades ambientales empresariales, desde evaluaciones de impacto hasta gestión integral de residuos.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-12 fade-in-section" style="animation-delay: 200ms">
+        {categories.map((category, index) => (
+          <button 
+            class={`filter-btn px-4 py-2 rounded-full border transition-all duration-300 ${index === 0 ? 'bg-ambiental text-neutral-900 border-ambiental' : 'bg-neutral-300 text-neutral-700 border-neutral-600 hover:border-ambiental hover:text-neutral-900'}`}
+            data-filter={category.value}
+          >
+            <i class={`${category.icon} mr-2`}></i>
+            {category.name}
+          </button>
+        ))}
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
+        {services.map((service, index) => (
+          <div 
+            class={`service-card fade-in-section bg-neutral-100 rounded-xl shadow-lg border border-neutral-600 hover:border-ambiental/30 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden`}
+            style={`animation-delay: ${(index % 6) * 100}ms`}
+            data-category={service.category}
+          >
+            <!-- Card Header -->
+            <div class="p-6 pb-4">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-12 h-12 bg-ambiental/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class={`${service.icon} text-ambiental text-xl`}></i>
+                </div>
+                <span class="text-xs bg-neutral-100 text-neutral-600 px-2 py-1 rounded-full">
+                  {service.category}
+                </span>
+              </div>
+
+              <h3 class="text-lg font-bold text-neutral-900 mb-3 leading-tight">
+                {service.title}
+              </h3>
+              
+              <p class="text-neutral-600 text-sm leading-relaxed mb-4">
+                {service.description}
+              </p>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="px-6 pb-6">
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-xs text-neutral-500">
+                  <i class="ri-government-line mr-2"></i>
+                  <span><strong>Autoridad:</strong> {service.authority}</span>
+                </div>
+                <div class="flex items-center text-xs text-neutral-500">
+                  <i class="ri-time-line mr-2"></i>
+                  <span><strong>Duración:</strong> {service.duration}</span>
+                </div>
+              </div>
+
+              <button class="w-full bg-ambiental/5 hover:bg-ambiental hover:text-white text-ambiental font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                Solicitar Información
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-16 text-center fade-in-section" style="animation-delay: 800ms">
+        <div class="bg-gradient-to-br from-ambiental/50 to-ambiental/90 rounded-2xl p-8 lg:p-12">
+          <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+            ¿No encuentras el servicio que necesitas?
+          </h3>
+          <p class="text-neutral-800 mb-6 max-w-2xl mx-auto">
+            Nuestro equipo de especialistas puede desarrollar soluciones personalizadas para tus necesidades específicas de consultoría ambiental.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button text="Consulta personalizada" href="#contacto" variant="fill" palette="ambiental" icon="ri-arrow-right-line" />
+            <Button text="Llamar ahora" href="tel:+521234567890" variant="outline" palette="ambiental" icon="ri-phone-line" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  // Service filtering functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-ambiental', 'text-white', 'border-ambiental');
+          btn.classList.add('bg-neutral-300', 'text-neutral-600', 'border-neutral-300');
+        });
+        
+        button.classList.remove('bg-neutral-300', 'text-neutral-600', 'border-neutral-300');
+        button.classList.add('bg-ambiental', 'text-neutral-900', 'border-ambiental');
+
+        // Filter cards
+        serviceCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          
+          if (filter === 'all' || cardCategory === filter) {
+            card.style.display = 'block';
+            card.classList.add('fade-in-section');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Service card click handlers
+    const serviceButtons = document.querySelectorAll('.service-card button');
+    serviceButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Scroll to contact section
+        document.getElementById('contacto')?.scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      });
+    });
+  });
+</script>
