@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas';
 }
 
 const { palette = 'cardinal' } = Astro.props;
@@ -24,6 +24,12 @@ const colorClasses = {
     text: 'text-drones',
     bg: 'bg-drones',
     hover: 'hover:bg-drones/10'
+  },
+  calderas: {
+    gradient: 'from-calderas to-calderas/90',
+    text: 'text-calderas',
+    bg: 'bg-calderas',
+    hover: 'hover:bg-calderas/10'
   }
 };
 
@@ -46,6 +52,12 @@ const sectionContent = {
   drones: {
     title: "Comienza tu Proyecto de Inspección Hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de inspección con drones perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  },
+  calderas: {
+    title: "Comienza tu Proyecto de Calderas y Recipientes a Presión Hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de calderas y recipientes a presión perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   }

@@ -1,0 +1,136 @@
+---
+import Button from "@components/ui/Button.astro";
+
+const services = [
+  {
+    id: 1,
+    title: "Verificación NOM-020-STPS-2011",
+    description: "Inspecciones técnicas especializadas para recipientes sujetos a presión, calderas y recipientes criogénicos. Verificación del cumplimiento normativo para garantizar la seguridad operacional conforme a estándares mexicanos.",
+    icon: "ri-shield-check-line",
+    normativa: "NOM-020-STPS-2011",
+    duration: "3-5 días"
+  },
+  {
+    id: 2,
+    title: "Capacitación para Operadores",
+    description: "Cursos especializados para operar recipientes sujetos a presión de manera segura. Capacitación certificada que incluye teoría, práctica y evaluación para garantizar competencias operacionales.",
+    icon: "ri-graduation-cap-line",
+    normativa: "Certificación oficial",
+    duration: "2-3 días"
+  },
+  {
+    id: 3,
+    title: "Pruebas Hidrostáticas",
+    description: "Pruebas de presión hidrostática para verificar la integridad estructural de recipientes y calderas. Ensayos controlados que detectan defectos, grietas o debilidades en equipos a presión.",
+    icon: "ri-drop-line",
+    normativa: "Estándar internacional",
+    duration: "1-2 días"
+  },
+  {
+    id: 4,
+    title: "Ensayos No Destructivos",
+    description: "Técnicas avanzadas de inspección sin daño al equipo: ultrasonido, partículas magnéticas, líquidos penetrantes y radiografía. Detección precisa de defectos internos y superficiales.",
+    icon: "ri-scan-line",
+    normativa: "Métodos certificados",
+    duration: "2-4 días"
+  }
+];
+---
+
+<section id="servicios" class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <div class="inline-flex items-center bg-calderas/10 border border-calderas/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-shield-check-line text-calderas mr-2"></i>
+          <span class="text-calderas font-medium text-sm">Servicios Especializados</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-calderas mb-6">
+          Servicios de Calderas y Recipientes a Presión
+        </h2>
+        <p class="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+          Ofrecemos 4 servicios especializados para garantizar la seguridad operacional de equipos a presión: verificación NOM-020, capacitación certificada, pruebas hidrostáticas y ensayos no destructivos.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="services-grid">
+        {services.map((service, index) => (
+          <div 
+            class={`service-card fade-in-section bg-neutral-100 rounded-xl shadow-lg border border-neutral-600 hover:border-calderas/30 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden`}
+            style={`animation-delay: ${(index % 4) * 100}ms`}
+          >
+            <!-- Card Header -->
+            <div class="p-6 pb-4">
+              <div class="flex items-start justify-between mb-4">
+                <div class="w-12 h-12 bg-calderas/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class={`${service.icon} text-calderas text-xl`}></i>
+                </div>
+              </div>
+
+              <h3 class="text-lg font-bold text-neutral-900 mb-3 leading-tight">
+                {service.title}
+              </h3>
+              
+              <p class="text-neutral-600 text-sm leading-relaxed mb-4">
+                {service.description}
+              </p>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="px-6 pb-6">
+              <div class="space-y-2 mb-4">
+                <div class="flex items-center text-xs text-neutral-500">
+                  <i class="ri-bookmark-line mr-2"></i>
+                  <span><strong>Normativa:</strong> {service.normativa}</span>
+                </div>
+                <div class="flex items-center text-xs text-neutral-500">
+                  <i class="ri-time-line mr-2"></i>
+                  <span><strong>Duración:</strong> {service.duration}</span>
+                </div>
+              </div>
+
+              <button class="w-full bg-calderas/5 hover:bg-calderas hover:text-white text-calderas font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                Solicitar Información
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-16 text-center fade-in-section" style="animation-delay: 800ms">
+        <div class="bg-gradient-to-br from-calderas/50 to-calderas/90 rounded-2xl p-8 lg:p-12">
+          <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+            ¿Necesitas verificación o capacitación especializada?
+          </h3>
+          <p class="text-neutral-800 mb-6 max-w-2xl mx-auto">
+            Nuestro equipo de ingenieros certificados puede adaptar nuestros servicios de calderas y recipientes a presión a tus necesidades específicas de seguridad industrial.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button text="Solicitar inspección" href="#contacto" variant="fill" palette="calderas" icon="ri-arrow-right-line" />
+            <Button text="Llamar ahora" href="tel:+521234567890" variant="outline" palette="calderas" icon="ri-phone-line" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  // Service card click handlers
+  document.addEventListener('DOMContentLoaded', () => {
+    const serviceButtons = document.querySelectorAll('.service-card button');
+    serviceButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Scroll to contact section
+        document.getElementById('contacto')?.scrollIntoView({ 
+          behavior: 'smooth' 
+        });
+      });
+    });
+  });
+</script>

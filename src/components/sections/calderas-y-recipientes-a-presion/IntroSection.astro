@@ -1,0 +1,184 @@
+---
+import { Image } from "astro:assets";
+import equipoDron from '@images/equipo-dron.jpg';
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Main Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Image/Visual Content -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div class="relative">
+            <div
+              class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <Image
+                src={equipoDron}
+                alt="Equipo de ingenieros especializados en calderas y recipientes a presión"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Decorative Elements -->
+            <div
+              class="absolute -bottom-6 -right-6 w-24 h-24 bg-calderas/10 rounded-full -z-10"
+            >
+            </div>
+            <div
+              class="absolute -top-6 -left-6 w-16 h-16 bg-neutral-200 rounded-full -z-10"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="fade-in-section">
+          <div
+            class="inline-flex items-center bg-calderas/10 border border-calderas/20 rounded-full px-4 py-2 mb-6"
+          >
+            <i class="ri-shield-check-line text-calderas mr-2"></i>
+            <span class="text-calderas font-medium text-sm"
+              >¿Por qué elegir Growling Group?</span
+            >
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mb-6">
+            Especialistas en Calderas y Recipientes a Presión con
+            <span class="text-calderas">Certificación NOM-020</span>
+          </h2>
+
+          <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+            En Growling Group garantizamos la seguridad operacional de equipos a presión 
+            mediante verificaciones técnicas especializadas. Nuestro equipo de ingenieros 
+            certificados realiza inspecciones conforme a la NOM-020-STPS-2011, pruebas 
+            hidrostáticas y ensayos no destructivos para asegurar el cumplimiento normativo 
+            y la protección del personal.
+          </p>
+
+          <p class="text-neutral-600 leading-relaxed mb-8">
+            Ofrecemos servicios integrales desde verificación de calderas, recipientes sujetos 
+            a presión y equipos criogénicos, hasta capacitación especializada para operadores. 
+            Realizamos pruebas hidrostáticas, ensayos no destructivos y programas de 
+            capacitación certificada, garantizando operación segura y cumplimiento con la 
+            normativa mexicana de seguridad e higiene.
+          </p>
+
+          <!-- Key Differentiators -->
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-calderas/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-calderas text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Verificación NOM-020-STPS-2011
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Inspecciones técnicas especializadas para calderas, recipientes 
+                  sujetos a presión y equipos criogénicos con certificación oficial.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-calderas/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-calderas text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Pruebas Hidrostáticas
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Pruebas de presión hidrostática y ensayos no destructivos para 
+                  verificar integridad estructural y seguridad operacional.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-calderas/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-calderas text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Capacitación Certificada
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Cursos especializados para operadores de recipientes a presión 
+                  con certificación oficial y cumplimiento normativo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="fade-in-section" style="animation-delay: 400ms">
+        <div
+          class="bg-neutral-900 rounded-2xl shadow-lg border border-neutral-100 p-8 lg:p-12"
+        >
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-100 mb-4">
+              Números que Respaldan Nuestra Experiencia
+            </h3>
+            <p class="text-neutral-300">
+              Resultados tangibles en inspección de equipos a presión y capacitación
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-calderas/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-tools-line text-calderas text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-calderas mb-2">4</div>
+              <div class="text-neutral-300 text-sm">
+                Servicios Especializados
+              </div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-calderas/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-shield-check-line text-calderas text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-calderas mb-2">200+</div>
+              <div class="text-neutral-300 text-sm">Equipos Inspeccionados</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-calderas/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-graduation-cap-line text-calderas text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-calderas mb-2">150+</div>
+              <div class="text-neutral-300 text-sm">Operadores Capacitados</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-calderas/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-check-double-line text-calderas text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-calderas mb-2">100%</div>
+              <div class="text-neutral-300 text-sm">Cumplimiento NOM-020</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

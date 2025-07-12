@@ -28,6 +28,30 @@
   --color-ambiental-950: var(--ambiental-950);
 
   --color-drones: var(--drones);
+  --color-drones-50: var(--drones-50);
+  --color-drones-100: var(--drones-100);
+  --color-drones-200: var(--drones-200);
+  --color-drones-300: var(--drones-300);
+  --color-drones-400: var(--drones-400);
+  --color-drones-500: var(--drones-500);
+  --color-drones-600: var(--drones-600);
+  --color-drones-700: var(--drones-700);
+  --color-drones-800: var(--drones-800);
+  --color-drones-900: var(--drones-900);
+  --color-drones-950: var(--drones-950);
+
+  --color-calderas: var(--calderas);
+  --color-calderas-50: var(--calderas-50);
+  --color-calderas-100: var(--calderas-100);
+  --color-calderas-200: var(--calderas-200);
+  --color-calderas-300: var(--calderas-300);
+  --color-calderas-400: var(--calderas-400);
+  --color-calderas-500: var(--calderas-500);
+  --color-calderas-600: var(--calderas-600);
+  --color-calderas-700: var(--calderas-700);
+  --color-calderas-800: var(--calderas-800);
+  --color-calderas-900: var(--calderas-900);
+  --color-calderas-950: var(--calderas-950);
 
   --color-background: var(--background);
 
@@ -79,6 +103,31 @@
   --ambiental-950: #111c02;
 
   --color-drones: #55B2FF;
+  --color-drones-50: #eaf6fe;
+  --color-drones-100: #d4ecfd;
+  --color-drones-200: #a8d9fb;
+  --color-drones-300: #7cc6f9;
+  --color-drones-400: #50b3f7;
+  --color-drones-500: #55B2FF;
+  --color-drones-600: #1e8ee6;
+  --color-drones-700: #176fb3;
+  --color-drones-800: #115080;
+  --color-drones-900: #0a304d;
+  --color-drones-950: #061726;
+
+  --color-calderas: #F68D03;
+  --color-calderas-50: #FFF3E6;
+  --color-calderas-100: #FFE6CC;
+  --color-calderas-200: #FFD9B3;
+  --color-calderas-300: #FFCC99;
+  --color-calderas-400: #FFBF80;
+  --color-calderas-500: #F68D03;
+  --color-calderas-600: #E68003;
+  --color-calderas-700: #D97303;
+  --color-calderas-800: #CC6603;
+  --color-calderas-900: #BF5903;
+  --color-calderas-950: #B24C03;
+  
 
   --background: #f5f5f5;
 
@@ -125,6 +174,30 @@
   --ambiental-950: #f0fbe6;
 
   --color-drones: #55B2FF;
+  --color-drones-50: #061726;
+  --color-drones-100: #0a304d;
+  --color-drones-200: #115080;
+  --color-drones-300: #176fb3;
+  --color-drones-400: #1e8ee6;
+  --color-drones-500: #55B2FF;
+  --color-drones-600: #7cc6f9;
+  --color-drones-700: #a8d9fb;
+  --color-drones-800: #d4ecfd;
+  --color-drones-900: #eaf6fe;
+  --color-drones-950: #f8fbff;
+
+  --color-calderas: #F68D03;
+  --color-calderas-50: #B24C03;
+  --color-calderas-100: #CC6603;
+  --color-calderas-200: #D97303;
+  --color-calderas-300: #E68003;
+  --color-calderas-400: #F68D03;
+  --color-calderas-500: #FFBF80;
+  --color-calderas-600: #FFCC99;
+  --color-calderas-700: #FFD9B3;
+  --color-calderas-800: #FFE6CC;
+  --color-calderas-900: #FFF3E6;
+  --color-calderas-950: #FFF9F2;
 
   --background: #151823;
 

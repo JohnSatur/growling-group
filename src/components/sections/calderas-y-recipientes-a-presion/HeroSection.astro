@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '@images/calderas.jpg';
+import Button from '@components/ui/Button.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0 select-none">
+    <Image 
+      src={heroImage}
+      width={1920}
+      height={1080}
+      alt="Equipo profesional de Growling Group"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-background/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-dark-100/80 via-dark-100/60 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+    <div class="max-w-4xl mx-auto lg:mx-0">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight fade-in-section">
+        Calderas y recipientes <br />
+        <span class="text-calderas">a presión seguros</span>
+      </h1>
+      
+      <h2 class="text-xl md:text-2xl text-neutral-800 mb-8 leading-relaxed max-w-3xl fade-in-section" style="animation-delay: 200ms">
+        Especialistas en verificación NOM-020-STPS-2011, pruebas hidrostáticas y capacitación certificada para operar equipos a presión con total seguridad.
+      </h2>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-section" style="animation-delay: 400ms">
+        
+        <Button text="Ver servicios NOM-020" href="#servicios" variant="fill" icon="ri-arrow-down-line" palette="calderas" />
+        
+        <Button text="Solicitar inspección" href="#contacto" variant="outline" icon="ri-arrow-right-line" palette="calderas" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -12,8 +12,12 @@ import logoDrones from '@images/logo-drones.png';
 import logoDronesBlanco from '@images/logo-drones-blanco.png';
 import isotipoDrones from '@images/isotipo-drones.png';
 
+import logoCalderas from '@images/logo-calderas.png';
+import logoCalderasBlanco from '@images/logo-calderas-blanco.png';
+import isotipoCalderas from '@images/isotipo-calderas.png';
+
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas';
   variant?: 'color' | 'white' | 'isotipo';
   width?: number;
   height?: number;
@@ -45,6 +49,11 @@ const logoMap = {
     color: logoDrones,
     white: logoDronesBlanco,
     isotipo: isotipoDrones
+  },
+  calderas: {
+    color: logoCalderas,
+    white: logoCalderasBlanco,
+    isotipo: isotipoCalderas
   }
 };
 

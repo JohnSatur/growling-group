@@ -5,7 +5,7 @@ import isotipo from '@images/isotipo.png';
 import { Image } from 'astro:assets';
 
 interface Props {
-	palette?: 'cardinal' | 'ambiental' | 'drones';
+	palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas';
 }
 
 const { palette = 'cardinal' }: Props = Astro.props;
@@ -29,6 +29,12 @@ const colorClasses = {
     text: 'text-drones',
     bg: 'bg-drones',
     border: 'border-drones bg-drones'
+  },
+  calderas: {
+    hover: 'hover:text-calderas',
+    text: 'text-calderas',
+    bg: 'bg-calderas',
+    border: 'border-calderas bg-calderas'
   }
 };
 
