@@ -4,76 +4,44 @@ import Button from "@components/ui/Button.astro";
 const services = [
   {
     id: 1,
-    title: "Inspección Térmica",
-    description: "Análisis termográfico con cámara Zenmuse H20T y sensor térmico calibrado por laboratorio de trazabilidad. Detecta variaciones de temperatura en procesos industriales, sistemas eléctricos y herramientas de aislamiento térmico.",
-    icon: "ri-temp-hot-line",
-    category: "Termografía",
-    equipment: "Zenmuse H20T",
-    duration: "1-2 días"
+    title: "Brigadas de protección civil",
+    description: "Formación integral de brigadas para la prevención, respuesta y control de emergencias en centros de trabajo, conforme a la normatividad vigente.",
+    icon: "ri-shield-cross-line",
+    detail: "Modalidad presencial y mixta",
+    duration: "8-16 horas"
   },
   {
     id: 2,
-    title: "Fotogrametría",
-    description: "Técnica avanzada para crear mapas, modelos 3D y ortomosaicos de alta precisión mediante fotografías aéreas. Integra coordenadas geográficas con georeferenciación topográfica de máxima calidad.",
-    icon: "ri-camera-line",
-    category: "Mapeo",
-    equipment: "Cámara alta resolución",
-    duration: "2-3 días"
+    title: "Seguridad e higiene industrial",
+    description: "Capacitación especializada en seguridad y salud laboral para la prevención de riesgos y cumplimiento normativo. Consulta nuestro catálogo.",
+    icon: "ri-brush-ai-fill",
+    detail: "Catálogo disponible",
+    duration: "Variable"
   },
   {
     id: 3,
-    title: "Video Grabación de Eventos",
-    description: "Grabación aérea profesional de eventos masivos con cálculos precisos de afluencia. Análisis de multitudes y estimación aproximada de asistentes mediante técnicas de conteo automatizado.",
-    icon: "ri-vidicon-line",
-    category: "Eventos",
-    equipment: "Dron con 4K",
-    duration: "1 día"
+    title: "Estándares red CONOCER",
+    description: "Certificación de competencias laborales bajo estándares oficiales de la Red CONOCER, avalados por la SEP.",
+    icon: "ri-medal-line",
+    detail: "Certificación oficial",
+    duration: "De acuerdo al estándar"
   },
   {
     id: 4,
-    title: "Vigilancia Territorial",
-    description: "Monitoreo automatizado de instalaciones de gran tamaño mediante vuelos programados. Sistema de vigilancia continua para seguridad perimetral y control territorial de activos industriales.",
-    icon: "ri-eye-line",
-    category: "Vigilancia",
-    equipment: "Vuelos automatizados",
-    duration: "Continuo"
+    title: "Titulación por experiencia",
+    description: "Proceso de titulación profesional mediante la validación de experiencia laboral y competencias adquiridas en el campo.",
+    icon: "ri-graduation-cap-line",
+    detail: "Reconocimiento SEP",
+    duration: "Variable"
   },
   {
     id: 5,
-    title: "Levantamiento con Sensor LiDAR",
-    description: "Tecnología láser aerotransportada para modelos 3D ultra precisos del terreno y estructuras. Penetra vegetación densa y genera nubes de puntos detalladas para análisis topográfico avanzado.",
-    icon: "ri-scan-line",
-    category: "LiDAR",
-    equipment: "Sensor láser LiDAR",
-    duration: "2-4 días"
-  },
-  {
-    id: 6,
-    title: "Inspecciones Estructurales",
-    description: "Inspección segura de techados, estructuras elevadas, paneles solares y áreas de difícil acceso. Diagnóstico detallado sin riesgo para el personal, reduciendo tiempos y costos operativos.",
-    icon: "ri-building-line",
-    category: "Inspección",
-    equipment: "Dron especializado",
-    duration: "1-2 días"
-  },
-  {
-    id: 7,
-    title: "Planeación Territorial",
-    description: "Levantamientos especializados para catastros municipales. Correlación con registros históricos para detectar cambios morfológicos y verificar cumplimiento en pagos prediales y permisos de obra.",
-    icon: "ri-map-2-line",
-    category: "Catastro",
-    equipment: "Sistema georeferenciado",
-    duration: "3-5 días"
+    title: "Cumplimiento de programas de capacitación STPS",
+    description: "Diseño, implementación y seguimiento de programas de capacitación alineados a los requerimientos de la STPS.",
+    icon: "ri-briefcase-4-line",
+    detail: "Programas personalizados",
+    duration: "Según programa"
   }
-];
-
-const categories = [
-  { name: "Todos", value: "all", icon: "ri-apps-line" },
-  { name: "Termografía", value: "Termografía", icon: "ri-temp-hot-line" },
-  { name: "Mapeo", value: "Mapeo", icon: "ri-camera-line" },
-  { name: "LiDAR", value: "LiDAR", icon: "ri-scan-line" },
-  { name: "Inspección", value: "Inspección", icon: "ri-building-line" },
-  { name: "Vigilancia", value: "Vigilancia", icon: "ri-eye-line" }
 ];
 ---
 
@@ -82,48 +50,34 @@ const categories = [
     <div class="container mx-auto">
       <!-- Header -->
       <div class="text-center mb-16 fade-in-section">
-        <div class="inline-flex items-center bg-drones/10 border border-drones/20 rounded-full px-4 py-2 mb-6">
-          <i class="ri-drone-line text-drones mr-2"></i>
-          <span class="text-drones font-medium text-sm">Servicios Especializados</span>
+        <div class="inline-flex items-center bg-capacitacion/10 border border-capacitacion/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-book-open-line text-capacitacion mr-2"></i>
+          <span class="text-capacitacion font-medium text-sm">Capacitación Certificada</span>
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-bold text-drones mb-6">
-          Servicios de Inspección con Drones
+        <h2 class="text-3xl md:text-4xl font-bold text-capacitacion mb-6">
+          Servicios de Capacitación y Certificación
         </h2>
         <p class="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-          Ofrecemos 7 servicios especializados con tecnología de drones de vanguardia: desde termografía certificada hasta levantamientos LiDAR de alta precisión, cubriendo todas las necesidades de inspección aérea.
+          Ofrecemos programas de capacitación certificados, alineados a la normatividad nacional, para el desarrollo de competencias laborales, cumplimiento legal y profesionalización de tu equipo.
         </p>
       </div>
 
-      <!-- Filter Tabs -->
-      <div class="flex flex-wrap justify-center gap-2 mb-12 fade-in-section" style="animation-delay: 200ms">
-        {categories.map((category, index) => (
-          <button 
-            class={`filter-btn px-4 py-2 rounded-full border transition-all duration-300 ${index === 0 ? 'bg-drones text-neutral-900 border-drones' : 'bg-neutral-300 text-neutral-700 border-neutral-600 hover:border-drones hover:text-neutral-900'}`}
-            data-filter={category.value}
-          >
-            <i class={`${category.icon} mr-2`}></i>
-            {category.name}
-          </button>
-        ))}
-      </div>
-
       <!-- Services Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="services-grid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
         {services.map((service, index) => (
           <div 
-            class={`service-card fade-in-section bg-neutral-100 rounded-xl shadow-lg border border-neutral-600 hover:border-drones/30 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden`}
+            class={`service-card fade-in-section bg-neutral-100 rounded-xl shadow-lg border border-neutral-600 hover:border-capacitacion/30 transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 overflow-hidden`}
             style={`animation-delay: ${(index % 6) * 100}ms`}
-            data-category={service.category}
           >
             <!-- Card Header -->
             <div class="p-6 pb-4">
               <div class="flex items-start justify-between mb-4">
-                <div class="w-12 h-12 bg-drones/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <i class={`${service.icon} text-drones text-xl`}></i>
+                <div class="w-12 h-12 bg-capacitacion/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i class={`${service.icon} text-capacitacion text-xl`}></i>
                 </div>
                 <span class="text-xs bg-neutral-100 text-neutral-600 px-2 py-1 rounded-full">
-                  {service.category}
+                  Capacitación
                 </span>
               </div>
 
@@ -140,8 +94,8 @@ const categories = [
             <div class="px-6 pb-6">
               <div class="space-y-2 mb-4">
                 <div class="flex items-center text-xs text-neutral-500">
-                  <i class="ri-tools-line mr-2"></i>
-                  <span><strong>Equipo:</strong> {service.equipment}</span>
+                  <i class="ri-information-line mr-2"></i>
+                  <span><strong>Detalle:</strong> {service.detail}</span>
                 </div>
                 <div class="flex items-center text-xs text-neutral-500">
                   <i class="ri-time-line mr-2"></i>
@@ -149,7 +103,7 @@ const categories = [
                 </div>
               </div>
 
-              <button class="w-full bg-drones/5 hover:bg-drones hover:text-white text-drones font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+              <button class="w-full bg-capacitacion/5 hover:bg-capacitacion hover:text-white text-capacitacion font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm">
                 Solicitar Información
               </button>
             </div>
@@ -159,16 +113,16 @@ const categories = [
 
       <!-- CTA Section -->
       <div class="mt-16 text-center fade-in-section" style="animation-delay: 800ms">
-        <div class="bg-gradient-to-br from-drones/50 to-drones/90 rounded-2xl p-8 lg:p-12">
+        <div class="bg-gradient-to-br from-capacitacion/50 to-capacitacion/90 rounded-2xl p-8 lg:p-12">
           <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
-            ¿Necesitas una inspección personalizada?
+            ¿Buscas capacitación a la medida?
           </h3>
           <p class="text-neutral-800 mb-6 max-w-2xl mx-auto">
-            Nuestro equipo de pilotos certificados puede adaptar nuestros servicios de drones a tus necesidades específicas de inspección y monitoreo.
+            Nuestro equipo de instructores certificados puede diseñar programas de formación y certificación adaptados a las necesidades de tu organización.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button text="Solicitar cotización" href="#contacto" variant="fill" palette="drones" icon="ri-arrow-right-line" />
-            <Button text="Llamar ahora" href="tel:+521234567890" variant="outline" palette="drones" icon="ri-phone-line" />
+            <Button text="Solicitar cotización" href="#contacto" variant="fill" palette="capacitacion" icon="ri-arrow-right-line" />
+            <Button text="Llamar ahora" href="tel:+521234567890" variant="outline" palette="capacitacion" icon="ri-phone-line" />
           </div>
         </div>
       </div>
@@ -177,39 +131,8 @@ const categories = [
 </section>
 
 <script type="module">
-  // Service filtering functionality
+  // Service card click handlers
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const serviceCards = document.querySelectorAll('.service-card');
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        
-        // Update active button
-        filterButtons.forEach(btn => {
-          btn.classList.remove('bg-drones', 'text-white', 'border-drones');
-          btn.classList.add('bg-neutral-300', 'text-neutral-600', 'border-neutral-300');
-        });
-        
-        button.classList.remove('bg-neutral-300', 'text-neutral-600', 'border-neutral-300');
-        button.classList.add('bg-drones', 'text-neutral-900', 'border-drones');
-
-        // Filter cards
-        serviceCards.forEach(card => {
-          const cardCategory = card.getAttribute('data-category');
-          
-          if (filter === 'all' || cardCategory === filter) {
-            card.style.display = 'block';
-            card.classList.add('fade-in-section');
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Service card click handlers
     const serviceButtons = document.querySelectorAll('.service-card button');
     serviceButtons.forEach(button => {
       button.addEventListener('click', (e) => {

@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
 }
 
 const { palette = 'cardinal' } = Astro.props;
@@ -36,6 +36,12 @@ const colorClasses = {
     text: 'text-civil',
     bg: 'bg-civil',
     hover: 'hover:bg-civil/10'
+  },
+  capacitacion: {
+    gradient: 'from-capacitacion to-capacitacion/90',
+    text: 'text-capacitacion',
+    bg: 'bg-capacitacion',
+    hover: 'hover:bg-capacitacion/10'
   }
 };
 
@@ -44,32 +50,38 @@ const colors = colorClasses[palette];
 // Títulos y contenido según la palette
 const sectionContent = {
   cardinal: {
-    title: "Comienza tu Proyecto Industrial Hoy",
+    title: "Comienza tu proyecto industrial hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia industrial perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   },
   ambiental: {
-    title: "Comienza tu Proyecto Ambiental Hoy",
+    title: "Comienza tu proyecto ambiental hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia ambiental perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   },
   drones: {
-    title: "Comienza tu Proyecto de Inspección Hoy",
+    title: "Comienza tu proyecto de inspección hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de inspección con drones perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   },
   calderas: {
-    title: "Comienza tu Proyecto de Calderas y Recipientes a Presión Hoy",
+    title: "Comienza tu proyecto de calderas y recipientes a presión hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de calderas y recipientes a presión perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   },
   civil: {
-    title: "Comienza tu Proyecto de Protección Civil Hoy",
+    title: "Comienza tu proyecto de protección civil Hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de protección civil perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  },
+  capacitacion: {
+    title: "Comienza a capacitar tu personal hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar un plan de capacitación que se adapte a tus necesidades.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   }
