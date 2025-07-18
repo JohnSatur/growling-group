@@ -53,6 +53,33 @@
   --color-calderas-900: var(--calderas-900);
   --color-calderas-950: var(--calderas-950);
 
+  --color-civil: var(--civil);
+  --color-civil-50: var(--civil-50);
+  --color-civil-100: var(--civil-100);
+  --color-civil-200: var(--civil-200);
+  --color-civil-300: var(--civil-300);
+  --color-civil-400: var(--civil-400);
+  --color-civil-500: var(--civil-500);
+  --color-civil-600: var(--civil-600);
+  --color-civil-700: var(--civil-700);
+  --color-civil-800: var(--civil-800);
+  --color-civil-900: var(--civil-900);
+  --color-civil-950: var(--civil-950);
+
+  --color-capacitacion: var(--capacitacion);
+  --color-capacitacion-50: var(--capacitacion-50);
+  --color-capacitacion-100: var(--capacitacion-100);
+  --color-capacitacion-200: var(--capacitacion-200);
+  --color-capacitacion-300: var(--capacitacion-300);
+  --color-capacitacion-400: var(--capacitacion-400);
+  --color-capacitacion-500: var(--capacitacion-500);
+  --color-capacitacion-600: var(--capacitacion-600);
+  --color-capacitacion-700: var(--capacitacion-700);
+  --color-capacitacion-800: var(--capacitacion-800);
+  --color-capacitacion-900: var(--capacitacion-900);
+  --color-capacitacion-950: var(--capacitacion-950);
+
+
   --color-background: var(--background);
 
   --color-neutral-50: var(--neutral-50);
@@ -102,32 +129,57 @@
   --ambiental-900: #1f3303;
   --ambiental-950: #111c02;
 
-  --color-drones: #55B2FF;
-  --color-drones-50: #eaf6fe;
-  --color-drones-100: #d4ecfd;
-  --color-drones-200: #a8d9fb;
-  --color-drones-300: #7cc6f9;
-  --color-drones-400: #50b3f7;
-  --color-drones-500: #55B2FF;
-  --color-drones-600: #1e8ee6;
-  --color-drones-700: #176fb3;
-  --color-drones-800: #115080;
-  --color-drones-900: #0a304d;
-  --color-drones-950: #061726;
+  --drones: #55B2FF;
+  --drones-50: #eaf6fe;
+  --drones-100: #d4ecfd;
+  --drones-200: #a8d9fb;
+  --drones-300: #7cc6f9;
+  --drones-400: #50b3f7;
+  --drones-500: #55B2FF;
+  --drones-600: #1e8ee6;
+  --drones-700: #176fb3;
+  --drones-800: #115080;
+  --drones-900: #0a304d;
+  --drones-950: #061726;
 
-  --color-calderas: #F68D03;
-  --color-calderas-50: #FFF3E6;
-  --color-calderas-100: #FFE6CC;
-  --color-calderas-200: #FFD9B3;
-  --color-calderas-300: #FFCC99;
-  --color-calderas-400: #FFBF80;
-  --color-calderas-500: #F68D03;
-  --color-calderas-600: #E68003;
-  --color-calderas-700: #D97303;
-  --color-calderas-800: #CC6603;
-  --color-calderas-900: #BF5903;
-  --color-calderas-950: #B24C03;
+  --calderas: #F68D03;
+  --calderas-50: #FFF3E6;
+  --calderas-100: #FFE6CC;
+  --calderas-200: #FFD9B3;
+  --calderas-300: #FFCC99;
+  --calderas-400: #FFBF80;
+  --calderas-500: #F68D03;
+  --calderas-600: #E68003;
+  --calderas-700: #D97303;
+  --calderas-800: #CC6603;
+  --calderas-900: #BF5903;
+  --calderas-950: #B24C03;
   
+  --civil: #009fae;
+  --civil-50: #e6f6f7;
+  --civil-100: #ccecef;
+  --civil-200: #99d9df;
+  --civil-300: #66c5cf;
+  --civil-400: #33b2bf;
+  --civil-500: #009fae;
+  --civil-600: #008a98;
+  --civil-700: #007582;
+  --civil-800: #00606c;
+  --civil-900: #004b54;
+  --civil-950: #00363d;
+
+  --capacitacion: #633E08;
+  --capacitacion-50: #f6f2ea;
+  --capacitacion-100: #ede3d1;
+  --capacitacion-200: #dbc7a3;
+  --capacitacion-300: #c9ab75;
+  --capacitacion-400: #b78f47;
+  --capacitacion-500: #633E08;
+  --capacitacion-600: #573708;
+  --capacitacion-700: #4a3007;
+  --capacitacion-800: #3d2706;
+  --capacitacion-900: #2f1e05;
+  --capacitacion-950: #211404;
 
   --background: #f5f5f5;
 
@@ -198,6 +250,32 @@
   --color-calderas-800: #FFE6CC;
   --color-calderas-900: #FFF3E6;
   --color-calderas-950: #FFF9F2;
+
+  --color-civil: #009fae;
+  --color-civil-50: #00363d;
+  --color-civil-100: #004b54;
+  --color-civil-200: #00606c;
+  --color-civil-300: #007582;
+  --color-civil-400: #008a98;
+  --color-civil-500: #009fae;
+  --color-civil-600: #33b2bf;
+  --color-civil-700: #66c5cf;
+  --color-civil-800: #99d9df;
+  --color-civil-900: #ccecef;
+  --color-civil-950: #e6f6f7;
+
+  --color-capacitacion: #633E08;
+  --color-capacitacion-50: #211404;
+  --color-capacitacion-100: #2f1e05;
+  --color-capacitacion-200: #3d2706;
+  --color-capacitacion-300: #4a3007;
+  --color-capacitacion-400: #573708;
+  --color-capacitacion-500: #633E08;
+  --color-capacitacion-600: #b78f47;
+  --color-capacitacion-700: #c9ab75;
+  --color-capacitacion-800: #dbc7a3;
+  --color-capacitacion-900: #ede3d1;
+  --color-capacitacion-950: #f6f2ea;
 
   --background: #151823;
 

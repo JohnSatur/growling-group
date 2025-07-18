@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import capacitacion from '@images/capacitacion4.jpg';
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Main Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Image/Visual Content -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div class="relative">
+            <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src={capacitacion}
+                alt="Sesión de capacitación certificada Growling Group"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-capacitacion/10 rounded-full -z-10"></div>
+            <div class="absolute -top-6 -left-6 w-16 h-16 bg-neutral-200 rounded-full -z-10"></div>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="fade-in-section">
+          <div class="inline-flex items-center bg-capacitacion/10 border border-capacitacion/20 rounded-full px-4 py-2 mb-6">
+            <i class="ri-graduation-cap-line text-capacitacion-500 mr-2"></i>
+            <span class="text-capacitacion-500 font-medium text-sm">
+              ¿Por qué elegir Growling Group?
+            </span>
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mb-6">
+            Formación y Certificación <span class="text-capacitacion-500">para tu equipo</span>
+          </h2>
+
+          <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+            En Growling Group impulsamos el desarrollo profesional de tu empresa a través de programas de capacitación certificados y avalados por la STPS. Ofrecemos cursos para brigadas de protección civil, seguridad e higiene industrial, estándares Red Conocer y titulación por experiencia, asegurando el cumplimiento normativo y la mejora continua de tu personal.
+          </p>
+
+          <p class="text-neutral-600 leading-relaxed mb-8">
+            Nuestro catálogo abarca desde formación básica hasta especialización avanzada, con instructores certificados y metodologías prácticas. Garantizamos que cada capacitación se adapte a las necesidades de tu organización, brindando valor real y reconocimiento oficial a cada participante.
+          </p>
+
+          <!-- Key Differentiators -->
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-6 h-6 bg-capacitacion/10 rounded-full flex items-center justify-center mt-1">
+                <i class="ri-check-line text-capacitacion-500 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Catálogo Integral de Cursos
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Capacitación en brigadas, seguridad e higiene, protección civil y más, adaptada a tu giro y sector.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-6 h-6 bg-capacitacion/10 rounded-full flex items-center justify-center mt-1">
+                <i class="ri-check-line text-capacitacion-500 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Certificación Oficial y Red Conocer
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Programas avalados por la STPS y estándares Red Conocer, con opción de titulación por experiencia.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0 w-6 h-6 bg-capacitacion/10 rounded-full flex items-center justify-center mt-1">
+                <i class="ri-check-line text-capacitacion-500 text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Cumplimiento Normativo STPS
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Asegura el cumplimiento de los programas de capacitación obligatorios para tu empresa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="fade-in-section" style="animation-delay: 400ms">
+        <div class="bg-neutral-900 rounded-2xl shadow-lg border border-neutral-100 p-8 lg:p-12">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-100 mb-4">
+              Números que Respaldan Nuestra Formación
+            </h3>
+            <p class="text-neutral-300">
+              Resultados tangibles en capacitación y certificación empresarial
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-capacitacion/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="ri-book-2-line text-capacitacion-500 text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-capacitacion-500 mb-2">30+</div>
+              <div class="text-neutral-300 text-sm">
+                Cursos y Talleres
+              </div>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-capacitacion/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="ri-user-star-line text-capacitacion-500 text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-capacitacion-500 mb-2">500+</div>
+              <div class="text-neutral-300 text-sm">Personas Certificadas</div>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-capacitacion/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="ri-award-line text-capacitacion-500 text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-capacitacion-500 mb-2">100%</div>
+              <div class="text-neutral-300 text-sm">Reconocimiento Oficial</div>
+            </div>
+
+            <div class="text-center">
+              <div class="w-16 h-16 bg-capacitacion/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="ri-building-2-line text-capacitacion-500 text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-capacitacion-500 mb-2">50+</div>
+              <div class="text-neutral-300 text-sm">Empresas Atendidas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

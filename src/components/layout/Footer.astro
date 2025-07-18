@@ -1,0 +1,299 @@
+---
+import Logo from '@components/ui/Logo.astro';
+
+interface Props {
+	palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
+}
+
+const { palette = 'cardinal' }: Props = Astro.props;
+
+// Definir clases de colores basadas en la palette
+const colorClasses = {
+  cardinal: {
+    hover: 'hover:text-cardinal',
+    text: 'text-cardinal',
+    bg: 'bg-cardinal',
+    border: 'border-cardinal'
+  },
+  ambiental: {
+    hover: 'hover:text-ambiental',
+    text: 'text-ambiental',
+    bg: 'bg-ambiental',
+    border: 'border-ambiental'
+  },
+  drones: {
+    hover: 'hover:text-drones',
+    text: 'text-drones',
+    bg: 'bg-drones',
+    border: 'border-drones'
+  },
+  calderas: {
+    hover: 'hover:text-calderas',
+    text: 'text-calderas',
+    bg: 'bg-calderas',
+    border: 'border-calderas'
+  },
+  civil: {
+    hover: 'hover:text-civil',
+    text: 'text-civil',
+    bg: 'bg-civil',
+    border: 'border-civil'
+  },
+  capacitacion: {
+    hover: 'hover:text-capacitacion',
+    text: 'text-capacitacion',
+    bg: 'bg-capacitacion',
+    border: 'border-capacitacion'
+  }
+};
+
+const colors = colorClasses[palette];
+
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  {
+    name: 'Instagram',
+    icon: 'ri-instagram-line',
+    url: 'https://instagram.com/tuempresa',
+    color: 'hover:text-pink-500'
+  },
+  {
+    name: 'TikTok',
+    icon: 'ri-tiktok-line',
+    url: 'https://tiktok.com/@tuempresa',
+    color: 'hover:text-gray-900'
+  },
+  {
+    name: 'Facebook',
+    icon: 'ri-facebook-line',
+    url: 'https://facebook.com/tuempresa',
+    color: 'hover:text-blue-600'
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'ri-linkedin-line',
+    url: 'https://linkedin.com/company/tuempresa',
+    color: 'hover:text-blue-700'
+  }
+];
+
+const menuLinks = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Quiénes somos', href: '/quienes-somos' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contacto', href: '/contacto' }
+];
+
+const serviceLinks = [
+  { name: 'Servicios ambientales', href: '/servicios-ambientales' },
+  { name: 'Protección civil (Veracruz)', href: '/proteccion-civil-veracruz' },
+  { name: 'Calderas y recipientes a presión', href: '/calderas-y-recipientes-a-presion' },
+  { name: 'Inspección con drones', href: '/inspeccion-drones' },
+  { name: 'Capacitación certificada', href: '/capacitacion-certificada' },
+  { name: 'Trámites gubernamentales', href: '/tramites-gubernamentales' }
+];
+---
+
+<footer class="bg-dark border-t border-neutral-700">
+  <!-- Main Footer Content -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      
+      <!-- Company Info -->
+      <div class="lg:col-span-1">
+        <div class="mb-6">
+          <a href="/" class="inline-block">
+            <Logo palette={palette} variant="isotipo" class="w-12 h-12 mb-4" />
+          </a>
+          <h3 class="text-xl font-bold text-white mb-3">Growling Group</h3>
+          <p class="text-neutral-300 text-sm leading-relaxed">
+            Seguridad, ambiente y confianza que protegen tu empresa.
+          </p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="space-y-3">
+          <h4 class="text-white font-semibold text-sm mb-3">Síguenos</h4>
+          <div class="flex space-x-4">
+            {socialLinks.map((social) => (
+              <a 
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`text-neutral-400 ${social.color} transition-colors duration-300 text-xl`}
+                aria-label={`Síguenos en ${social.name}`}
+              >
+                <i class={social.icon}></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <div class="lg:col-span-1">
+        <h4 class="text-white font-semibold text-sm mb-6">Navegación</h4>
+        <ul class="space-y-3">
+          {menuLinks.map((link) => (
+            <li>
+              <a 
+                href={link.href}
+                class={`text-neutral-300 ${colors.hover} transition-colors duration-300 text-sm`}
+              >
+                {link.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Services Menu -->
+      <div class="lg:col-span-1">
+        <h4 class="text-white font-semibold text-sm mb-6">Servicios</h4>
+        <ul class="space-y-3">
+          {serviceLinks.map((service) => (
+            <li>
+              <a 
+                href={service.href}
+                class={`text-neutral-300 ${colors.hover} transition-colors duration-300 text-sm`}
+              >
+                {service.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="lg:col-span-1">
+        <h4 class="text-white font-semibold text-sm mb-6">Contacto</h4>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <i class={`ri-phone-line ${colors.text} text-lg flex-shrink-0 mt-0.5`}></i>
+            <div>
+              <p class="text-neutral-300 text-sm">Teléfono</p>
+              <a href="tel:+5212281006400" class={`text-white ${colors.hover} transition-colors duration-300 text-sm font-medium`}>
+                +52 (228) 100 6400
+              </a>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-3">
+            <i class={`ri-mail-line ${colors.text} text-lg flex-shrink-0 mt-0.5`}></i>
+            <div>
+              <p class="text-neutral-300 text-sm">Email</p>
+              <a href="mailto:contacto@growlinggroup.com" class={`text-white ${colors.hover} transition-colors duration-300 text-sm font-medium`}>
+                contacto@growlinggroup.com
+              </a>
+            </div>
+          </div>
+          
+          <div class="flex items-start space-x-3">
+            <i class={`ri-map-pin-line ${colors.text} text-lg flex-shrink-0 mt-0.5`}></i>
+            <div>
+              <p class="text-neutral-300 text-sm">Oficinas</p>
+              <p class="text-white text-sm">
+                Calle 100, Col. Centro, Xalapa, Ver., México
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-neutral-700 bg-neutral-900">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        
+        <!-- Copyright -->
+        <div class="text-center md:text-left">
+          <p class="text-neutral-400 text-sm">
+            © {currentYear} Growling Group. Todos los derechos reservados.
+          </p>
+        </div>
+
+        <!-- Legal Links -->
+        <div class="flex flex-wrap justify-center md:justify-end items-center space-x-6">
+          <a 
+            href="/aviso-de-privacidad" 
+            class={`text-neutral-400 ${colors.hover} transition-colors duration-300 text-sm`}
+          >
+            Aviso de Privacidad
+          </a>
+          <a 
+            href="/politica-de-cookies" 
+            class={`text-neutral-400 ${colors.hover} transition-colors duration-300 text-sm`}
+          >
+            Política de Cookies
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Smooth scroll behavior for footer links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom hover effects for social icons */
+  footer a[aria-label*="Instagram"]:hover i {
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  footer a[aria-label*="TikTok"]:hover i {
+    color: #000000;
+  }
+  
+  footer a[aria-label*="Facebook"]:hover i {
+    color: #1877f2;
+  }
+  
+  footer a[aria-label*="LinkedIn"]:hover i {
+    color: #0077b5;
+  }
+</style>
+
+<script>
+  // Smooth scroll for internal links
+  document.addEventListener('DOMContentLoaded', () => {
+    const footerLinks = document.querySelectorAll('footer a[href^="#"]');
+    
+    footerLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId || '');
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+
+  // Add loading animation for social links
+  const socialLinks = document.querySelectorAll('footer a[target="_blank"]');
+  socialLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const icon = link.querySelector('i');
+      if (icon) {
+        icon.classList.add('animate-pulse');
+        setTimeout(() => {
+          icon.classList.remove('animate-pulse');
+        }, 1000);
+      }
+    });
+  });
+</script>

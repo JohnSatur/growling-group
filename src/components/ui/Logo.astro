@@ -16,8 +16,16 @@ import logoCalderas from '@images/logo-calderas.png';
 import logoCalderasBlanco from '@images/logo-calderas-blanco.png';
 import isotipoCalderas from '@images/isotipo-calderas.png';
 
+import logoCivil from '@images/logo-civil.png';
+import logoCivilBlanco from '@images/logo-civil-blanco.png';
+import isotipoCivil from '@images/isotipo-civil.png';
+
+import logoCapacitacion from '@images/logo-capacitacion.png';
+import logoCapacitacionBlanco from '@images/logo-capacitacion-blanco.png';
+import isotipoCapacitacion from '@images/isotipo-capacitacion.png';
+
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
   variant?: 'color' | 'white' | 'isotipo';
   width?: number;
   height?: number;
@@ -54,6 +62,16 @@ const logoMap = {
     color: logoCalderas,
     white: logoCalderasBlanco,
     isotipo: isotipoCalderas
+  },
+  civil: {
+    color: logoCivil,
+    white: logoCivilBlanco,
+    isotipo: isotipoCivil
+  },
+  capacitacion: {
+    color: logoCapacitacion,
+    white: logoCapacitacionBlanco,
+    isotipo: isotipoCapacitacion
   }
 };
 

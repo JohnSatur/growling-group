@@ -3,11 +3,12 @@ import '@styles/global.css';
 import Meta from '@components/layout/Meta.astro';
 import { SITE } from '@data/constants';
 import Header from '@components/layout/Header.astro';
+import Footer from '@components/layout/Footer.astro';
 
 interface Props {
 	title?: string;
 	lang?: string;
-	palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas';
+	palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
 }
 
 const {
@@ -26,5 +27,6 @@ const {
 	<body class="font-contrast bg-background">
 		<Header palette={palette} />
 		<slot />
+		<Footer palette={palette} />
 	</body>
 </html>

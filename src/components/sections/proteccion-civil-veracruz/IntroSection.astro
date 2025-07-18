@@ -1,0 +1,184 @@
+---
+import { Image } from "astro:assets";
+import equipoDron from '@images/equipo-dron.jpg';
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Main Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Image/Visual Content -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div class="relative">
+            <div
+              class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <Image
+                src={equipoDron}
+                alt="Equipo especializado en protección civil y brigadas de emergencia"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Decorative Elements -->
+            <div
+              class="absolute -bottom-6 -right-6 w-24 h-24 bg-civil/10 rounded-full -z-10"
+            >
+            </div>
+            <div
+              class="absolute -top-6 -left-6 w-16 h-16 bg-neutral-200 rounded-full -z-10"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="fade-in-section">
+          <div
+            class="inline-flex items-center bg-civil/10 border border-civil/20 rounded-full px-4 py-2 mb-6"
+          >
+            <i class="ri-shield-line text-civil mr-2"></i>
+            <span class="text-civil font-medium text-sm"
+              >¿Por qué elegir Growling Group?</span
+            >
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mb-6">
+            Especialistas en Protección Civil con
+            <span class="text-civil">Brigadas Certificadas</span>
+          </h2>
+
+          <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+            En Growling Group salvaguardamos personal, activos e instalaciones mediante 
+            programas integrales de protección civil. Nuestro equipo de especialistas 
+            certificados desarrolla análisis de riesgo y vulnerabilidad (ARV), programas 
+            internos de protección civil (PIPC) y conforma brigadas especializadas para 
+            garantizar la seguridad ante emergencias.
+          </p>
+
+          <p class="text-neutral-600 leading-relaxed mb-8">
+            Ofrecemos servicios completos desde análisis de riesgo para diferentes niveles 
+            de vulnerabilidad, hasta capacitación certificada en las 4 brigadas fundamentales: 
+            primeros auxilios, búsqueda y rescate, prevención y combate de incendios, y 
+            evacuación de inmuebles. Cumplimos con la normativa estatal de Veracruz para 
+            protección civil empresarial.
+          </p>
+
+          <!-- Key Differentiators -->
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-civil/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-civil text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Análisis de Riesgo y Vulnerabilidad (ARV)
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Evaluación técnica especializada para identificar amenazas y 
+                  vulnerabilidades en instalaciones con metodología certificada.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-civil/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-civil text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Programas Internos de Protección Civil (PIPC)
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Desarrollo de programas para riesgo bajo, medio y alto conforme 
+                  a normativa estatal de Veracruz y protocolos oficiales.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-civil/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-civil text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  4 Brigadas Especializadas
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Capacitación y conformación de brigadas en primeros auxilios, 
+                  búsqueda y rescate, combate de incendios y evacuación.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="fade-in-section" style="animation-delay: 400ms">
+        <div
+          class="bg-neutral-900 rounded-2xl shadow-lg border border-neutral-100 p-8 lg:p-12"
+        >
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-100 mb-4">
+              Números que Respaldan Nuestra Experiencia
+            </h3>
+            <p class="text-neutral-300">
+              Resultados tangibles en protección civil y conformación de brigadas
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-civil/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-shield-line text-civil text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-civil mb-2">6</div>
+              <div class="text-neutral-300 text-sm">
+                Servicios de Protección Civil
+              </div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-civil/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-building-2-line text-civil text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-civil mb-2">80+</div>
+              <div class="text-neutral-300 text-sm">Empresas Protegidas</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-civil/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-team-line text-civil text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-civil mb-2">300+</div>
+              <div class="text-neutral-300 text-sm">Brigadistas Capacitados</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-civil/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-fire-line text-civil text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-civil mb-2">4</div>
+              <div class="text-neutral-300 text-sm">Brigadas Especializadas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

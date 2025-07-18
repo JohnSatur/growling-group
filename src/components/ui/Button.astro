@@ -6,7 +6,7 @@ export interface Props {
   icon?: string;
   iconPosition?: 'left' | 'right';
   class?: string;
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
 }
 
 const { 
@@ -35,19 +35,25 @@ const variantClasses = {
     cardinal: 'bg-cardinal/90 hover:bg-cardinal text-white hover:shadow-lg',
     ambiental: 'bg-ambiental/90 hover:bg-ambiental text-white hover:shadow-lg',
     drones: 'bg-drones/90 hover:bg-drones text-white hover:shadow-lg',
-    calderas: 'bg-calderas/90 hover:bg-calderas text-white hover:shadow-lg'
+    calderas: 'bg-calderas/90 hover:bg-calderas text-white hover:shadow-lg',
+    civil: 'bg-civil/90 hover:bg-civil text-white hover:shadow-lg',
+    capacitacion: 'bg-capacitacion/90 hover:bg-capacitacion text-white hover:shadow-lg',
   },
   outline: {
     cardinal: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg',
     ambiental: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg',
     drones: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg',
-    calderas: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg'
+    calderas: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg',
+    civil: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg',
+    capacitacion: 'bg-transparent hover:bg-neutral-900 border-2 border-neutral-900 text-neutral-900 hover:text-neutral-50 hover:shadow-lg',
   },
   outline2: {
     cardinal: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg',
     ambiental: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg',
     drones: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg',
-    calderas: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg'
+    calderas: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg',
+    civil: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg',
+    capacitacion: 'bg-transparent hover:bg-neutral-100 border-2 border-neutral-100 text-neutral-100 hover:text-neutral-950 hover:shadow-lg',
   }
 };
 

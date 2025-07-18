@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '@images/incendios.jpg';
+import Button from '@components/ui/Button.astro';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0 select-none">
+    <Image 
+      src={heroImage}
+      width={1920}
+      height={1080}
+      alt="Equipo especializado en protección civil y brigadas de emergencia"
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-background/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-dark-100/80 via-dark-100/60 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+    <div class="max-w-4xl mx-auto lg:mx-0">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight fade-in-section">
+        Protección Civil <br />
+        <span class="text-civil">Veracruz</span>
+      </h1>
+      
+      <h2 class="text-xl md:text-2xl text-neutral-800 mb-8 leading-relaxed max-w-3xl fade-in-section" style="animation-delay: 200ms">
+        Especialistas en análisis de riesgo, programas internos de protección civil y conformación de brigadas certificadas para salvaguardar personal, activos e instalaciones.
+      </h2>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start fade-in-section" style="animation-delay: 400ms">
+        
+        <Button text="Ver programas y brigadas" href="#servicios" variant="fill" icon="ri-arrow-down-line" palette="civil" />
+        
+        <Button text="Solicitar análisis ARV" href="#contacto" variant="outline" icon="ri-arrow-right-line" palette="civil" />
+      </div>
+    </div>
+  </div>
+</section>
