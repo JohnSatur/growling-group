@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
 }
 
 const { palette = 'cardinal' } = Astro.props;
@@ -36,6 +36,12 @@ const colorClasses = {
     text: 'text-civil',
     bg: 'bg-civil',
     hover: 'hover:bg-civil/10'
+  },
+  capacitacion: {
+    gradient: 'from-capacitacion to-capacitacion/90',
+    text: 'text-capacitacion',
+    bg: 'bg-capacitacion',
+    hover: 'hover:bg-capacitacion/10'
   }
 };
 
@@ -70,6 +76,12 @@ const sectionContent = {
   civil: {
     title: "Comienza tu Proyecto de Protección Civil Hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de protección civil perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  },
+  capacitacion: {
+    title: "Comienza tu Proyecto de Capacitación Certificada Hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de capacitación certificada perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   }

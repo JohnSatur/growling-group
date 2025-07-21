@@ -1,0 +1,284 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+---
+
+<MainLayout title="Política de Cookies" palette="ambiental">
+  <main>
+    <!-- Header Section -->
+    <section class="min-h-[60vh] bg-gradient-to-br from-ambiental-600/50 to-ambiental-700/30 py-20 flex items-center">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center bg-ambiental-600/10 border border-ambiental-600/20 rounded-full px-4 py-2 mb-6">
+            <i class="ri-cookie-line text-ambiental-600 mr-2"></i>
+            <span class="text-ambiental-600 font-medium text-sm">Gestión de Cookies</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+            Política de Cookies
+          </h1>
+          <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+            Información sobre el uso de cookies y tecnologías similares en nuestro sitio web 
+            para mejorar tu experiencia de navegación.
+          </p>
+          <div class="mt-8 text-sm text-neutral-700">
+            <p>Última actualización: <span class="font-semibold">18 de julio de 2025</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          <div class="prose prose-lg max-w-none">
+            
+            <!-- Qué son las cookies -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-bold text-neutral-900 mb-4 flex items-center">
+                <i class="ri-information-line text-ambiental-600 mr-3"></i>
+                ¿Qué son las Cookies?
+              </h2>
+              <div class="bg-ambiental-50 rounded-lg p-6 border border-ambiental-200">
+                <p class="text-neutral-700 mb-4">
+                  Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas nuestro sitio web. 
+                  Nos ayudan a recordar tus preferencias y mejorar tu experiencia de navegación.
+                </p>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-ambiental rounded-lg p-4 border border-ambiental-100">
+                    <h3 class="font-semibold text-neutral-900 mb-2 flex items-center">
+                      <i class="ri-time-line mr-2"></i>
+                      Por Duración
+                    </h3>
+                    <ul class="text-sm text-neutral-800 space-y-1">
+                      <li>• <strong>Sesión:</strong> Se eliminan al cerrar el navegador</li>
+                      <li>• <strong>Persistentes:</strong> Permanecen por un tiempo determinado</li>
+                    </ul>
+                  </div>
+                  <div class="bg-ambiental rounded-lg p-4 border border-neutral-100">
+                    <h3 class="font-semibold text-neutral-900 mb-2 flex items-center">
+                      <i class="ri-user-line mr-2"></i>
+                      Por Origen
+                    </h3>
+                    <ul class="text-sm text-neutral-800 space-y-1">
+                      <li>• <strong>Propias:</strong> Establecidas por nuestro sitio</li>
+                      <li>• <strong>Terceros:</strong> Establecidas por servicios externos</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tipos de cookies que usamos -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-bold text-neutral-900 mb-4 flex items-center">
+                <i class="ri-list-check text-ambiental-600 mr-3"></i>
+                Tipos de Cookies que Utilizamos
+              </h2>
+              
+              <div class="space-y-6">
+                <!-- Cookies Esenciales -->
+                <div class="bg-green-50 rounded-lg p-6 border border-green-200">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-green-900 flex items-center">
+                      <i class="ri-shield-check-line mr-2"></i>
+                      Cookies Esenciales
+                    </h3>
+                    <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                      Siempre Activas
+                    </span>
+                  </div>
+                  <p class="text-green-800 mb-3">
+                    Necesarias para el funcionamiento básico del sitio web. No se pueden desactivar.
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 class="font-medium text-green-900 mb-2">Funciones:</h4>
+                      <ul class="text-sm text-green-800 space-y-1">
+                        <li>• Recordar preferencias de tema</li>
+                        <li>• Seguridad del sitio web</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-green-900 mb-2">Ejemplos:</h4>
+                      <ul class="text-sm text-green-800 space-y-1">
+                        <li>• csrf_token</li>
+                        <li>• theme_preference</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cookies de Rendimiento -->
+                <div class="bg-yellow-50 rounded-lg p-6 border border-yellow-200">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-yellow-900 flex items-center">
+                      <i class="ri-speed-line mr-2"></i>
+                      Cookies de Rendimiento
+                    </h3>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only peer" id="performance-cookies" checked>
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-yellow-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-yellow-600"></div>
+                    </label>
+                  </div>
+                  <p class="text-yellow-800 mb-3">
+                    Nos ayudan a entender cómo interactúas con nuestro sitio web para mejorarlo.
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 class="font-medium text-yellow-900 mb-2">Funciones:</h4>
+                      <ul class="text-sm text-yellow-800 space-y-1">
+                        <li>• Análisis de tráfico web</li>
+                        <li>• Páginas más visitadas</li>
+                        <li>• Tiempo de permanencia</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-yellow-900 mb-2">Servicios:</h4>
+                      <ul class="text-sm text-yellow-800 space-y-1">
+                        <li>• Google Analytics</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cookies de Marketing -->
+                <div class="bg-purple-50 rounded-lg p-6 border border-purple-200">
+                  <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-purple-900 flex items-center">
+                      <i class="ri-megaphone-line mr-2"></i>
+                      Cookies de Marketing
+                    </h3>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only peer" id="marketing-cookies">
+                      <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                    </label>
+                  </div>
+                  <p class="text-purple-800 mb-3">
+                    Utilizadas para mostrar anuncios relevantes y medir la efectividad de nuestras campañas.
+                  </p>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 class="font-medium text-purple-900 mb-2">Funciones:</h4>
+                      <ul class="text-sm text-purple-800 space-y-1">
+                        <li>• Publicidad personalizada</li>
+                        <li>• Seguimiento de conversiones</li>
+                        <li>• Remarketing</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-purple-900 mb-2">Servicios:</h4>
+                      <ul class="text-sm text-purple-800 space-y-1">
+                        <li>• Google Ads</li>
+                        <li>• Facebook Pixel</li>
+                        <li>• LinkedIn Insight</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cookies de terceros -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-bold text-neutral-900 mb-4 flex items-center">
+                <i class="ri-links-line text-ambiental-600 mr-3"></i>
+                Cookies de Terceros
+              </h2>
+              
+              <p class="text-neutral-700 mb-6">
+                Utilizamos servicios de terceros que pueden establecer sus propias cookies. Estos servicios tienen sus propias políticas de privacidad:
+              </p>
+
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-neutral-950 rounded-lg p-4 border border-neutral-200 hover:border-ambiental-300 transition-colors">
+                  <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-ambiental-600 rounded-full flex items-center justify-center mr-3">
+                      <i class="ri-bar-chart-line text-white text-sm"></i>
+                    </div>
+                    <h3 class="font-semibold text-neutral-50">Google Analytics</h3>
+                  </div>
+                  <p class="text-neutral-300 text-sm mb-3">Análisis de tráfico web</p>
+                  <a href="https://policies.google.com/privacy" target="_blank" class="text-ambiental-200 hover:text-ambiental-400 text-sm transition-colors">
+                    Ver política →
+                  </a>
+                </div>
+
+                <div class="bg-neutral-950 rounded-lg p-4 border border-neutral-200 hover:border-ambiental-300 transition-colors">
+                  <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-ambiental-700 rounded-full flex items-center justify-center mr-3">
+                      <i class="ri-facebook-line text-white text-sm"></i>
+                    </div>
+                    <h3 class="font-semibold text-neutral-50">Facebook Pixel</h3>
+                  </div>
+                  <p class="text-neutral-300 text-sm mb-3">Seguimiento de conversiones</p>
+                  <a href="https://www.facebook.com/privacy/policy/" target="_blank" class="text-ambiental-200 hover:text-ambiental-400 text-sm transition-colors">
+                    Ver política →
+                  </a>
+                </div>
+
+                <div class="bg-neutral-950 rounded-lg p-4 border border-neutral-200 hover:border-ambiental-300 transition-colors">
+                  <div class="flex items-center mb-3">
+                    <div class="w-8 h-8 bg-ambiental-800 rounded-full flex items-center justify-center mr-3">
+                      <i class="ri-linkedin-line text-white text-sm"></i>
+                    </div>
+                    <h3 class="font-semibold text-neutral-50">LinkedIn Insight</h3>
+                  </div>
+                  <p class="text-neutral-300 text-sm mb-3">Marketing B2B</p>
+                  <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" class="text-ambiental-200 hover:text-ambiental-400 text-sm transition-colors">
+                    Ver política →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actualizaciones -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-bold text-neutral-900 mb-4 flex items-center">
+                <i class="ri-refresh-line text-ambiental-600 mr-3"></i>
+                Actualizaciones de la Política
+              </h2>
+              <div class="bg-neutral-50 rounded-lg p-6 border border-neutral-200">
+                <p class="text-neutral-700 mb-4">
+                  Esta Política de Cookies puede actualizarse periódicamente para reflejar cambios en nuestras prácticas o por otros motivos operativos, legales o reglamentarios.
+                </p>
+                <div class="flex items-center text-sm text-neutral-600">
+                  <i class="ri-calendar-line mr-2"></i>
+                  <span>Te recomendamos revisar esta página regularmente para estar al tanto de cualquier cambio.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contacto -->
+            <div class="bg-gradient-to-br from-ambiental-600/10 to-ambiental-700/5 rounded-xl p-8 border border-ambiental-600/20">
+              <h2 class="text-2xl font-bold text-neutral-900 mb-4 flex items-center">
+                <i class="ri-customer-service-line text-ambiental-600 mr-3"></i>
+                ¿Necesitas Ayuda?
+              </h2>
+              <p class="text-neutral-700 mb-6">
+                Si tienes preguntas sobre nuestra Política de Cookies o necesitas ayuda para gestionar tus preferencias, 
+                estamos aquí para ayudarte.
+              </p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <a href="mailto:cookies@tuempresa.com" class="flex items-center justify-center bg-background rounded-lg p-4 border border-ambiental-600/20 hover:border-ambiental-600/40 transition-colors group">
+                  <i class="ri-mail-line text-ambiental-600 mr-3 text-xl"></i>
+                  <div>
+                    <p class="font-semibold text-neutral-900 group-hover:text-ambiental-600 transition-colors">Email</p>
+                    <p class="text-sm text-neutral-600">cookies@tuempresa.com</p>
+                  </div>
+                </a>
+                <a href="tel:+521234567890" class="flex items-center justify-center bg-background rounded-lg p-4 border border-ambiental-600/20 hover:border-ambiental-600/40 transition-colors group">
+                  <i class="ri-phone-line text-ambiental-600 mr-3 text-xl"></i>
+                  <div>
+                    <p class="font-semibold text-neutral-900 group-hover:text-ambiental-600 transition-colors">Teléfono</p>
+                    <p class="text-sm text-neutral-600">+52 123 456 7890</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
