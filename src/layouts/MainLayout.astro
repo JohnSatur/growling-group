@@ -8,7 +8,7 @@ import Footer from '@components/layout/Footer.astro';
 interface Props {
 	title?: string;
 	lang?: string;
-	palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
+	palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion' | 'gubernamental';
 }
 
 const {
@@ -19,10 +19,32 @@ const {
 ---
 
 <!DOCTYPE html>
-<html lang={ lang } class="dark">
+<html lang={ lang }>
 	<head>
 		<Meta />
 		<title>{ title }</title>
+		<script is:inline>
+			// Detectar y aplicar el tema antes de que se cargue la página para evitar flash
+			(function() {
+				const getStoredTheme = () => localStorage.getItem('theme');
+				const getPreferredTheme = () => {
+					const storedTheme = getStoredTheme();
+					if (storedTheme) {
+						return storedTheme;
+					}
+					// Si no hay preferencia guardada, usar la preferencia del sistema
+					return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				};
+
+				const theme = getPreferredTheme();
+				document.documentElement.classList.add(theme);
+				
+				// Guardar el tema inicial si no existe
+				if (!getStoredTheme()) {
+					localStorage.setItem('theme', theme);
+				}
+			})();
+		</script>
 	</head>
 	<body class="font-contrast bg-background">
 		<Header palette={palette} />

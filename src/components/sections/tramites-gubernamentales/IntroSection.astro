@@ -1,0 +1,184 @@
+---
+import { Image } from "astro:assets";
+import equipoDron from '@images/equipo-dron.jpg';
+---
+
+<section class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Main Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <!-- Image/Visual Content -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div class="relative">
+            <div
+              class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <Image
+                src={equipoDron}
+                alt="Especialistas en trámites gubernamentales y gestión de licencias"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Decorative Elements -->
+            <div
+              class="absolute -bottom-6 -right-6 w-24 h-24 bg-gubernamental/10 rounded-full -z-10"
+            >
+            </div>
+            <div
+              class="absolute -top-6 -left-6 w-16 h-16 bg-neutral-200 rounded-full -z-10"
+            >
+            </div>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="fade-in-section">
+          <div
+            class="inline-flex items-center bg-gubernamental/10 border border-gubernamental/20 rounded-full px-4 py-2 mb-6"
+          >
+            <i class="ri-government-line text-gubernamental mr-2"></i>
+            <span class="text-gubernamental font-medium text-sm"
+              >¿Por qué elegir Growling Group?</span
+            >
+          </div>
+
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mb-6">
+            Especialistas en trámites gubernamentales con
+            <span class="text-gubernamental">gestión integral</span>
+          </h2>
+
+          <p class="text-lg text-neutral-700 leading-relaxed mb-6">
+            En Growling Group simplificamos los procesos burocráticos de tu empresa mediante 
+            gestión especializada de trámites estatales y federales. Nuestro equipo de expertos 
+            en normativa gubernamental se encarga del cumplimiento STPS, registros REPSE, 
+            licencias de funcionamiento y atención a inspecciones, garantizando el cumplimiento 
+            legal y la continuidad operativa de tu negocio.
+          </p>
+
+          <p class="text-neutral-600 leading-relaxed mb-8">
+            Ofrecemos servicios completos desde trámites municipales en Veracruz como 
+            alineamiento y uso de suelo, hasta cumplimiento federal con SIRCE, VELAVO 
+            y reglamentos internos de trabajo ante STPS. Manejamos inspecciones de STPS, 
+            ASEA, SEMARNAT y PROFECO, asegurando que tu empresa mantenga su operación 
+            sin contratiempos regulatorios.
+          </p>
+
+          <!-- Key Differentiators -->
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-gubernamental/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-gubernamental text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Trámites Estatales y Municipales
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Gestión completa de licencias de funcionamiento, uso de suelo, 
+                  alineamiento y número oficial en Veracruz y municipios.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-gubernamental/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-gubernamental text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Cumplimiento Federal STPS
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  SIRCE, VELAVO, REPSE y reglamentos internos de trabajo. 
+                  Mantenemos tu empresa al día con la normativa federal.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div
+                class="flex-shrink-0 w-6 h-6 bg-gubernamental/10 rounded-full flex items-center justify-center mt-1"
+              >
+                <i class="ri-check-line text-gubernamental text-sm"></i>
+              </div>
+              <div class="ml-4">
+                <h4 class="font-semibold text-neutral-900 mb-1">
+                  Atención a Inspecciones
+                </h4>
+                <p class="text-neutral-600 text-sm">
+                  Representación especializada ante inspecciones de STPS, ASEA, 
+                  SEMARNAT y PROFECO con respaldo técnico-legal.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="fade-in-section" style="animation-delay: 400ms">
+        <div
+          class="bg-neutral-900 rounded-2xl shadow-lg border border-neutral-100 p-8 lg:p-12"
+        >
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-100 mb-4">
+              Números que Respaldan Nuestra Experiencia
+            </h3>
+            <p class="text-neutral-300">
+              Resultados tangibles en gestión de trámites y cumplimiento normativo
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-gubernamental/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-file-list-3-line text-gubernamental text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-gubernamental mb-2">9</div>
+              <div class="text-neutral-300 text-sm">
+                Tipos de Trámites
+              </div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-gubernamental/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-building-2-line text-gubernamental text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-gubernamental mb-2">120+</div>
+              <div class="text-neutral-300 text-sm">Empresas Regularizadas</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-gubernamental/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-shield-check-line text-gubernamental text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-gubernamental mb-2">98%</div>
+              <div class="text-neutral-300 text-sm">Éxito en Trámites</div>
+            </div>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-gubernamental/10 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-time-line text-gubernamental text-2xl"></i>
+              </div>
+              <div class="text-3xl font-bold text-gubernamental mb-2">50%</div>
+              <div class="text-neutral-300 text-sm">Reducción de Tiempos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

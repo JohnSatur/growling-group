@@ -1,0 +1,466 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Button from "@components/ui/Button.astro";
+---
+
+<MainLayout
+  title="Contacto - Tu Empresa | Consultoría Empresarial"
+  palette="cardinal"
+>
+  <section class="py-40 bg-gradient-to-br from-neutral-50 to-neutral-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <div
+          class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6"
+        >
+          <i class="ri-customer-service-line text-cardinal mr-2"></i>
+          <span class="text-cardinal font-medium text-sm">Contáctanos</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 mb-6">
+          Ponte en Contacto
+        </h1>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          Estamos aquí para ayudarte con tus necesidades de consultoría
+          empresarial. Contáctanos y descubre cómo podemos impulsar el éxito de
+          tu organización.
+        </p>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Left Column - Contact Form -->
+        <div class="fade-in-section" style="animation-delay: 400ms">
+          <div
+            class="bg-neutral-800 rounded-2xl shadow-lg border border-neutral-200 p-8 h-full"
+          >
+            <h2 class="text-2xl font-bold text-neutral-100 mb-6">
+              Envíanos un Mensaje
+            </h2>
+
+            <form class="space-y-6" id="contact-form">
+              <!-- Name Field -->
+              <div>
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-neutral-300 mb-2"
+                >
+                  Nombre Completo *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Tu nombre completo"
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cardinal focus:border-cardinal transition-colors duration-300 text-neutral-900 placeholder-neutral-400"
+                />
+              </div>
+
+              <!-- Email Field -->
+              <div>
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-neutral-300 mb-2"
+                >
+                  Correo Electrónico *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="tu@email.com"
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cardinal focus:border-cardinal transition-colors duration-300 text-neutral-900 placeholder-neutral-400"
+                />
+              </div>
+
+              <!-- Phone Field -->
+              <div>
+                <label
+                  for="phone"
+                  class="block text-sm font-medium text-neutral-300 mb-2"
+                >
+                  Número de Teléfono
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+52 229 123 4567"
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cardinal focus:border-cardinal transition-colors duration-300 text-neutral-900 placeholder-neutral-400"
+                />
+              </div>
+
+              <!-- Subject Field -->
+              <div>
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-neutral-300 mb-2"
+                >
+                  Asunto *
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  required
+                  placeholder="¿En qué podemos ayudarte?"
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cardinal focus:border-cardinal transition-colors duration-300 text-neutral-900 placeholder-neutral-400"
+                />
+              </div>
+
+              <!-- Message Field -->
+              <div>
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-neutral-300 mb-2"
+                >
+                  Mensaje *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Cuéntanos más detalles sobre tu consulta o proyecto..."
+                  class="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cardinal focus:border-cardinal transition-colors duration-300 text-neutral-900 placeholder-neutral-400 resize-vertical"
+                ></textarea>
+              </div>
+
+              <!-- Privacy Notice -->
+              <div class="flex items-start space-x-3">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  required
+                  class="mt-1 w-4 h-4 text-cardinal bg-white border-neutral-300 rounded focus:ring-cardinal focus:ring-2"
+                />
+                <label for="privacy" class="text-sm text-neutral-400">
+                  Acepto el
+                  <a
+                    href="/aviso-de-privacidad"
+                    class="text-cardinal hover:text-red-700 font-medium transition-colors duration-300"
+                  >
+                    Aviso de Privacidad
+                  </a>
+                  y autorizo el tratamiento de mis datos personales. *
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-4">
+                <input
+                  type="submit"
+                  value="Enviar Mensaje"
+                  class="w-full bg-cardinal text-white px-4 py-2 rounded-lg hover:bg-cardinal/80 transition-colors duration-300"
+                />
+              </div>
+            </form>
+
+            <!-- Success/Error Messages -->
+            <div id="form-messages" class="mt-6 hidden">
+              <div
+                id="success-message"
+                class="hidden bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg"
+              >
+                <div class="flex items-center">
+                  <i class="ri-check-circle-line mr-2"></i>
+                  <span
+                    >¡Mensaje enviado exitosamente! Te contactaremos pronto.</span
+                  >
+                </div>
+              </div>
+              <div
+                id="error-message"
+                class="hidden bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg"
+              >
+                <div class="flex items-center">
+                  <i class="ri-error-warning-line mr-2"></i>
+                  <span
+                    >Hubo un error al enviar el mensaje. Por favor, intenta
+                    nuevamente.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Contact Information -->
+        <div class="fade-in-section" style="animation-delay: 200ms">
+          <div
+            class="bg-neutral-800 rounded-2xl shadow-lg border border-neutral-200 p-8 h-full"
+          >
+            <h2 class="text-2xl font-bold text-neutral-100 mb-6">
+              Información de Contacto
+            </h2>
+
+            <!-- Contact Details -->
+            <div class="space-y-6 mb-8">
+              <!-- Address -->
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-cardinal/10 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="ri-map-pin-line text-cardinal text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-neutral-300 mb-1">Dirección</h3>
+                  <p class="text-neutral-400 text-sm leading-relaxed">
+                    Calle 100, Col. Centro, Xalapa, Ver., México
+                  </p>
+                  <a
+                    href="https://maps.app.goo.gl/68AjugiKmfBoG18C8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-cardinal hover:text-red-700 text-sm font-medium transition-colors duration-300 inline-flex items-center mt-2"
+                  >
+                    Ver en Google Maps
+                    <i class="ri-external-link-line ml-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-cardinal/10 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="ri-phone-line text-cardinal text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-neutral-300 mb-1">Teléfono</h3>
+                  <a
+                    href="tel:+522281006400"
+                    class="text-cardinal hover:text-red-700 font-medium transition-colors duration-300"
+                  >
+                    +52 (228) 100 6400
+                  </a>
+                  <p class="text-neutral-400 text-sm mt-1">
+                    Llamadas y WhatsApp
+                  </p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-cardinal/10 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="ri-mail-line text-cardinal text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-neutral-300 mb-1">Email</h3>
+                  <a
+                    href="mailto:contacto@growlinggroup.com"
+                    class="text-cardinal hover:text-red-700 font-medium transition-colors duration-300"
+                  >
+                    contacto@growlinggroup.com
+                  </a>
+                  <p class="text-neutral-400 text-sm mt-1">
+                    Respuesta en 24 horas
+                  </p>
+                </div>
+              </div>
+
+              <!-- Business Hours -->
+              <div class="flex items-start space-x-4">
+                <div
+                  class="w-12 h-12 bg-cardinal/10 rounded-lg flex items-center justify-center flex-shrink-0"
+                >
+                  <i class="ri-time-line text-cardinal text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-neutral-300 mb-1">Horarios</h3>
+                  <div class="text-neutral-400 text-sm space-y-1">
+                    <p>Lunes - Viernes: 8:00 AM - 6:00 PM</p>
+                    <p>Sábado: 9:00 AM - 2:00 PM</p>
+                    <p>Domingo: Cerrado</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div class="rounded-lg overflow-hidden border border-neutral-200">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2850.0596782636544!2d-96.87660758563503!3d19.51258073545483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v1753204394677!5m2!1ses!2smx"
+                width="100%"
+                height="250"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ubicación de Tu Empresa"
+                class="w-full"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Contact Methods -->
+      <div class="mt-16 fade-in-section" style="animation-delay: 600ms">
+        <div
+          class="bg-cardinal-800 rounded-2xl p-8 border border-cardinal/20"
+        >
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-neutral-900 mb-4">
+              Otras Formas de Contactarnos
+            </h3>
+            <p class="text-neutral-600">
+              Elige la opción que más te convenga para ponerte en contacto con
+              nosotros
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <!-- WhatsApp -->
+            <a
+              href="https://wa.me/522281006400"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-neutral-800 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div
+                class="w-12 h-12 bg-ambiental-500 rounded-lg flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-whatsapp-line text-white text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-neutral-300 mb-2">WhatsApp</h4>
+              <p class="text-neutral-400 text-sm">Respuesta inmediata</p>
+            </a>
+
+            <!-- Email -->
+            <a
+              href="mailto:contacto@growlinggroup.com"
+              class="bg-neutral-800 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div
+                class="w-12 h-12 bg-drones-500 rounded-lg flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-mail-line text-white text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-neutral-300 mb-2">Email</h4>
+              <p class="text-neutral-400 text-sm">Respuesta en 24h</p>
+            </a>
+
+            <!-- Phone -->
+            <a
+              href="tel:+522281006400"
+              class="bg-neutral-800 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div
+                class="w-12 h-12 bg-calderas-500 rounded-lg flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="ri-phone-line text-white text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-neutral-300 mb-2">Teléfono</h4>
+              <p class="text-neutral-400 text-sm">Llamada directa</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Form handling
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("contact-form") as HTMLFormElement;
+      const messagesContainer = document.getElementById("form-messages");
+      const successMessage = document.getElementById("success-message");
+      const errorMessage = document.getElementById("error-message");
+
+      if (form) {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          // Show loading state
+          const submitButton = form.querySelector(
+            'button[type="submit"]',
+          ) as HTMLButtonElement;
+          const originalText = submitButton.textContent;
+          submitButton.textContent = "Enviando...";
+          submitButton.disabled = true;
+
+          try {
+            // Simulate form submission (replace with actual endpoint)
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            // Show success message
+            messagesContainer?.classList.remove("hidden");
+            successMessage?.classList.remove("hidden");
+            errorMessage?.classList.add("hidden");
+
+            // Reset form
+            form.reset();
+
+            // Log form data (for development)
+            console.log("Form submitted:", data);
+          } catch (error) {
+            // Show error message
+            messagesContainer?.classList.remove("hidden");
+            errorMessage?.classList.remove("hidden");
+            successMessage?.classList.add("hidden");
+
+            console.error("Form submission error:", error);
+          } finally {
+            // Reset button
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+          }
+        });
+      }
+
+      // Form validation enhancements
+      const inputs = form?.querySelectorAll("input, textarea");
+      inputs?.forEach((input) => {
+        input.addEventListener("blur", () => {
+          validateField(input as HTMLInputElement | HTMLTextAreaElement);
+        });
+      });
+
+      function validateField(field: HTMLInputElement | HTMLTextAreaElement) {
+        const value = field.value.trim();
+        const isRequired = field.hasAttribute("required");
+
+        // Remove existing error styling
+        field.classList.remove(
+          "border-red-500",
+          "focus:ring-red-500",
+          "focus:border-red-500",
+        );
+
+        if (isRequired && !value) {
+          field.classList.add(
+            "border-red-500",
+            "focus:ring-red-500",
+            "focus:border-red-500",
+          );
+          return false;
+        }
+
+        // Email validation
+        if (field.type === "email" && value) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            field.classList.add(
+              "border-red-500",
+              "focus:ring-red-500",
+              "focus:border-red-500",
+            );
+            return false;
+          }
+        }
+
+        return true;
+      }
+    });
+  </script>
+</MainLayout>

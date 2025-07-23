@@ -1,0 +1,176 @@
+---
+import Button from "@components/ui/Button.astro";
+
+const tramitesEstatales = [
+  {
+    id: 1,
+    title: "Alineamiento y Número Oficial",
+    description: "Gestión del alineamiento de construcciones y asignación de número oficial ante autoridades municipales de Veracruz.",
+    icon: "ri-road-map-line"
+  },
+  {
+    id: 2,
+    title: "Licencia de Funcionamiento",
+    description: "Obtención de licencias de funcionamiento para establecimientos comerciales e industriales en el estado de Veracruz.",
+    icon: "ri-store-3-line"
+  },
+  {
+    id: 3,
+    title: "Licencia de Uso de Suelo",
+    description: "Tramitación de permisos de uso de suelo conforme a la zonificación municipal y estatal vigente.",
+    icon: "ri-building-2-line"
+  },
+  {
+    id: 4,
+    title: "Trámites Municipales",
+    description: "Gestión integral de diversos trámites ante autoridades municipales: permisos, licencias y autorizaciones locales.",
+    icon: "ri-government-line"
+  }
+];
+
+const tramitesFederales = [
+  {
+    id: 1,
+    title: "Cumplimiento SIRCE STPS",
+    description: "Registro y cumplimiento en el Sistema de Registro de Centros de Trabajo ante la Secretaría del Trabajo y Previsión Social.",
+    icon: "ri-database-2-line"
+  },
+  {
+    id: 2,
+    title: "Reglamento Interno de Trabajo STPS",
+    description: "Inscripción y creación del reglamento interno de trabajo conforme a la normativa federal laboral vigente.",
+    icon: "ri-file-text-line"
+  },
+  {
+    id: 3,
+    title: "Cumplimiento de Registro REPSE",
+    description: "Gestión del Registro de Prestadoras de Servicios Especializados u Obras Especializadas ante STPS.",
+    icon: "ri-shield-check-line"
+  },
+  {
+    id: 4,
+    title: "Cumplimiento VELAVO STPS",
+    description: "Atención y cumplimiento de obligaciones en el sistema de Verificación Laboral de Obra ante STPS.",
+    icon: "ri-check-double-line"
+  },
+  {
+    id: 5,
+    title: "Atención a Inspecciones Federales",
+    description: "Representación especializada ante inspecciones de STPS, ASEA, SEMARNAT y PROFECO con respaldo técnico-legal.",
+    icon: "ri-search-line"
+  }
+];
+---
+
+<section id="servicios" class="py-20">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="container mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 fade-in-section">
+        <div class="inline-flex items-center bg-gubernamental/10 border border-gubernamental/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-government-line text-gubernamental mr-2"></i>
+          <span class="text-gubernamental font-medium text-sm">Trámites Especializados</span>
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold text-gubernamental mb-6">
+          Gestión Integral de Trámites Gubernamentales
+        </h2>
+        <p class="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+          Simplificamos tus procesos burocráticos con gestión especializada de trámites estatales en Veracruz y cumplimiento federal ante STPS, ASEA, SEMARNAT y PROFECO.
+        </p>
+      </div>
+
+      <!-- Trámites Estatales Section -->
+      <div class="mb-16 fade-in-section" style="animation-delay: 200ms">
+        <div class="bg-neutral-50 rounded-2xl p-8 lg:p-12">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center bg-gubernamental-500/10 border border-gubernamental-500/20 rounded-full px-4 py-2 mb-4">
+              <i class="ri-map-pin-line text-gubernamental-500 mr-2"></i>
+              <span class="text-gubernamental-500 font-medium text-sm">Estado de Veracruz</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+              Trámites Estatales y Municipales
+            </h3>
+            <p class="text-neutral-600 max-w-2xl mx-auto">
+              Gestión completa de licencias y permisos ante autoridades estatales y municipales de Veracruz.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {tramitesEstatales.map((tramite, index) => (
+              <div class="rounded-xl p-6 shadow-sm border border-neutral-200 hover:shadow-md transition-all duration-300">
+                <div class="flex items-start mb-4">
+                  <div class="w-10 h-10 bg-gubernamental-500/10 rounded-lg flex items-center justify-center flex-shrink-0 mr-4">
+                    <i class={`${tramite.icon} text-gubernamental-500 text-lg`}></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="text-lg font-semibold text-neutral-900 mb-2">{tramite.title}</h4>
+                    <p class="text-neutral-600 text-sm leading-relaxed">{tramite.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Trámites Federales Section -->
+      <div class="mb-16 fade-in-section" style="animation-delay: 400ms">
+        <div class="bg-neutral-50 rounded-2xl p-8 lg:p-12">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center bg-gubernamental-500/10 border border-gubernamental-500/20 rounded-full px-4 py-2 mb-4">
+              <i class="ri-flag-line text-gubernamental-500 mr-2"></i>
+              <span class="text-gubernamental-500 font-medium text-sm">Gobierno Federal</span>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+              Trámites Federales y Cumplimiento STPS
+            </h3>
+            <p class="text-neutral-600 max-w-2xl mx-auto">
+              Cumplimiento normativo federal y atención especializada a inspecciones gubernamentales.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {tramitesFederales.map((tramite, index) => (
+              <div class="rounded-xl p-6 shadow-sm border border-neutral-200 hover:shadow-md transition-all duration-300">
+                <div class="flex items-start mb-4">
+                  <div class="w-10 h-10 bg-gubernamental-500/10 rounded-lg flex items-center justify-center flex-shrink-0 mr-4">
+                    <i class={`${tramite.icon} text-gubernamental-500 text-lg`}></i>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="text-lg font-semibold text-neutral-900 mb-2">{tramite.title}</h4>
+                    <p class="text-neutral-600 text-sm leading-relaxed">{tramite.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-16 text-center fade-in-section" style="animation-delay: 800ms">
+        <div class="bg-gradient-to-br from-gubernamental/50 to-gubernamental/90 rounded-2xl p-8 lg:p-12">
+          <h3 class="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+            ¿Necesitas gestionar trámites gubernamentales?
+          </h3>
+          <p class="text-neutral-800 mb-6 max-w-2xl mx-auto">
+            Nuestro equipo de especialistas en normativa gubernamental puede encargarse de todos tus trámites estatales y federales, garantizando cumplimiento normativo y continuidad operativa.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button text="Solicitar asesoría" href="#contacto" variant="fill" palette="gubernamental" icon="ri-arrow-right-line" />
+            <Button text="Llamar ahora" href="tel:+521234567890" variant="outline" palette="gubernamental" icon="ri-phone-line" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  // Smooth scrolling for internal links
+  document.addEventListener('DOMContentLoaded', () => {
+    // Add any additional interactivity here if needed
+    console.log('Trámites Gubernamentales section loaded');
+  });
+</script>

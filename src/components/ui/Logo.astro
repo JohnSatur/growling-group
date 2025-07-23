@@ -24,8 +24,12 @@ import logoCapacitacion from '@images/logo-capacitacion.png';
 import logoCapacitacionBlanco from '@images/logo-capacitacion-blanco.png';
 import isotipoCapacitacion from '@images/isotipo-capacitacion.png';
 
+import logoGubernamental from '@images/logo-gubernamental.png';
+import logoGubernamentalBlanco from '@images/logo-gubernamental-blanco.png';
+import isotipoGubernamental from '@images/isotipo-gubernamental.png';
+
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion' | 'gubernamental';
   variant?: 'color' | 'white' | 'isotipo';
   width?: number;
   height?: number;
@@ -72,6 +76,11 @@ const logoMap = {
     color: logoCapacitacion,
     white: logoCapacitacionBlanco,
     isotipo: isotipoCapacitacion
+  },
+  gubernamental: {
+    color: logoGubernamental,
+    white: logoGubernamentalBlanco,
+    isotipo: isotipoGubernamental
   }
 };
 

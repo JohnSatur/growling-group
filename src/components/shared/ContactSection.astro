@@ -1,7 +1,6 @@
 ---
 export interface Props {
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
-  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion';
+  palette?: 'cardinal' | 'ambiental' | 'drones' | 'calderas' | 'civil' | 'capacitacion' | 'gubernamental';
 }
 
 const { palette = 'cardinal' } = Astro.props;
@@ -43,6 +42,12 @@ const colorClasses = {
     text: 'text-capacitacion',
     bg: 'bg-capacitacion',
     hover: 'hover:bg-capacitacion/10'
+  },
+  gubernamental: {
+    gradient: 'from-gubernamental to-gubernamental/90',
+    text: 'text-gubernamental',
+    bg: 'bg-gubernamental',
+    hover: 'hover:bg-gubernamental/10'
   }
 };
 
@@ -83,6 +88,12 @@ const sectionContent = {
   capacitacion: {
     title: "Comienza tu Proyecto de Capacitación Certificada Hoy",
     subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de capacitación certificada perfecta para tu empresa.",
+    formTitle: "Solicita tu Consulta Gratuita",
+    email: "growlinggroup@gmail.com"
+  },
+  gubernamental: {
+    title: "Comienza tu proyecto de trámites gubernamentales hoy",
+    subtitle: "Nuestro equipo de especialistas está listo para evaluar tus necesidades y desarrollar la estrategia de trámites gubernamentales perfecta para tu empresa.",
     formTitle: "Solicita tu Consulta Gratuita",
     email: "growlinggroup@gmail.com"
   }
