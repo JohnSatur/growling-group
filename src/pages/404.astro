@@ -1,25 +1,27 @@
 ---
+import { Image } from 'astro:assets';
+import bg404 from '@images/capacitacion5.jpg';
 import Button from '@components/ui/Button.astro';
 import Logo from '@components/ui/Logo.astro';
 import MainLayout from '@layouts/MainLayout.astro';
 ---
 
 <MainLayout>
-  <main class="min-h-screen relative overflow-hidden bg-background">
+  <main class="min-h-screen relative overflow-hidden">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 z-0">
       <!-- Background Image -->
-      <div 
-        class="w-full h-full bg-cover bg-center bg-no-repeat"
-        style="background-image: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');"
-      ></div>
+      <Image
+        src={bg404}
+        alt="Imagen de fondo de error 404"
+        width={1920}
+        height={1080}
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
       
       <!-- Theme-aware Overlay -->
-      <div class="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-neutral-900/70 to-neutral-800/80 dark:from-neutral-900/85 dark:via-neutral-900/75 dark:to-neutral-800/85"></div>
-      
-      <!-- Subtle Pattern Overlay -->
-      <div class="absolute inset-0 opacity-10" 
-        style="background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--contrast) 15%, transparent) 1px, transparent 0); background-size: 20px 20px;"></div>
+      <div class="absolute inset-0 bg-background/50"></div>
     </div>
 
     <!-- Content -->
@@ -34,7 +36,7 @@ import MainLayout from '@layouts/MainLayout.astro';
 
       <!-- 404 Text -->
       <div class="mb-8 animate-fade-in-up" style="animation-delay: 200ms;">
-        <h1 class="text-8xl sm:text-9xl lg:text-[12rem] font-black text-contrast leading-none tracking-tight mb-4">
+        <h1 class="text-8xl sm:text-9xl lg:text-[12rem] font-black text-neutral-950 leading-none tracking-tight mb-4">
           404
         </h1>
         <div class="w-24 h-1 bg-cardinal mx-auto rounded-full mb-6"></div>
@@ -42,10 +44,10 @@ import MainLayout from '@layouts/MainLayout.astro';
 
       <!-- Error Message -->
       <div class="mb-12 animate-fade-in-up max-w-2xl" style="animation-delay: 400ms;">
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-contrast mb-4 drop-shadow-lg">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-neutral-800 mb-4 drop-shadow-lg">
           Página no encontrada
         </h2>
-        <p class="text-lg sm:text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed drop-shadow-md">
+        <p class="text-lg sm:text-xl text-neutral-700 leading-relaxed drop-shadow-md">
           Lo sentimos, la página que buscas no existe o ha sido movida. 
           Te invitamos a regresar al inicio y explorar nuestros servicios.
         </p>
@@ -75,29 +77,29 @@ import MainLayout from '@layouts/MainLayout.astro';
 
       <!-- Additional Help -->
       <div class="mt-16 animate-fade-in-up" style="animation-delay: 800ms;">
-        <p class="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
+        <p class="text-neutral-800 text-sm mb-4">
           ¿Necesitas ayuda? Contáctanos directamente
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm">
           <a 
-            href="tel:+521234567890" 
-            class="flex items-center text-neutral-700 dark:text-neutral-300 hover:text-cardinal transition-colors duration-300 group"
+            href="tel:+5212281006400" 
+            class="flex items-center text-neutral-700 hover:text-cardinal transition-colors duration-300 group font-semibold"
           >
             <i class="ri-phone-line mr-2 text-lg group-hover:animate-pulse"></i>
-            <span>+52 123 456 7890</span>
+            <span>+52 (228) 100 6400</span>
           </a>
           <a 
-            href="mailto:contacto@tuempresa.com" 
-            class="flex items-center text-neutral-700 dark:text-neutral-300 hover:text-cardinal transition-colors duration-300 group"
+            href="mailto:contacto@growlinggroup.com" 
+            class="flex items-center text-neutral-700 hover:text-cardinal transition-colors duration-300 group font-semibold"
           >
             <i class="ri-mail-line mr-2 text-lg group-hover:animate-pulse"></i>
-            <span>contacto@tuempresa.com</span>
+            <span>contacto@growlinggroup.com</span>
           </a>
           <a 
-            href="https://wa.me/521234567890" 
+            href="https://wa.me/5212281006400" 
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center text-neutral-700 dark:text-neutral-300 hover:text-green-400 transition-colors duration-300 group"
+            class="flex items-center text-neutral-700 hover:text-green-400 transition-colors duration-300 group font-semibold"
           >
             <i class="ri-whatsapp-line mr-2 text-lg group-hover:animate-pulse"></i>
             <span>WhatsApp</span>
@@ -108,9 +110,9 @@ import MainLayout from '@layouts/MainLayout.astro';
 
     <!-- Floating Elements for Visual Interest -->
     <div class="absolute top-20 left-10 w-2 h-2 bg-cardinal rounded-full opacity-60 animate-pulse" style="animation-delay: 1s;"></div>
-    <div class="absolute top-40 right-20 w-3 h-3 bg-neutral-800 dark:bg-neutral-200 rounded-full opacity-40 animate-pulse" style="animation-delay: 2s;"></div>
+    <div class="absolute top-40 right-20 w-3 h-3 bg-neutral-800 rounded-full opacity-40 animate-pulse" style="animation-delay: 2s;"></div>
     <div class="absolute bottom-32 left-20 w-1 h-1 bg-cardinal rounded-full opacity-80 animate-pulse" style="animation-delay: 1.5s;"></div>
-    <div class="absolute bottom-20 right-10 w-2 h-2 bg-neutral-800 dark:bg-neutral-200 rounded-full opacity-50 animate-pulse" style="animation-delay: 2.5s;"></div>
+    <div class="absolute bottom-20 right-10 w-2 h-2 bg-neutral-800 rounded-full opacity-50 animate-pulse" style="animation-delay: 2.5s;"></div>
   </main>
 </MainLayout>
 
@@ -154,19 +156,6 @@ import MainLayout from '@layouts/MainLayout.astro';
     min-height: 100dvh; /* Dynamic viewport height for mobile */
   }
 
-  /* Custom text shadow for better readability */
-  h1 {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  }
-
-  h2 {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  p {
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  }
-
   /* Responsive font sizes for 404 */
   @media (max-width: 640px) {
     h1 {
@@ -190,17 +179,6 @@ import MainLayout from '@layouts/MainLayout.astro';
 <script type="module">
   // Add some interactive behavior
   document.addEventListener('DOMContentLoaded', () => {
-    // Add parallax effect to background on scroll (subtle)
-    const background = document.querySelector('main > div');
-    
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-      
-      if (background) {
-        background.style.transform = `translateY(${rate}px)`;
-      }
-    });
 
     // Add click effect to floating elements
     const floatingElements = document.querySelectorAll('.absolute.animate-pulse');
