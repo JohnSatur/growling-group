@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import MainLayout from '@layouts/MainLayout.astro';
 import BlogHero from '@components/sections/blog/HeroSection.astro';
 import BlogCard from '@components/ui/BlogCard.astro';
-import CategoryCard from '@components/ui/CategoryCard.astro';
+// import CategoryCard from '@components/ui/CategoryCard.astro';
 import Button from '@components/ui/Button.astro';
 
 // Obtener todas las colecciones
@@ -72,12 +72,12 @@ const postsByCategory = allCategories.map(category => {
   )}
 
   <!-- Latest Posts Section -->
-  <section id="ultimos-posts" class="py-16 bg-neutral-50">
+  <section id="ultimos-posts" class="py-16">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <div class="inline-flex items-center bg-blue-600/10 border border-blue-600/20 rounded-full px-4 py-2 mb-6">
-          <i class="ri-time-line text-blue-600 mr-2"></i>
-          <span class="text-blue-600 font-medium text-sm">Recientes</span>
+        <div class="inline-flex items-center bg-cardinal-600/10 border border-cardinal-600/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-time-line text-cardinal-600 mr-2"></i>
+          <span class="text-cardinal-600 font-medium text-sm">Recientes</span>
         </div>
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
           Últimos Artículos
@@ -121,7 +121,7 @@ const postsByCategory = allCategories.map(category => {
   </section>
 
   <!-- Categories Section -->
-  <section id="categorias" class="py-16 bg-white">
+  <!-- <section id="categorias" class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <div class="inline-flex items-center bg-green-600/10 border border-green-600/20 rounded-full px-4 py-2 mb-6">
@@ -156,10 +156,10 @@ const postsByCategory = allCategories.map(category => {
         </div>
       )}
     </div>
-  </section>
+  </section> -->
 
   <!-- Newsletter Section -->
-  <section class="py-16 bg-gradient-to-br from-cardinal/10 to-red-600/5">
+  <!-- <section class="py-16 bg-cardinal-500/20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <div class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6">
@@ -195,7 +195,7 @@ const postsByCategory = allCategories.map(category => {
         </p>
       </div>
     </div>
-  </section>
+  </section> -->
 </MainLayout>
 
 <style>
