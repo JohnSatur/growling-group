@@ -1,0 +1,149 @@
+---
+import Button from '@components/ui/Button.astro';
+import Image from 'astro/components/Image.astro';
+import blogHero from '@images/blog-hero.jpg';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const { 
+  title = "Blog",
+  subtitle = "Conocimiento y Experiencia",
+  description = "Descubre artículos especializados sobre consultoría empresarial, protección civil, servicios ambientales y más. Mantente actualizado con las últimas tendencias y mejores prácticas de la industria."
+} = Astro.props;
+---
+
+<section class="relative py-20 lg:py-32 overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={blogHero}
+      width={1920}
+      height={1080}
+      alt="Blog hero background"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      width={1920}
+      height={1080}
+    />
+    <div class="absolute inset-0 bg-background/75"></div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="absolute top-20 left-10 w-2 h-2 bg-cardinal rounded-full opacity-60 animate-pulse"></div>
+  <div class="absolute top-40 right-20 w-3 h-3 bg-white rounded-full opacity-40 animate-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute bottom-32 left-20 w-1 h-1 bg-cardinal rounded-full opacity-80 animate-pulse" style="animation-delay: 2s;"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      
+      <!-- Badge -->
+      <div class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+        <i class="ri-article-line text-cardinal mr-2"></i>
+        <span class="text-cardinal font-medium text-sm">Artículos Especializados</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-950 mb-6 leading-tight">
+        {title}
+        <span class="block text-cardinal mt-2">{subtitle}</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="text-lg md:text-xl text-neutral-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+        {description}
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <Button 
+          text="Explorar Artículos"
+          href="#ultimos-posts"
+          variant="fill"
+          palette="cardinal"
+          icon="ri-arrow-down-line"
+          class="shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+        />
+        <Button 
+          text="Ver Categorías"
+          href="#categorias"
+          variant="outline"
+          palette="cardinal"
+          icon="ri-folder-line"
+          class="shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+        />
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-neutral-950 mb-2">50+</div>
+          <div class="text-neutral-700 text-sm">Artículos Publicados</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-neutral-950 mb-2">6</div>
+          <div class="text-neutral-700 text-sm">Categorías Especializadas</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-neutral-950 mb-2">1000+</div>
+          <div class="text-neutral-700 text-sm">Lectores Mensuales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <!-- <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+    </div>
+  </div> -->
+</section>
+
+<style>
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
+
+<script type="module">
+  // Smooth scroll for CTA buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctaButtons = document.querySelectorAll('a[href^="#"]');
+    
+    ctaButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = button.getAttribute('href')?.substring(1);
+        const targetElement = document.getElementById(targetId || '');
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+
+  // Parallax effect for background
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const background = document.querySelector('section > div');
+    
+    if (background) {
+      background.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+  });
+</script>

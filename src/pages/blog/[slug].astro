@@ -1,0 +1,432 @@
+---
+import { getCollection, type CollectionEntry, getEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import MainLayout from '@layouts/MainLayout.astro';
+import BlogCard from '@components/ui/BlogCard.astro';
+import Button from '@components/ui/Button.astro';
+import { render } from 'astro:content';
+import '@styles/blog.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Obtener posts relacionados
+const allPosts = await getCollection('posts');
+const relatedPosts = post.data.relatedPosts 
+  ? await Promise.all(
+      post.data.relatedPosts.map(async (ref) => {
+        const relatedPost = allPosts.find(p => p.id === ref.id);
+        return relatedPost;
+      })
+    ).then(posts => posts.filter(Boolean))
+  : allPosts
+      .filter(p => p.data.slug !== post.data.slug && p.data.category?.id === post.data.category?.id)
+      .slice(0, 3);
+
+// Formatear fecha
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+};
+
+// Calcular tiempo de lectura
+const calculateReadingTime = (content: string) => {
+  const wordsPerMinute = 200;
+  const words = content.split(' ').length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min de lectura`;
+};
+
+// Obtener color de categoría
+const getCategoryColor = (category: any) => {
+  if (!category) return 'bg-neutral-100 text-neutral-600';
+  
+  const colorMap: Record<string, string> = {
+    'ambiental': 'bg-green-100 text-green-800',
+    'proteccion-civil': 'bg-red-100 text-red-800',
+    'calderas': 'bg-orange-100 text-orange-800',
+    'drones': 'bg-blue-100 text-blue-800',
+    'capacitacion-certificada': 'bg-red-100 text-red-800',
+    'tramites': 'bg-yellow-100 text-yellow-800'
+  };
+  
+  return colorMap[category.data?.slug] || 'bg-neutral-100 text-neutral-600';
+};
+
+const pageTitle = `${post.data.title} - Blog | Tu Empresa`;
+
+const author = post.data.author ? (await getEntry('authors', post.data.author.id))?.data || null : null;
+const category = post.data.category?.id ? (await getEntry('categories', post.data.category.id))?.data || null : null;
+---
+
+<MainLayout 
+  title={pageTitle}
+  palette="cardinal"
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-32 overflow-hidden">
+      <!-- Background -->
+      <div class="absolute inset-0 z-0">
+        {post.data.image ? (
+          <Image
+            src={post.data.image}
+            alt={post.data.title}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        ) : (
+          <Image
+            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
+            alt="Imagen de fondo del blog"
+            class="w-full h-full object-cover"
+            width={1920}
+            height={1080}
+            loading="eager"
+          />
+        )}
+        <div class="absolute inset-0 bg-background/50"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          
+          <!-- Breadcrumb -->
+          <nav class="mb-8" aria-label="Breadcrumb">
+            <ol class="flex items-center justify-center space-x-2 text-sm">
+              <li>
+                <a href="/" class="text-neutral-800 hover:text-neutral-950 transition-colors duration-300">
+                  Inicio
+                </a>
+              </li>
+              <li class="text-neutral-600">/</li>
+              <li>
+                <a href="/blog" class="text-neutral-800 hover:text-neutral-950 transition-colors duration-300">
+                  Blog
+                </a>
+              </li>
+              <li class="text-neutral-600">/</li>
+              <li class="text-neutral-950 font-medium">
+                {post.data.title}
+              </li>
+            </ol>
+          </nav>
+
+          <!-- Category Badge -->
+          {post.data.category && (
+            <div class="inline-flex items-center mb-6">
+              <span class={`px-4 py-2 rounded-full text-sm font-medium ${getCategoryColor(post.data.category)}`}>
+                {category?.name}
+              </span>
+            </div>
+          )}
+
+          <!-- Title -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-950 mb-6 leading-tight">
+            {post.data.title}
+          </h1>
+
+          <!-- Description -->
+          <p class="text-lg md:text-xl text-neutral-800 mb-8 max-w-3xl mx-auto leading-relaxed">
+            {post.data.description}
+          </p>
+
+          <!-- Meta Information -->
+          <div class="flex flex-wrap items-center justify-center gap-6 text-neutral-800 font-medium">
+            <!-- Author -->
+            <!-- {post.data.author && (
+              <div class="flex items-center space-x-2">
+                {post.data.author.data?.image ? (
+                  <Image
+                    src={author?.image.}
+                    alt={author?.name}
+                    class="w-8 h-8 rounded-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-8 h-8 bg-cardinal/20 rounded-full flex items-center justify-center">
+                    <i class="ri-user-line text-cardinal text-sm"></i>
+                  </div>
+                )}
+                <span class="font-medium">{author?.name}</span>
+              </div>
+            )} -->
+
+            <!-- Date -->
+            <div class="flex items-center space-x-2">
+              <i class="ri-calendar-line text-cardinal"></i>
+              <time datetime={post.data.pubDate.toISOString()}>
+                {formatDate(post.data.pubDate)}
+              </time>
+            </div>
+
+            <!-- Reading Time -->
+            <div class="flex items-center space-x-2">
+              <i class="ri-time-line text-cardinal"></i>
+              <span>{calculateReadingTime(post.body || '')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+          
+          <!-- Article Body -->
+          <article class="blog-content">
+            <Content />
+          </article>
+
+          <!-- Tags -->
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="mt-12 pt-8 border-t border-neutral-200">
+              <h3 class="text-lg font-semibold text-neutral-900 mb-4">Etiquetas</h3>
+              <div class="flex flex-wrap gap-2">
+                {post.data.tags.map((tag) => (
+                  <span class="px-3 py-1 bg-neutral-100 text-neutral-700 rounded-full text-sm font-medium hover:bg-neutral-200 transition-colors duration-300">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Author Bio -->
+          {post.data.author && (
+            <div class="mt-12 pt-8 border-t border-neutral-200">
+              <div class="bg-neutral-50 rounded-xl p-6 border border-neutral-200">
+                <div class="flex items-start space-x-4">
+                  {author?.image ? (
+                    <Image
+                      src={author.image}
+                      alt={author.name}
+                      class="w-16 h-16 rounded-full object-cover flex-shrink-0"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div class="w-16 h-16 bg-cardinal/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <i class="ri-user-line text-cardinal text-2xl"></i>
+                    </div>
+                  )}
+                  <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-1">
+                      {author?.name}
+                    </h3>
+                    <p class="text-cardinal text-sm font-medium mb-2">
+                      {author?.role}
+                    </p>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                      {author?.bio}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <!-- Share Section -->
+          <div class="mt-12 pt-8 border-t border-neutral-200">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <h3 class="text-lg font-semibold text-neutral-900">
+                Comparte este artículo
+              </h3>
+              <div class="flex items-center space-x-4">
+                <a 
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(Astro.url.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center w-10 h-10 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-300"
+                  aria-label="Compartir en Twitter"
+                >
+                  <i class="ri-twitter-x-line"></i>
+                </a>
+                <a 
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors duration-300"
+                  aria-label="Compartir en Facebook"
+                >
+                  <i class="ri-facebook-line"></i>
+                </a>
+                <a 
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center w-10 h-10 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-colors duration-300"
+                  aria-label="Compartir en LinkedIn"
+                >
+                  <i class="ri-linkedin-line"></i>
+                </a>
+                <button 
+                  id="copy-link"
+                  class="flex items-center justify-center w-10 h-10 bg-neutral-600 text-white rounded-full hover:bg-neutral-700 transition-colors duration-300"
+                  aria-label="Copiar enlace"
+                >
+                  <i class="ri-link"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Posts -->
+    {relatedPosts && relatedPosts.length > 0 && (
+      <section class="py-16 bg-neutral-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+              <div class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6">
+                <i class="ri-article-line text-cardinal mr-2"></i>
+                <span class="text-cardinal font-medium text-sm">Relacionados</span>
+              </div>
+              <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+                Artículos Relacionados
+              </h2>
+              <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+                Continúa explorando más contenido sobre este tema
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedPosts.map((relatedPost, index) => 
+                relatedPost && (
+                  <BlogCard 
+                    post={relatedPost}
+                    class="fade-in-section"
+                  />
+                )
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-br from-cardinal/10 to-red-600/5">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6">
+            <i class="ri-customer-service-line text-cardinal mr-2"></i>
+            <span class="text-cardinal font-medium text-sm">¿Te Interesa?</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+            ¿Necesitas Ayuda con Este Tema?
+          </h2>
+          <p class="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+            Nuestro equipo de expertos puede ayudarte a implementar las mejores prácticas 
+            y soluciones especializadas para tu organización.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              text="Contactar Expertos"
+              href="/contacto"
+              variant="fill"
+              palette="cardinal"
+              icon="ri-user-star-line"
+              class="shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            />
+            <Button 
+              text="Ver Más Artículos"
+              href="/blog"
+              variant="outline"
+              palette="cardinal"
+              icon="ri-article-line"
+              class="shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
+
+<script type="module">
+  // Copy link functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyButton = document.getElementById('copy-link');
+    
+    if (copyButton) {
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          
+          // Visual feedback
+          const icon = copyButton.querySelector('i');
+          if (icon) {
+            icon.classList.remove('ri-link');
+            icon.classList.add('ri-check-line');
+            copyButton.classList.remove('bg-neutral-600', 'hover:bg-neutral-700');
+            copyButton.classList.add('bg-green-600', 'hover:bg-green-700');
+            
+            setTimeout(() => {
+              icon.classList.remove('ri-check-line');
+              icon.classList.add('ri-link');
+              copyButton.classList.remove('bg-green-600', 'hover:bg-green-700');
+              copyButton.classList.add('bg-neutral-600', 'hover:bg-neutral-700');
+            }, 2000);
+          }
+        } catch (err) {
+          console.error('Error copying link:', err);
+        }
+      });
+    }
+  });
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  // Observe all fade-in sections
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    section.style.animationPlayState = 'paused';
+    observer.observe(section);
+  });
+
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>

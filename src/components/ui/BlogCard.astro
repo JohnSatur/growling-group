@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+  featured?: boolean;
+  class?: string;
+}
+
+const { post, featured = false, class: className = '' } = Astro.props;
+
+// Formatear fecha
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+};
+
+// Calcular tiempo de lectura estimado
+const calculateReadingTime = (content: string) => {
+  const wordsPerMinute = 200;
+  const words = content.split(' ').length;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return `${minutes} min de lectura`;
+};
+
+// Obtener color de categoría
+const getCategoryColor = (category: any) => {
+  if (!category) return 'bg-neutral-100 text-neutral-600';
+  
+  const colorMap: Record<string, string> = {
+    'ambiental': 'bg-green-100 text-green-800',
+    'proteccion-civil': 'bg-red-100 text-red-800',
+    'calderas': 'bg-orange-100 text-orange-800',
+    'drones': 'bg-blue-100 text-blue-800',
+    'capacitacion': 'bg-purple-100 text-purple-800',
+    'tramites': 'bg-yellow-100 text-yellow-800'
+  };
+  
+  return colorMap[category.data?.slug] || 'bg-neutral-100 text-neutral-600';
+};
+const author = post.data.author ? (await getEntry('authors', post.data.author.id))?.data || null : null;
+const category = post.data.category?.id ? (await getEntry('categories', post.data.category.id))?.data || null : null;
+---
+
+<article class={`group cursor-pointer transition-all duration-300 ${className}`}>
+  <a href={`/blog/${post.data.slug}`} class="block">
+    <div class="bg-neutral-950 rounded-xl shadow-lg border border-neutral-200 overflow-hidden hover:shadow-xl hover:border-cardinal/20 transition-all duration-300 transform hover:-translate-y-1">
+      
+      <!-- Image Container -->
+      <div class="relative overflow-hidden aspect-video">
+        {post.data.image ? (
+          <Image
+            src={post.data.image}
+            alt={post.data.title}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            loading={featured ? "eager" : "lazy"}
+          />
+        ) : (
+          <div class="w-full h-full bg-gradient-to-br from-cardinal/10 to-cardinal/20 flex items-center justify-center">
+            <i class="ri-article-line text-cardinal text-4xl"></i>
+          </div>
+        )}
+        
+        <!-- Category Badge -->
+        {category && (
+          <div class="absolute top-4 left-4">
+            <span class={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(post.data.category)}`}>
+              {category.name}
+            </span>
+          </div>
+        )}
+      </div>
+
+      <!-- Content Container -->
+      <div class="p-6">
+        <div>
+          <!-- Meta Information -->
+          <div class="flex items-center text-sm text-neutral-500 mb-3">
+            <time datetime={post.data.pubDate.toISOString()}>
+              {formatDate(post.data.pubDate)}
+            </time>
+            <span class="mx-2">•</span>
+            <span>{calculateReadingTime(post.body || '')}</span>
+          </div>
+
+          <!-- Title -->
+          <h3 class="font-bold text-neutral-100 mb-3 group-hover:text-cardinal transition-colors duration-300 text-xl">
+            {post.data.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-neutral-600 leading-relaxed text-sm">
+            {post.data.description}
+          </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-4 pt-4 border-t border-neutral-100">
+          <div class="flex items-center justify-between">
+            <!-- Author -->
+            {post.data.author && (
+              <div class="flex items-center space-x-2">
+                {post.data.author ? (
+                  // <Image
+                  //   src={post.data.author.data.image}
+                  //   alt={post.data.author.data?.name}
+                  //   class="w-6 h-6 rounded-full object-cover"
+                  //   loading="lazy"
+                  // />
+                  <span>imagen</span>
+                ) : (
+                  <div class="w-6 h-6 bg-cardinal/10 rounded-full flex items-center justify-center">
+                    <i class="ri-user-line text-cardinal text-xs"></i>
+                  </div>
+                )}
+                <span class="text-sm text-neutral-600">{author?.name}</span>
+              </div>
+            )}
+
+            <!-- Read More -->
+            <div class="flex items-center text-cardinal text-sm font-medium group-hover:text-red-700 transition-colors duration-300">
+              <span>Leer más</span>
+              <i class="ri-arrow-right-line ml-1 group-hover:translate-x-1 transition-transform duration-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>

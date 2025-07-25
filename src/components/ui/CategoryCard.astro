@@ -1,0 +1,107 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  category: CollectionEntry<'categories'>;
+  postCount: number;
+  class?: string;
+}
+
+const { category, postCount, class: className = '' } = Astro.props;
+
+// Mapeo de iconos por categoría
+const getIconForCategory = (slug: string) => {
+  const iconMap: Record<string, string> = {
+    'ambiental': 'ri-leaf-line',
+    'proteccion-civil': 'ri-shield-check-line',
+    'calderas': 'ri-fire-line',
+    'drones': 'ri-flight-takeoff-line',
+    'capacitacion': 'ri-graduation-cap-line',
+    'tramites': 'ri-file-text-line'
+  };
+  
+  return iconMap[slug] || 'ri-folder-line';
+};
+
+// Mapeo de colores por categoría
+const getColorForCategory = (slug: string) => {
+  const colorMap: Record<string, { bg: string; text: string; hover: string; icon: string }> = {
+    'ambiental': {
+      bg: 'bg-green-50',
+      text: 'text-green-900',
+      hover: 'hover:bg-green-100',
+      icon: 'text-green-600'
+    },
+    'proteccion-civil': {
+      bg: 'bg-red-50',
+      text: 'text-red-900',
+      hover: 'hover:bg-red-100',
+      icon: 'text-red-600'
+    },
+    'calderas': {
+      bg: 'bg-orange-50',
+      text: 'text-orange-900',
+      hover: 'hover:bg-orange-100',
+      icon: 'text-orange-600'
+    },
+    'drones': {
+      bg: 'bg-blue-50',
+      text: 'text-blue-900',
+      hover: 'hover:bg-blue-100',
+      icon: 'text-blue-600'
+    },
+    'capacitacion': {
+      bg: 'bg-purple-50',
+      text: 'text-purple-900',
+      hover: 'hover:bg-purple-100',
+      icon: 'text-purple-600'
+    },
+    'tramites': {
+      bg: 'bg-yellow-50',
+      text: 'text-yellow-900',
+      hover: 'hover:bg-yellow-100',
+      icon: 'text-yellow-600'
+    }
+  };
+  
+  return colorMap[slug] || {
+    bg: 'bg-neutral-50',
+    text: 'text-neutral-900',
+    hover: 'hover:bg-neutral-100',
+    icon: 'text-neutral-600'
+  };
+};
+
+const colors = getColorForCategory(category.data.slug);
+const icon = getIconForCategory(category.data.slug);
+---
+
+<a 
+  href={`/blog/categoria/${category.data.slug}`}
+  class={`block group transition-all duration-300 transform hover:-translate-y-1 ${className}`}
+>
+  <div class={`${colors.bg} ${colors.hover} rounded-xl p-6 border border-transparent group-hover:border-neutral-200 group-hover:shadow-lg transition-all duration-300`}>
+    <div class="flex items-center justify-between mb-4">
+      <div class={`w-12 h-12 ${colors.bg} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+        <i class={`${icon} ${colors.icon} text-xl`}></i>
+      </div>
+      <div class="text-right">
+        <span class={`${colors.text} text-2xl font-bold`}>{postCount}</span>
+        <p class={`${colors.text} opacity-70 text-xs`}>
+          {postCount === 1 ? 'artículo' : 'artículos'}
+        </p>
+      </div>
+    </div>
+    
+    <h3 class={`${colors.text} font-semibold text-lg mb-2 group-hover:text-opacity-80 transition-colors duration-300`}>
+      {category.data.name}
+    </h3>
+    
+    <div class="flex items-center justify-between">
+      <span class={`${colors.text} opacity-60 text-sm`}>
+        Ver todos los artículos
+      </span>
+      <i class={`ri-arrow-right-line ${colors.icon} group-hover:translate-x-1 transition-transform duration-300`}></i>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,256 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '@layouts/MainLayout.astro';
+import BlogHero from '@components/sections/blog/HeroSection.astro';
+import BlogCard from '@components/ui/BlogCard.astro';
+import CategoryCard from '@components/ui/CategoryCard.astro';
+import Button from '@components/ui/Button.astro';
+
+// Obtener todas las colecciones
+const allPosts = await getCollection('posts');
+
+const allCategories = await getCollection('categories');
+
+// Ordenar posts por fecha (más recientes primero)
+const sortedPosts = allPosts.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Obtener posts destacados (los 3 más recientes)
+const featuredPosts = sortedPosts.slice(0, 3);
+
+// Obtener posts recientes (siguientes 6)
+const recentPosts = sortedPosts.slice(3, 9);
+
+// Contar posts por categoría
+const postsByCategory = allCategories.map(category => {
+  const postCount = allPosts.filter(post => 
+    post.data.category?.id === category.id
+  ).length;
+  
+  return {
+    category,
+    postCount
+  };
+}).filter(item => item.postCount > 0);
+---
+
+<MainLayout 
+  title="Blog - Tu Empresa | Artículos Especializados"
+>
+  <!-- Hero Section -->
+  <BlogHero />
+
+  <!-- Featured Posts Section -->
+  {featuredPosts.length > 0 && (
+    <section id="posts-destacados" class="py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6">
+            <i class="ri-star-line text-cardinal mr-2"></i>
+            <span class="text-cardinal font-medium text-sm">Destacados</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-950 mb-4">
+            Artículos Destacados
+          </h2>
+          <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+            Los artículos más relevantes y actuales de nuestro blog
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {featuredPosts.map((post, index) => (
+            <BlogCard 
+              post={post} 
+              featured={index === 0}
+              class="fade-in-section"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Latest Posts Section -->
+  <section id="ultimos-posts" class="py-16 bg-neutral-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center bg-blue-600/10 border border-blue-600/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-time-line text-blue-600 mr-2"></i>
+          <span class="text-blue-600 font-medium text-sm">Recientes</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Últimos Artículos
+        </h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          Mantente al día con nuestras últimas publicaciones y análisis especializados
+        </p>
+      </div>
+
+      {recentPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {recentPosts.map((post, index) => (
+            <BlogCard 
+              post={post}
+              class="fade-in-section"
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <div class="w-24 h-24 bg-neutral-200 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="ri-article-line text-neutral-400 text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-700 mb-2">No hay artículos disponibles</h3>
+          <p class="text-neutral-500">Pronto publicaremos contenido especializado para ti.</p>
+        </div>
+      )}
+
+      {sortedPosts.length > 9 && (
+        <div class="text-center">
+          <Button 
+            text="Ver Todos los Artículos"
+            href="/blog/todos"
+            variant="outline"
+            palette="cardinal"
+            icon="ri-arrow-right-line"
+          />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="categorias" class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center bg-green-600/10 border border-green-600/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-folder-line text-green-600 mr-2"></i>
+          <span class="text-green-600 font-medium text-sm">Organizado</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Explora por Categorías
+        </h2>
+        <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+          Encuentra artículos específicos sobre los temas que más te interesan
+        </p>
+      </div>
+
+      {postsByCategory.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {postsByCategory.map((item, index) => (
+            <CategoryCard 
+              category={item.category}
+              postCount={item.postCount}
+              class="fade-in-section"
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12">
+          <div class="w-24 h-24 bg-neutral-200 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="ri-folder-line text-neutral-400 text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-neutral-700 mb-2">No hay categorías disponibles</h3>
+          <p class="text-neutral-500">Las categorías aparecerán cuando publiquemos contenido.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-16 bg-gradient-to-br from-cardinal/10 to-red-600/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-flex items-center bg-cardinal/10 border border-cardinal/20 rounded-full px-4 py-2 mb-6">
+          <i class="ri-mail-line text-cardinal mr-2"></i>
+          <span class="text-cardinal font-medium text-sm">Newsletter</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
+          Mantente Informado
+        </h2>
+        <p class="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+          Suscríbete a nuestro newsletter y recibe los últimos artículos y análisis 
+          especializados directamente en tu correo electrónico.
+        </p>
+        
+        <form class="max-w-md mx-auto flex gap-4">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            class="flex-1 px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-cardinal focus:border-cardinal transition-colors duration-300"
+            required
+          />
+          <Button 
+            text="Suscribirse"
+            href="#"
+            variant="fill"
+            palette="cardinal"
+            icon="ri-send-plane-line"
+          />
+        </form>
+        
+        <p class="text-sm text-neutral-500 mt-4">
+          No spam. Puedes cancelar tu suscripción en cualquier momento.
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Animation for fade-in sections */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script type="module">
+  // Newsletter form handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const newsletterForm = document.querySelector('form');
+    
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const email = (newsletterForm.querySelector('input[type="email"]')).value;
+        
+        if (email) {
+          // Aquí implementarías la lógica de suscripción
+          alert(`¡Gracias por suscribirte con el email: ${email}!`);
+          newsletterForm.reset();
+        }
+      });
+    }
+  });
+
+  // Intersection Observer for animations
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  // Observe all fade-in sections
+  document.querySelectorAll('.fade-in-section').forEach(section => {
+    section.style.animationPlayState = 'paused';
+    observer.observe(section);
+  });
+</script>
