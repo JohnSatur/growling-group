@@ -38,7 +38,10 @@ import Button from "@components/ui/Button.astro";
               Envíanos un Mensaje
             </h2>
 
-            <form class="space-y-6" id="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6" id="contact-form">
+              <!-- Add your Web3Forms Access Key -->
+              <input type="hidden" name="access_key" value="49669878-aad8-4bcc-8d20-67d557e74871" />
+
               <!-- Name Field -->
               <div>
                 <label
@@ -209,7 +212,7 @@ import Button from "@components/ui/Button.astro";
                 <div>
                   <h3 class="font-semibold text-neutral-300 mb-1">Dirección</h3>
                   <p class="text-neutral-400 text-sm leading-relaxed">
-                    Calle 100, Col. Centro, Xalapa, Ver., México
+                    Primer privada de Paricutín #5, Col. José Cardel, C.P. 91030 Xalapa, Ver.
                   </p>
                   <a
                     href="https://maps.app.goo.gl/68AjugiKmfBoG18C8"
@@ -233,10 +236,10 @@ import Button from "@components/ui/Button.astro";
                 <div>
                   <h3 class="font-semibold text-neutral-300 mb-1">Teléfono</h3>
                   <a
-                    href="tel:+522281006400"
+                    href="https://wa.me/522286143923"
                     class="text-cardinal hover:text-red-700 font-medium transition-colors duration-300"
                   >
-                    +52 (228) 100 6400
+                    +52 (228) 614 3923
                   </a>
                   <p class="text-neutral-400 text-sm mt-1">
                     Llamadas y WhatsApp
@@ -318,7 +321,7 @@ import Button from "@components/ui/Button.astro";
           <div class="grid md:grid-cols-3 gap-6">
             <!-- WhatsApp -->
             <a
-              href="https://wa.me/522281006400"
+              href="https://wa.me/522286143923"
               target="_blank"
               rel="noopener noreferrer"
               class="bg-neutral-800 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
@@ -348,7 +351,7 @@ import Button from "@components/ui/Button.astro";
 
             <!-- Phone -->
             <a
-              href="tel:+522281006400"
+              href="tel:+5212286143923"
               class="bg-neutral-800 rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               <div
@@ -366,101 +369,111 @@ import Button from "@components/ui/Button.astro";
   </section>
 
   <script>
-    // Form handling
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("contact-form") as HTMLFormElement;
-      const messagesContainer = document.getElementById("form-messages");
-      const successMessage = document.getElementById("success-message");
-      const errorMessage = document.getElementById("error-message");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  
+  if (!form) return;
 
-      if (form) {
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
+  const submitButton = form.querySelector('input[type="submit"]') as HTMLInputElement;
+  const formMessages = document.getElementById('form-messages') as HTMLDivElement;
+  const successMessage = document.getElementById('success-message') as HTMLDivElement;
+  const errorMessage = document.getElementById('error-message') as HTMLDivElement;
 
-          // Get form data
-          const formData = new FormData(form);
-          const data = Object.fromEntries(formData.entries());
+  function validateField(field: HTMLInputElement | HTMLTextAreaElement) {
+    const value = field.value.trim();
+    const isRequired = field.hasAttribute('required');
+    
+    field.classList.remove('border-red-500', 'focus:ring-red-500', 'focus:border-red-500');
+    
+    let isValid = true;
 
-          // Show loading state
-          const submitButton = form.querySelector(
-            'button[type="submit"]',
-          ) as HTMLButtonElement;
-          const originalText = submitButton.textContent;
-          submitButton.textContent = "Enviando...";
-          submitButton.disabled = true;
-
-          try {
-            // Simulate form submission (replace with actual endpoint)
-            await new Promise((resolve) => setTimeout(resolve, 2000));
-
-            // Show success message
-            messagesContainer?.classList.remove("hidden");
-            successMessage?.classList.remove("hidden");
-            errorMessage?.classList.add("hidden");
-
-            // Reset form
-            form.reset();
-
-            // Log form data (for development)
-            console.log("Form submitted:", data);
-          } catch (error) {
-            // Show error message
-            messagesContainer?.classList.remove("hidden");
-            errorMessage?.classList.remove("hidden");
-            successMessage?.classList.add("hidden");
-
-            console.error("Form submission error:", error);
-          } finally {
-            // Reset button
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-          }
-        });
+    if (isRequired && !value) {
+      isValid = false;
+    }
+    
+    if (field.type === 'email' && value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        isValid = false;
       }
+    }
 
-      // Form validation enhancements
-      const inputs = form?.querySelectorAll("input, textarea");
-      inputs?.forEach((input) => {
-        input.addEventListener("blur", () => {
-          validateField(input as HTMLInputElement | HTMLTextAreaElement);
-        });
-      });
+    if (!isValid) {
+      field.classList.add('border-red-500', 'focus:ring-red-500', 'focus:border-red-500');
+    }
+    
+    return isValid;
+  }
 
-      function validateField(field: HTMLInputElement | HTMLTextAreaElement) {
-        const value = field.value.trim();
-        const isRequired = field.hasAttribute("required");
-
-        // Remove existing error styling
-        field.classList.remove(
-          "border-red-500",
-          "focus:ring-red-500",
-          "focus:border-red-500",
-        );
-
-        if (isRequired && !value) {
-          field.classList.add(
-            "border-red-500",
-            "focus:ring-red-500",
-            "focus:border-red-500",
-          );
-          return false;
-        }
-
-        // Email validation
-        if (field.type === "email" && value) {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(value)) {
-            field.classList.add(
-              "border-red-500",
-              "focus:ring-red-500",
-              "focus:border-red-500",
-            );
-            return false;
-          }
-        }
-
-        return true;
-      }
+  const inputs = form.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('blur', () => {
+      validateField(input as HTMLInputElement | HTMLTextAreaElement);
     });
-  </script>
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let isFormValid = true;
+    inputs.forEach(input => {
+        if (!validateField(input as HTMLInputElement | HTMLTextAreaElement)) {
+            isFormValid = false;
+        }
+    });
+
+    if (!isFormValid) {
+        return;
+    }
+    
+    const originalButtonText = submitButton.value;
+    submitButton.value = 'Enviando...';
+    submitButton.disabled = true;
+
+    const formData = new FormData(form);
+    const object: { [key: string]: any } = {};
+    formData.forEach((value, key) => {
+        object[key] = value;
+    });
+    const json = JSON.stringify(object);
+
+    formMessages.classList.add('hidden');
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let jsonResponse = await response.json();
+        if (response.status == 200 && jsonResponse.success) {
+            formMessages.classList.remove('hidden');
+            successMessage.classList.remove('hidden');
+            form.reset();
+            inputs.forEach(input => {
+                (input as HTMLInputElement | HTMLTextAreaElement).classList.remove('border-red-500', 'focus:ring-red-500', 'focus:border-red-500');
+            });
+        } else {
+            console.error('Error from server:', jsonResponse);
+            formMessages.classList.remove('hidden');
+            errorMessage.classList.remove('hidden');
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+        formMessages.classList.remove('hidden');
+        errorMessage.classList.remove('hidden');
+    })
+    .finally(() => {
+        submitButton.value = originalButtonText;
+        submitButton.disabled = false;
+    });
+  });
+});
+</script>
 </MainLayout>

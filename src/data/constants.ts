@@ -34,12 +34,12 @@ export const OG = {
 
 export const CONTACT_INFO = {
   address: {
-    street: "Av. Independencia 123, Col. Centro",
-    city: "Veracruz",
+    street: "Primer privada de Paricutín #5, Col. José Cardel",
+    city: "Xalapa",
     state: "Veracruz",
-    zipCode: "91700",
+    zipCode: "91030",
     country: "México",
-    full: "Av. Independencia 123, Col. Centro, Veracruz, Ver. 91700, México"
+    full: "Primer privada de Paricutín #5, Col. José Cardel, C.P. 91030 Xalapa, Ver."
   },
   phone: {
     display: "+52 229 123 4567",

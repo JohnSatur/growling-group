@@ -1,31 +1,32 @@
 ---
+import { getCollection } from 'astro:content';
 import BlogPostCard from '@components/ui/BlogPostCard.astro';
 import Button from '@components/ui/Button.astro';
-import image from '@images/wireframe.jpg';
+import blogHeroImage from '@images/logo.png';
 
-const blogPosts = [
-  {
-    title: 'Nuevas normativas ambientales 2025: Lo que su empresa debe saber',
-    excerpt: 'Un análisis detallado de los cambios regulatorios en materia ambiental y cómo adaptarse eficientemente.',
-    date: '12 Mar 2025',
-    image: image,
-    link: '/blog/nuevas-normativas-ambientales-2025'
-  },
-  {
-    title: 'Innovaciones en seguridad industrial para entornos de alto riesgo',
-    excerpt: 'Descubra las últimas tecnologías y metodologías para garantizar la protección de su personal en ambientes industriales complejos.',
-    date: '03 Mar 2025',
-    image: image,
-    link: '/blog/innovaciones-en-seguridad-industrial-para-entornos-de-alto-riesgo'
-  },
-  {
-    title: 'El futuro de la fotogrametría',
-    excerpt: 'Exploramos cómo la fotogrametría está transformando la forma en que las empresas visualizan y gestionan sus activos.',
-    date: '22 Feb 2025',
-    image: image,
-    link: '/blog/el-futuro-de-la-fotogrametria'
-  }
-];
+// Obtener todos los posts y ordenarlos por fecha (más recientes primero)
+const allPosts = await getCollection('posts');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
+
+// Formatear fecha para mostrar
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es-ES', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  }).format(date);
+};
+
+// Mapear los posts a la estructura que espera el componente
+const blogPosts = latestPosts.map((post) => ({
+  title: post.data.title,
+  excerpt: post.data.description,
+  date: formatDate(post.data.pubDate),
+  image: post.data.image || blogHeroImage,
+  link: `/blog/${post.data.slug}`
+}));
 ---
 
 <section id="blog" class="py-8">
