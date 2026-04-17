@@ -46,13 +46,13 @@ export const CONTACT_INFO = {
     link: "+522291234567"
   },
   email: {
-    general: "contacto@tuempresa.com",
-    support: "soporte@tuempresa.com",
+    general: "contacto@growlinggroup.com",
+    support: "contacto@growlinggroup.com",
     sales: "ventas@tuempresa.com"
   },
   social: {
     facebook: "https://facebook.com/tuempresa",
-    instagram: "https://instagram.com/tuempresa",
+    instagram: "https://www.instagram.com/growlinggroup/",
     linkedin: "https://linkedin.com/company/tuempresa",
     tiktok: "https://tiktok.com/@tuempresa"
   },
