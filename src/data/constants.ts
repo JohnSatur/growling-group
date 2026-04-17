@@ -42,8 +42,8 @@ export const CONTACT_INFO = {
     full: "Primer privada de Paricutín #5, Col. José Cardel, C.P. 91030 Xalapa, Ver."
   },
   phone: {
-    display: "+52 229 123 4567",
-    link: "+522291234567"
+    display: "+52 (228) 614 3923",
+    link: "+522286143923"
   },
   email: {
     general: "contacto@growlinggroup.com",
